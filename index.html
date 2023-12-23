@@ -24,128 +24,128 @@
 
     <main>
         <section id="Experiment 1">
-            <h2>Section 1</h2>
+            <h2>Experiment 1</h2>
             <p>Write a program to accept two integer numbers from the standard input and
                 perform the following arithmetic operations: addition, subtraction and Multiplication</p>
        <p>
-      public class ArithmeticOperations {
-       public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        // Input first number
-        System.out.print("Enter the first number: ");
-        int num1 = scanner.nextInt();
+       <p>public class ArithmeticOperations {</p>
+        <p>public static void main(String[] args) { </p>
+        <p> Scanner scanner = new Scanner(System.in); </p>
+        <p> // Input first number </p>
+        <p>System.out.print("Enter the first number: "); </p>
+         <p>int num1 = scanner.nextInt(); </p>
 
-        // Input second number
-        System.out.print("Enter the second number: ");
-        int num2 = scanner.nextInt();
-        // Addition
-        int sum = num1 + num2;
-        System.out.println("Sum: " + sum);
-        // Subtraction
-        int difference = num1 - num2;
-        System.out.println("Difference: " + difference);
+         <p>// Input second number </p>
+        <p> System.out.print("Enter the second number: "); </p>
+         <p>int num2 = scanner.nextInt(); </p>
+        <p> // Addition </p>
+         <p>int sum = num1 + num2; </p>
+         <p>System.out.println("Sum: " + sum); </p>
+         <p>// Subtraction </p>
+        <p> int difference = num1 - num2; </p>
+        <p> System.out.println("Difference: " + difference); </p>
 
-        // Multiplication
-        int product = num1 * num2;
-        System.out.println("Product: " + product);
+         <p>// Multiplication </p>
+         <p>int product = num1 * num2; </p>
+        <p> System.out.println("Product: " + product); </p>
 
-        // Close the scanner to avoid resource leak
-        scanner.close();
+         <p>// Close the scanner to avoid resource leak </p>
+         <p>scanner.close();</p>
     }
 }
 
          </p>
       <p>Write a program to calculate simple and compound interest</p>
        <p>
-          public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+          <p>public static void main(String[] args) {</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
 
-        // Input principal amount
-        System.out.print("Enter the principal amount: ");
-        double principal = scanner.nextDouble();
+        <p>// Input principal amount</p>
+        <p>System.out.print("Enter the principal amount: ");</p>
+        <p>double principal = scanner.nextDouble();</p>
 
-        // Input rate of interest
-        System.out.print("Enter the rate of interest (in percentage): ");
-        double rate = scanner.nextDouble();
+        <p>// Input rate of interest</p>
+        <p>System.out.print("Enter the rate of interest (in percentage): ");</p>
+        <p>double rate = scanner.nextDouble();</p>
 
-        // Input time in years
-        System.out.print("Enter the time (in years): ");
-        double time = scanner.nextDouble();
+        <p>// Input time in years</p>
+        <p>System.out.print("Enter the time (in years): ");</p>
+        double time = scanner.nextDouble();</p>
 
-        // Calculate simple interest
-        double simpleInterest = (principal * rate * time) / 100;
+        <p>// Calculate simple interest</p>
+        <p>double simpleInterest = (principal * rate * time) / 100;</p>
 
-        // Calculate compound interest
-        double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;
+        <p>// Calculate compound interest</p>
+        <p>double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;</p>
 
-        // Display the results
-        System.out.println("Simple Interest: " + simpleInterest);
-        System.out.println("Compound Interest: " + compoundInterest);
+        <p>// Display the results</p>
+        <p>System.out.println("Simple Interest: " + simpleInterest);</p>
+        <p>System.out.println("Compound Interest: " + compoundInterest);</p>
 
-        // Close the scanner to avoid resource leak
-        scanner.close();
+        <p>// Close the scanner to avoid resource leak</p>
+        <p>scanner.close();</p>
     }
 }
 
          </p>
       <p>Write a Program to Swap Two Numbers with and without temporary variables.</p>
        <p>
-          public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        <p>  public static void main(String[] args) {</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
 
-        // Input principal amount
-        System.out.print("Enter the principal amount: ");
-        double principal = scanner.nextDouble();
+<p>        // Input principal amount</p>
+   <p>     System.out.print("Enter the principal amount: ");</p>
+      <p>  double principal = scanner.nextDouble();</p>
 
-        // Input rate of interest
-        System.out.print("Enter the rate of interest (in percentage): ");
-        double rate = scanner.nextDouble();
+<p>        // Input rate of interest</p>
+   <p>     System.out.print("Enter the rate of interest (in percentage): ");</p>
+      <p>  double rate = scanner.nextDouble();</p>
 
-        // Input time in years
-        System.out.print("Enter the time (in years): ");
-        double time = scanner.nextDouble();
+<p>        // Input time in years</p>
+   <p>     System.out.print("Enter the time (in years): ");</p>
+      <p>  double time = scanner.nextDouble();</p>
 
-        // Calculate simple interest
-        double simpleInterest = (principal * rate * time) / 100;
+<p>        // Calculate simple interest</p>
+   <p>     double simpleInterest = (principal * rate * time) / 100;</p>
 
-        // Calculate compound interest
-        double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;
+<p>        // Calculate compound interest</p>
+   <p>     double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;</p>
 
-        // Display the results
-        System.out.println("Simple Interest: " + simpleInterest);
-        System.out.println("Compound Interest: " + compoundInterest);
+<p>        // Display the results</p>
+   <p>     System.out.println("Simple Interest: " + simpleInterest);</p>
+      <p>  System.out.println("Compound Interest: " + compoundInterest);</p>
 
-        // Close the scanner to avoid resource leak
-        scanner.close();
+<p>        // Close the scanner to avoid resource leak</p>
+   <p>     scanner.close();</p>
     }
 }
 
          </p>
-1. Swapping with a Temporary Variable:
-public class SwapWithTempVariable {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+<p>1. Swapping with a Temporary Variable:</p>
+<p>public class SwapWithTempVariable {</p>
+ <p>   public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
 
-        // Input the two numbers
-        System.out.print("Enter the first number: ");
-        int num1 = scanner.nextInt();
+    <p>    // Input the two numbers</p>
+     <p>   System.out.print("Enter the first number: ");</p>
+       <p> int num1 = scanner.nextInt();</p>
 
-        System.out.print("Enter the second number: ");
-        int num2 = scanner.nextInt();
+        <p>System.out.print("Enter the second number: ");</p>
+        <p>int num2 = scanner.nextInt();</p>
 
-        // Swapping with a temporary variable
-        int temp;
-        temp = num1;
-        num1 = num2;
-        num2 = temp;
+        <p>// Swapping with a temporary variable</p>
+       <p> int temp;</p>
+       <p> temp = num1;</p>
+        <p>num1 = num2;</p>
+        <p>num2 = temp;</p>
 
-        // Display the swapped numbers
-        System.out.println("After swapping (with temporary variable):");
-        System.out.println("First number: " + num1);
-        System.out.println("Second number: " + num2);
+        <p>// Display the swapped numbers</p>
+        <p>System.out.println("After swapping (with temporary variable):");</p>
+        <p>System.out.println("First number: " + num1);</p>
+        <p>System.out.println("Second number: " + num2);</p>
 
-        // Close the scanner to avoid resource leak
-        scanner.close();
+        <p>// Close the scanner to avoid resource leak</p>
+        <p>scanner.close();</p>
     }
 }
 
@@ -154,64 +154,64 @@ public class SwapWithTempVariable {
 
 
 
-2.Swapping without a Temporary Variable:
-public class SwapWithoutTempVariable {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+<p>2.Swapping without a Temporary Variable:</p>
+<p>public class SwapWithoutTempVariable {</p>
+ <p>   public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
 
-        // Input the two numbers
-        System.out.print("Enter the first number: ");
-        int num1 = scanner.nextInt();
+   <p>     // Input the two numbers</p>
+    <p>    System.out.print("Enter the first number: ");</p>
+      <p>  int num1 = scanner.nextInt();</p>
 
-        System.out.print("Enter the second number: ");
-        int num2 = scanner.nextInt();
+      <p>  System.out.print("Enter the second number: ");</p>
+       <p> int num2 = scanner.nextInt();</p>
 
-        // Swapping without a temporary variable
-        num1 = num1 + num2;
-        num2 = num1 - num2;
-        num1 = num1 - num2;
+       <p> // Swapping without a temporary variable</p>
+       <p> num1 = num1 + num2;</p>
+        <p>num2 = num1 - num2;</p>
+        <p>num1 = num1 - num2;</p>
 
-        // Display the swapped numbers
-        System.out.println("After swapping (without temporary variable):");
-        System.out.println("First number: " + num1);
-        System.out.println("Second number: " + num2);     
+        <p>// Display the swapped numbers</p>
+        <p>System.out.println("After swapping (without temporary variable):");</p>
+        <p>System.out.println("First number: " + num1);</p>
+        <p>System.out.println("Second number: " + num2);  </p>   
     }
 }
 
         </section>
 
         <section id="Experiment 2">
-            <h2>Section 2</h2>
+            <h2>Experiment 2</h2>
             <p>Write a program that prints all real solutions to the quadratic equation ax2+bx+c=0. Read in a, b, c and use the quadratic formula.</p>
 <p>
-          import java.util.Scanner;
-public class QuadraticSolver {
-    public static void main(String[] args) {
-        // Create a Scanner object to read input from the user
-        Scanner scanner = new Scanner(System.in);
-        // Read coefficients a, b, and c from the user
-        System.out.print("Enter coefficient a: ");
-        double a = scanner.nextDouble();
-        System.out.print("Enter coefficient b: ");
-        double b = scanner.nextDouble();
-        System.out.print("Enter coefficient c: ");
-        double c = scanner.nextDouble();
-        // Calculate the discriminant
-        double discriminant = b * b - 4 * a * c;
+         <p> import java.util.Scanner;</p>
+<p>public class QuadraticSolver {</p>
+  <p>  public static void main(String[] args) {</p>
+        <p>// Create a Scanner object to read input from the user</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+        <p>// Read coefficients a, b, and c from the user</p>
+        <p>System.out.print("Enter coefficient a: ");</p>
+        <p>double a = scanner.nextDouble();</p>
+        <p>System.out.print("Enter coefficient b: ");</p>
+        <p>double b = scanner.nextDouble();</p>
+        <p>System.out.print("Enter coefficient c: ");</p>
+        <p>double c = scanner.nextDouble();</p>
+        <p>// Calculate the discriminant</p>
+        <p>double discriminant = b * b - 4 * a * c;</p>
 
-        // Check if the discriminant is non-negative for real solutions
-        if (discriminant >= 0) {
-            // Calculate the real solutions using the quadratic formula
-            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+<p>        // Check if the discriminant is non-negative for real solutions</p>
+   <p>     if (discriminant >= 0) {</p>
+      <p>      // Calculate the real solutions using the quadratic formula</p>
+         <p>   double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);</p>
+            <p>double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);</p>
 
-            // Print the real solutions
-            System.out.println("Real solutions:");
-            System.out.println("Root 1: " + root1);
-            System.out.println("Root 2: " + root2);
-        } else {
-            // If the discriminant is negative, no real solutions exist
-            System.out.println("No real solutions.");
+<p>            // Print the real solutions</p>
+   <p>         System.out.println("Real solutions:");</p>
+      <p>      System.out.println("Root 1: " + root1);</p>
+         <p>   System.out.println("Root 2: " + root2);</p>
+        <p>} else {</p>
+           <p> // If the discriminant is negative, no real solutions exist</p>
+            <p>System.out.println("No real solutions.");</p>
         }
     } }
 
@@ -219,31 +219,31 @@ public class QuadraticSolver {
          </p>
 <p>Write a Program to display All Prime Numbers from 1 to N.</p>
 <p>
-         import java.util.Scanner;
-public class PrimeNumbers {
-    public static void main(String[] args) {
-        // Create a Scanner object to read input from the user
-        Scanner scanner = new Scanner(System.in);
+        <p> import java.util.Scanner;</p>
+<p>public class PrimeNumbers {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  // Create a Scanner object to read input from the user</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
 
-        // Read the value of N from the user
-        System.out.print("Enter the value of N: ");
-        int N = scanner.nextInt();
-        System.out.println("Prime numbers from 1 to " + N + ":");
+<p>        // Read the value of N from the user</p>
+   <p>     System.out.print("Enter the value of N: ");</p>
+      <p>  int N = scanner.nextInt();</p>
+        <p>System.out.println("Prime numbers from 1 to " + N + ":");</p>
 
-        // Iterate through numbers from 2 to N
-        for (int i = 2; i <= N; i++) {
-            boolean isPrime = true;
+<p>        // Iterate through numbers from 2 to N</p>
+   <p>     for (int i = 2; i <= N; i++) {</p>
+      <p>      boolean isPrime = true;</p>
 
-            // Check if i is divisible by any number from 2 to the square root of i
-            for (int j = 2; j <= Math.sqrt(i); j++) {
-                if (i % j == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            // If i is not divisible by any number, it is prime
-            if (isPrime) {
-                System.out.print(i + " ");
+<p>            // Check if i is divisible by any number from 2 to the square root of i</p>
+   <p>         for (int j = 2; j <= Math.sqrt(i); j++) {</p>
+      <p>          if (i % j == 0) {</p>
+         <p>           isPrime = false;</p>
+            <p>        break;</p>
+               <p> }</p>
+           <p> }</p>
+            <p>// If i is not divisible by any number, it is prime</p>
+            <p>if (isPrime) {</p>
+               <p> System.out.print(i + " ");</p>
             }
         }
     }
@@ -251,33 +251,33 @@ public class PrimeNumbers {
          </p>
 <p>Write a Program for factorial of a number.</p>
 <p>
-        import java.util.Scanner;
+      <p>  import java.util.Scanner;</p>
 
-public class Factorial {
+<p>public class Factorial {</p>
 
-    public static void main(String[] args) {
-        // Create a Scanner object to read input from the user
-        Scanner scanner = new Scanner(System.in);
+<p>    public static void main(String[] args) {</p>
+   <p>     // Create a Scanner object to read input from the user</p>
+      <p>  Scanner scanner = new Scanner(System.in);</p>
 
-        // Read the number for which factorial is to be calculated
-        System.out.print("Enter a non-negative integer: ");
-        int number = scanner.nextInt();
+<p>        // Read the number for which factorial is to be calculated</p>
+   <p>     System.out.print("Enter a non-negative integer: ");</p>
+      <p>  int number = scanner.nextInt();</p>
 
-        // Close the scanner to prevent resource leak
-        scanner.close();
+<p>        // Close the scanner to prevent resource leak</p>
+   <p>     scanner.close();</p>
 
-        // Calculate and display the factorial
-        long factorial = 1;
+<p>        // Calculate and display the factorial</p>
+   <p>     long factorial = 1;</p>
 
-        if (number < 0) {
-            System.out.println("Factorial is not defined for negative numbers.");
-        } else {
-            // Calculate factorial without using additional methods
-            for (int i = 1; i <= number; i++) {
-                factorial *= i;
-            }
+<p>        if (number < 0) {</p>
+   <p>         System.out.println("Factorial is not defined for negative numbers.");</p>
+      <p>  } else {</p>
+         <p>   // Calculate factorial without using additional methods</p>
+            <p>for (int i = 1; i <= number; i++) {</p>
+               <p> factorial *= i;</p>
+<p>            }</p>
 
-            System.out.println("Factorial of " + number + " is: " + factorial);
+<p>            System.out.println("Factorial of " + number + " is: " + factorial);</p>
         }
     }
 }
@@ -289,25 +289,25 @@ public class Factorial {
             <h2>Section 3</h2>
             <p>Write a program to search a given element in the array using linear and binary search techniques.</p>
 <p>
-        public class LinearSearch {
-    public static int linearSearch(int[] arr, int target) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target) {
-                return i; // Return the index if the element is found
-            }
-        }
-        return -1; // Return -1 if the element is not found
-    }
+       <p> public class LinearSearch {</p>
+    <p>public static int linearSearch(int[] arr, int target) {</p>
+       <p> for (int i = 0; i < arr.length; i++) {</p>
+          <p>  if (arr[i] == target) {</p>
+             <p>   return i; // Return the index if the element is found</p>
+            <p>}</p>
+        <p>}</p>
+        <p>return -1; // Return -1 if the element is not found</p>
+    <p>}</p>
 
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int target = 5;
-        int result = linearSearch(arr, target);
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};</p>
+      <p>  int target = 5;</p>
+        <p>int result = linearSearch(arr, target);</p>
         
-        if (result != -1) {
-            System.out.println("Element " + target + " found at index " + result + ".");
-        } else {
-            System.out.println("Element " + target + " not found in the array.");
+        <p>if (result != -1) {</p>
+           <p> System.out.println("Element " + target + " found at index " + result + ".");</p>
+        <p>} else {</p>
+            System.out.println("Element " + target + " not found in the array.");</p>
         }
     }
 }
@@ -315,82 +315,82 @@ public class Factorial {
          </p>
   <p>b)	Write a program to sort the elements in ascending and descending order using bubble sort.</p>
 <p>
-       public class BubbleSort {
-    public static void bubbleSortAscending(int[] arr) {
-        int n = arr.length;
+       <p>public class BubbleSort {</p>
+    <p>public static void bubbleSortAscending(int[] arr) {</p>
+       <p> int n = arr.length;</p>
 
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    // Swap arr[j] and arr[j + 1]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+<p>        for (int i = 0; i < n - 1; i++) {</p>
+   <p>         for (int j = 0; j < n - i - 1; j++) {</p>
+      <p>          if (arr[j] > arr[j + 1]) {</p>
+         <p>           // Swap arr[j] and arr[j + 1]</p>
+            <p>        int temp = arr[j];</p>
+               <p>     arr[j] = arr[j + 1];</p>
+                  <p>  arr[j + 1] = temp;</p>
                 }
             }
         }
     }
 
-    public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+   <p> public static void main(String[] args) {</p>
+      <p>  int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
         
-        System.out.println("Original array: " + Arrays.toString(arr));
+        <p>System.out.println("Original array: " + Arrays.toString(arr));</p>
 
-        // Sort in ascending order
-        bubbleSortAscending(arr);
+<p>        // Sort in ascending order</p>
+   <p>     bubbleSortAscending(arr);</p>
 
-        System.out.println("Array in ascending order: " + Arrays.toString(arr));
+<p>        System.out.println("Array in ascending order: " + Arrays.toString(arr));</p>
     }
 }
-public class BubbleSort {
-    public static void bubbleSortDescending(int[] arr) {
-        int n = arr.length;
+<p>public class BubbleSort {</p>
+   <p> public static void bubbleSortDescending(int[] arr) {</p>
+      <p>  int n = arr.length;</p>
 
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] < arr[j + 1]) {
-                    // Swap arr[j] and arr[j + 1]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+<p>        for (int i = 0; i < n - 1; i++) {</p>
+   <p>         for (int j = 0; j < n - i - 1; j++) {</p>
+      <p>          if (arr[j] < arr[j + 1]) {</p>
+         <p>           // Swap arr[j] and arr[j + 1]</p>
+            <p>        int temp = arr[j];</p>
+               <p>     arr[j] = arr[j + 1];</p>
+                  <p>  arr[j + 1] = temp;</p>
                 }
             }
         }
     }
 
-    public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+   <p> public static void main(String[] args) {</p>
+      <p>  int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
         
-        System.out.println("Original array: " + Arrays.toString(arr));
+        <p>System.out.println("Original array: " + Arrays.toString(arr));</p>
 
-        // Sort in descending order
-        bubbleSortDescending(arr);
+<p>        // Sort in descending order</p>
+   <p>     bubbleSortDescending(arr);</p>
 
-        System.out.println("Array in descending order: " + Arrays.toString(arr));
+<p>        System.out.println("Array in descending order: " + Arrays.toString(arr));</p>
     }
 }
          </p>
  <p>Write a program to search a given element in the array using linear and binary search techniques.</p>
 <p>
-        public class LinearSearch {
-    public static int linearSearch(int[] arr, int target) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target) {
-                return i; // Return the index if the element is found
+       <p> public class LinearSearch {
+    <p>public static int linearSearch(int[] arr, int target) {
+       <p> for (int i = 0; i < arr.length; i++) {
+          <p>  if (arr[i] == target) {
+             <p>   return i; // Return the index if the element is found
             }
         }
-        return -1; // Return -1 if the element is not found
+        <p>return -1; // Return -1 if the element is not found
     }
 
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int target = 5;
-        int result = linearSearch(arr, target);
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};</p>
+      <p>  int target = 5;</p>
+        <p>int result = linearSearch(arr, target);</p>
         
-        if (result != -1) {
-            System.out.println("Element " + target + " found at index " + result + ".");
-        } else {
-            System.out.println("Element " + target + " not found in the array.");
+        <p>if (result != -1) {</p>
+           <p> System.out.println("Element " + target + " found at index " + result + ".");</p>
+      <p>  } else {</p>
+         <p>   System.out.println("Element " + target + " not found in the array.");</p>
         }
     }
 }
@@ -398,34 +398,34 @@ public class BubbleSort {
          </p>
  <p>Write a program to find the largest and smallest element in an array.</p>
 <p>
- public class FindMinMax {
-    public static void findMinMax(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            System.out.println("Array is empty.");
-            return;
+ <p>public class FindMinMax {</p>
+    <p>public static void findMinMax(int[] arr) {</p>
+       <p> if (arr == null || arr.length == 0) {</p>
+          <p>  System.out.println("Array is empty.");</p>
+            <p>return;</p>
         }
 
-        int min = arr[0];
-        int max = arr[0];
+<p>        int min = arr[0];</p>
+   <p>     int max = arr[0];</p>
 
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
-            } else if (arr[i] > max) {
-                max = arr[i];
+<p>        for (int i = 1; i < arr.length; i++) {</p>
+   <p>         if (arr[i] < min) {</p>
+      <p>          min = arr[i];</p>
+         <p>   } else if (arr[i] > max) {</p>
+            <p>    max = arr[i];</p>
             }
         }
 
-        System.out.println("Smallest element: " + min);
-        System.out.println("Largest element: " + max);
+<p>        System.out.println("Smallest element: " + min);</p>
+   <p>     System.out.println("Largest element: " + max);</p>
     }
 
-    public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
 
-        System.out.println("Array: " + Arrays.toString(arr));
+<p>        System.out.println("Array: " + Arrays.toString(arr));</p>
 
-        findMinMax(arr);
+<p>        findMinMax(arr);
     }
 }
 
