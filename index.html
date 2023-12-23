@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My HTML Page with Content</title>
+<script src="script.js"></script>
  <style>
         .center-left {
             width: 50%; /* Adjust the width as needed */
@@ -22,7 +23,7 @@
             <li><a href="#Experiment 1">Experiment 1</a></li>
             <li><a href="#Experiment 2">Experiment 2</a></li>
             <li><a href="#Experiment 3">Experiment 3</a></li>
-            <li><a href="#section4">Section 1</a></li>
+            <li><a href="#Experiment 4">Experiment 4</a></li>
             <li><a href="#section5">Section 2</a></li>
             <li><a href="#section6">Section 3</a></li>
         </ul>
@@ -471,6 +472,137 @@ Binary Search
 <p>        findMinMax(arr);
     }
 }
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 4">
+            <h2>Experiment 4</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+ <p><b>4)Given two matrices A and B, write a program to:
+a) Add the matrices
+b) Multiply the matrices
+c) Find the determinant of a matrix
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>import java.util.Scanner;</p>
+
+<p>public class MatrixOperations {</p>
+
+<p>    public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+<p>        System.out.println("Enter details for Matrix A:");</p>
+  <p>      double[][] matrixA = readMatrix(scanner);</p>
+
+<p>        System.out.println("Enter details for Matrix B:");</p>
+  <p>      double[][] matrixB = readMatrix(scanner);</p>
+
+<p>        System.out.println("Matrix A:");</p>
+  <p>      printMatrix(matrixA);</p>
+
+<p>        System.out.println("Matrix B:");</p>
+  <p>        printMatrix(matrixB);</p>
+
+<p>        // a) Add Matrices</p>
+  <p>      double[][] sumMatrix = addMatrices(matrixA, matrixB);</p>
+    <p>    System.out.println("Sum of Matrices A and B:");</p>
+      <p>  printMatrix(sumMatrix);</p>
+
+<p>        // b) Multiply Matrices</p>
+  <p>      double[][] productMatrix = multiplyMatrices(matrixA, matrixB);</p>
+    <p>    System.out.println("Product of Matrices A and B:");</p>
+      <p>  printMatrix(productMatrix);</p>
+
+<p>        // c) Find Determinant of Matrix A</p>
+  <p>      double determinantA = findDeterminant(matrixA);</p>
+    <p>    System.out.println("Determinant of Matrix A: " + determinantA);</p>
+
+<p>        scanner.close();</p>
+    }
+
+<p>    // Method to read a matrix from the user</p>
+  <p>  private static double[][] readMatrix(Scanner scanner) {</p>
+     <p>   System.out.print("Enter the number of rows: ");</p>
+       <p> int rows = scanner.nextInt();</p>
+        <p>System.out.print("Enter the number of columns: ");</p>
+        <p>int columns = scanner.nextInt();</p>
+
+<p>        double[][] matrix = new double[rows][columns];</p>
+
+<p>        System.out.println("Enter matrix elements:");</p>
+  <p>      for (int i = 0; i < rows; i++) {</p>
+    <p>        for (int j = 0; j < columns; j++) {</p>
+      <p>          System.out.print("Enter element at position (" + (i + 1) + "," + (j + 1) + "): ");</p>
+        <p>        matrix[i][j] = scanner.nextDouble();</p>
+            }
+        }
+
+ <p>       return matrix;</p>
+    }
+
+    <p>// Method to print a matrix</p>
+<p>    private static void printMatrix(double[][] matrix) {</p>
+  <p>      for (double[] row : matrix) {</p>
+    <p>        for (double element : row) {</p>
+      <p>          System.out.print(element + " ");</p>
+            }
+        <p>    System.out.println();</p>
+        }
+    }
+
+<p>    // Method to add two matrices</p>
+  <p>  private static double[][] addMatrices(double[][] matrixA, double[][] matrixB) {</p>
+    <p>    int rows = matrixA.length;</p>
+<p>        int columns = matrixA[0].length;</p>
+
+<p>        double[][] sumMatrix = new double[rows][columns];</p>
+
+<p>        for (int i = 0; i < rows; i++) {</p>
+  <p>          for (int j = 0; j < columns; j++) {</p>
+    <p>            sumMatrix[i][j] = matrixA[i][j] + matrixB[i][j];</p>
+            }
+        }
+
+<p>        return sumMatrix;</p>
+    }
+
+    <p>// Method to multiply two matrices</p>
+    <p>private static double[][] multiplyMatrices(double[][] matrixA, double[][] matrixB) {</p>
+    <p>    int rowsA = matrixA.length;</p>
+  <p>      int columnsA = matrixA[0].length;</p>
+<p>        int columnsB = matrixB[0].length;</p>
+
+<p>        double[][] productMatrix = new double[rowsA][columnsB];</p>
+
+      <p>  for (int i = 0; i < rowsA; i++) {</p>
+    <p>        for (int j = 0; j < columnsB; j++) {</p>
+  <p>              for (int k = 0; k < columnsA; k++) {</p>
+<p>                    productMatrix[i][j] += matrixA[i][k] * matrixB[k][j];</p>
+                }
+            }
+        }
+
+<p>        return productMatrix;</p>
+    }
+
+    <p>// Method to find determinant of a 2x2 or 3x3 matrix</p>
+    <p>private static double findDeterminant(double[][] matrix) {</p>
+    <p>    if (matrix.length != matrix[0].length) {</p>
+  <p>          throw new IllegalArgumentException("Determinant can only be calculated for square matrices.");</p>
+        }
+
+<p>        int size = matrix.length;</p>
+
+        <p>if (size == 2) {</p>
+          <p>  return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];</p>
+        <p>} else if (size == 3) {</p>
+        <p>    return matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1])</p>
+      <p>              - matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0])</p>
+    <p>                + matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);</p>
+  <p>      } else {</p>
+<p>            throw new UnsupportedOperationException("Determinant calculation is not supported for matrices larger than 3x3.");</p>
+        }
+    }
+}
+
 </div>
          </p>
         </section>
@@ -479,6 +611,12 @@ Binary Search
     <!-- Your other HTML content goes here -->
 
     <script src="counter.js"></script>
+ <p>Total Visitors: <span id="visitorCounter1">0</span></p>
+
+    <!-- Your other HTML content goes here -->
+
+    <script src="counter.js"></script>
+    
     </main>
 
     <footer>
