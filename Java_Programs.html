@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Programs</title>
+    
+        <h2>Welcome! to My Website</h2>
+        <title>Java Programming</title>
+<body>
+<button onclick="toggleContent()">Show Content</button>
+<div id="content" style="display: none;">
+    <div class="center-left">
+        <form id="loginForm" onsubmit="return validateForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error"></span><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error"></span><br>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <!-- Content to be displayed after login (initially hidden) -->
+        <div class="content" style="display: none;">
+            <p>
+                <nav>
+                    <ul>
+                        <li><a href="#Experiment1">Experiment 1</a></li>
+                        <!-- Fix: Remove spaces in the href values -->
+                        <li><a href="#Experiment2">Experiment 2</a></li>
+                        <li><a href="#Experiment3">Experiment 3</a></li>
+                        <li><a href="#Experiment4">Experiment 4</a></li>
+                    </ul>
+                </nav>
+
+                <main>
+                    <iframe src="https://www.jdoodle.com/online-java-compiler" width="100%" height="500"></iframe>
+                    <hr style="color: blue; background-color: red; height: 2px;">
+
+                    <section id="Experiment1">
+                        <h2>Experiment 1</h2>
+                        <p><b>1.a) Write a program to accept two integer numbers from the standard input and
+                                perform the following arithmetic operations: addition, subtraction, and
+                                multiplication</b></p>
+                        <hr style="color: blue; background-color: blue; height: 2px;">
+                    </section>
+<p> <div class="center-left">
+       <p>public class ArithmeticOperations {</p>
+        <p>public static void main(String[] args) { </p>
+        <p> Scanner scanner = new Scanner(System.in); </p>
+        <p> // Input first number </p>
+        <p>System.out.print("Enter the first number: "); </p>
+         <p>int num1 = scanner.nextInt(); </p>
+
+         <p>// Input second number </p>
+        <p> System.out.print("Enter the second number: "); </p>
+         <p>int num2 = scanner.nextInt(); </p>
+        <p> // Addition </p>
+         <p>int sum = num1 + num2; </p>
+         <p>System.out.println("Sum: " + sum); </p>
+         <p>// Subtraction </p>
+        <p> int difference = num1 - num2; </p>
+        <p> System.out.println("Difference: " + difference); </p>
+
+         <p>// Multiplication </p>
+         <p>int product = num1 * num2; </p>
+        <p> System.out.println("Product: " + product); </p>
+
+         <p>// Close the scanner to avoid resource leak </p>
+         <p>scanner.close();</p>
+    }
+}
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+      <p><b>1b)Write a program to calculate simple and compound interest</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+       <p>
+          <p>public static void main(String[] args) {</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+
+        <p>// Input principal amount</p>
+        <p>System.out.print("Enter the principal amount: ");</p>
+        <p>double principal = scanner.nextDouble();</p>
+
+        <p>// Input rate of interest</p>
+        <p>System.out.print("Enter the rate of interest (in percentage): ");</p>
+        <p>double rate = scanner.nextDouble();</p>
+
+        <p>// Input time in years</p>
+        <p>System.out.print("Enter the time (in years): ");</p>
+        double time = scanner.nextDouble();</p>
+
+        <p>// Calculate simple interest</p>
+        <p>double simpleInterest = (principal * rate * time) / 100;</p>
+
+        <p>// Calculate compound interest</p>
+        <p>double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;</p>
+
+        <p>// Display the results</p>
+        <p>System.out.println("Simple Interest: " + simpleInterest);</p>
+        <p>System.out.println("Compound Interest: " + compoundInterest);</p>
+
+        <p>// Close the scanner to avoid resource leak</p>
+        <p>scanner.close();</p>
+    }
+}
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+      <p><b>1c)Write a Program to Swap Two Numbers with and without temporary variables.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+       <p>
+        <p>  public static void main(String[] args) {</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+
+<p>        // Input principal amount</p>
+   <p>     System.out.print("Enter the principal amount: ");</p>
+      <p>  double principal = scanner.nextDouble();</p>
+
+<p>        // Input rate of interest</p>
+   <p>     System.out.print("Enter the rate of interest (in percentage): ");</p>
+      <p>  double rate = scanner.nextDouble();</p>
+
+<p>        // Input time in years</p>
+   <p>     System.out.print("Enter the time (in years): ");</p>
+      <p>  double time = scanner.nextDouble();</p>
+
+<p>        // Calculate simple interest</p>
+   <p>     double simpleInterest = (principal * rate * time) / 100;</p>
+
+<p>        // Calculate compound interest</p>
+   <p>     double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;</p>
+
+<p>        // Display the results</p>
+   <p>     System.out.println("Simple Interest: " + simpleInterest);</p>
+      <p>  System.out.println("Compound Interest: " + compoundInterest);</p>
+
+<p>        // Close the scanner to avoid resource leak</p>
+   <p>     scanner.close();</p>
+    }
+}
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>1.<b>Swapping with a Temporary Variable</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class SwapWithTempVariable {</p>
+ <p>   public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+    <p>    // Input the two numbers</p>
+     <p>   System.out.print("Enter the first number: ");</p>
+       <p> int num1 = scanner.nextInt();</p>
+
+        <p>System.out.print("Enter the second number: ");</p>
+        <p>int num2 = scanner.nextInt();</p>
+
+        <p>// Swapping with a temporary variable</p>
+       <p> int temp;</p>
+       <p> temp = num1;</p>
+        <p>num1 = num2;</p>
+        <p>num2 = temp;</p>
+
+        <p>// Display the swapped numbers</p>
+        <p>System.out.println("After swapping (with temporary variable):");</p>
+        <p>System.out.println("First number: " + num1);</p>
+        <p>System.out.println("Second number: " + num2);</p>
+
+        <p>// Close the scanner to avoid resource leak</p>
+        <p>scanner.close();</p>
+    }
+}
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>2.Swapping without a Temporary Variable</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class SwapWithoutTempVariable {</p>
+ <p>   public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+   <p>     // Input the two numbers</p>
+    <p>    System.out.print("Enter the first number: ");</p>
+      <p>  int num1 = scanner.nextInt();</p>
+
+      <p>  System.out.print("Enter the second number: ");</p>
+       <p> int num2 = scanner.nextInt();</p>
+
+       <p> // Swapping without a temporary variable</p>
+       <p> num1 = num1 + num2;</p>
+        <p>num2 = num1 - num2;</p>
+        <p>num1 = num1 - num2;</p>
+
+        <p>// Display the swapped numbers</p>
+        <p>System.out.println("After swapping (without temporary variable):");</p>
+        <p>System.out.println("First number: " + num1);</p>
+        <p>System.out.println("Second number: " + num2);  </p>   
+    }
+}
+</div>
+
+        </section>
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 2">
+            <h2>Experiment 2</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+            <p><b>2a)Write a program that prints all real solutions to the quadratic equation ax2+bx+c=0. Read in a, b, c and use the quadratic formula.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><div class="center-left">
+         <p> import java.util.Scanner;</p>
+<p>public class QuadraticSolver {</p>
+  <p>  public static void main(String[] args) {</p>
+        <p>// Create a Scanner object to read input from the user</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+        <p>// Read coefficients a, b, and c from the user</p>
+        <p>System.out.print("Enter coefficient a: ");</p>
+        <p>double a = scanner.nextDouble();</p>
+        <p>System.out.print("Enter coefficient b: ");</p>
+        <p>double b = scanner.nextDouble();</p>
+        <p>System.out.print("Enter coefficient c: ");</p>
+        <p>double c = scanner.nextDouble();</p>
+        <p>// Calculate the discriminant</p>
+        <p>double discriminant = b * b - 4 * a * c;</p>
+
+<p>        // Check if the discriminant is non-negative for real solutions</p>
+   <p>     if (discriminant >= 0) {</p>
+      <p>      // Calculate the real solutions using the quadratic formula</p>
+         <p>   double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);</p>
+            <p>double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);</p>
+
+<p>            // Print the real solutions</p>
+   <p>         System.out.println("Real solutions:");</p>
+      <p>      System.out.println("Root 1: " + root1);</p>
+         <p>   System.out.println("Root 2: " + root2);</p>
+        <p>} else {</p>
+           <p> // If the discriminant is negative, no real solutions exist</p>
+            <p>System.out.println("No real solutions.");</p>
+        }
+    } }
+
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>2b)Write a Program to display All Prime Numbers from 1 to N.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+        <p> import java.util.Scanner;</p>
+<p>public class PrimeNumbers {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  // Create a Scanner object to read input from the user</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+
+<p>        // Read the value of N from the user</p>
+   <p>     System.out.print("Enter the value of N: ");</p>
+      <p>  int N = scanner.nextInt();</p>
+        <p>System.out.println("Prime numbers from 1 to " + N + ":");</p>
+
+<p>        // Iterate through numbers from 2 to N</p>
+   <p>     for (int i = 2; i <= N; i++) {</p>
+      <p>      boolean isPrime = true;</p>
+
+<p>            // Check if i is divisible by any number from 2 to the square root of i</p>
+   <p>         for (int j = 2; j <= Math.sqrt(i); j++) {</p>
+      <p>          if (i % j == 0) {</p>
+         <p>           isPrime = false;</p>
+            <p>        break;</p>
+               <p> }</p>
+           <p> }</p>
+            <p>// If i is not divisible by any number, it is prime</p>
+            <p>if (isPrime) {</p>
+               <p> System.out.print(i + " ");</p>
+            }
+        }
+    }
+}
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>2c)Write a Program for factorial of a number.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+      <p>  import java.util.Scanner;</p>
+
+<p>public class Factorial {</p>
+
+<p>    public static void main(String[] args) {</p>
+   <p>     // Create a Scanner object to read input from the user</p>
+      <p>  Scanner scanner = new Scanner(System.in);</p>
+
+<p>        // Read the number for which factorial is to be calculated</p>
+   <p>     System.out.print("Enter a non-negative integer: ");</p>
+      <p>  int number = scanner.nextInt();</p>
+
+<p>        // Close the scanner to prevent resource leak</p>
+   <p>     scanner.close();</p>
+
+<p>        // Calculate and display the factorial</p>
+   <p>     long factorial = 1;</p>
+
+<p>        if (number < 0) {</p>
+   <p>         System.out.println("Factorial is not defined for negative numbers.");</p>
+      <p>  } else {</p>
+         <p>   // Calculate factorial without using additional methods</p>
+            <p>for (int i = 1; i <= number; i++) {</p>
+               <p> factorial *= i;</p>
+<p>            }</p>
+
+<p>            System.out.println("Factorial of " + number + " is: " + factorial);</p>
+        }
+    }
+}
+</div>
+         </p>
+        </section>
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 3">
+            <h2>Experiment 3</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+            <p><b>3a)Write a program to search a given element in the array using linear and binary search techniques.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+linear Search
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+<div class="center-left">
+       <p> public class LinearSearch {</p>
+    <p>public static int linearSearch(int[] arr, int target) {</p>
+       <p> for (int i = 0; i < arr.length; i++) {</p>
+          <p>  if (arr[i] == target) {</p>
+             <p>   return i; // Return the index if the element is found</p>
+            <p>}</p>
+        <p>}</p>
+        <p>return -1; // Return -1 if the element is not found</p>
+    <p>}</p>
+
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};</p>
+      <p>  int target = 5;</p>
+        <p>int result = linearSearch(arr, target);</p>
+        
+        <p>if (result != -1) {</p>
+           <p> System.out.println("Element " + target + " found at index " + result + ".");</p>
+        <p>} else {</p>
+            System.out.println("Element " + target + " not found in the array.");</p>
+        }
+    }
+}
+
+         </p>
+<p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+Binary Search
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class BinarySearch {</p>
+   <p> public static int binarySearch(int[] arr, int target) {</p>
+      <p>  int low = 0, high = arr.length - 1;</p>
+
+<p>        while (low <= high) {</p>
+   <p>         int mid = (low + high) / 2;</p>
+      <p>      int midElement = arr[mid];</p>
+
+<p>            if (midElement == target) {</p>
+   <p>             return mid; // Return the index if the element is found</p>
+      <p>      } else if (midElement < target) {</p>
+         <p>       low = mid + 1; // Search in the right half</p>
+            <p>} else {</p>
+               <p> high = mid - 1; // Search in the left half</p>
+            }
+        }
+
+<p>        return -1; // Return -1 if the element is not found</p>
+    }
+
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};</p>
+      <p>  int target = 5;</p>
+        <p>int result = binarySearch(arr, target);</p>
+
+<p>        if (result != -1) {</p>
+   <p>         System.out.println("Element " + target + " found at index " + result + ".");</p>
+      <p>  } else {</p>
+         <p>   System.out.println("Element " + target + " not found in the array.");</p>
+        }
+    }
+}
+
+</p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+  <p><b>3b)	Write a program to sort the elements in ascending and descending order using bubble sort.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+<p><b>bubbleSortAscending</b></p>
+       <p>public class BubbleSort {</p>
+    <p>public static void bubbleSortAscending(int[] arr) {</p>
+       <p> int n = arr.length;</p>
+
+<p>        for (int i = 0; i < n - 1; i++) {</p>
+   <p>         for (int j = 0; j < n - i - 1; j++) {</p>
+      <p>          if (arr[j] > arr[j + 1]) {</p>
+         <p>           // Swap arr[j] and arr[j + 1]</p>
+            <p>        int temp = arr[j];</p>
+               <p>     arr[j] = arr[j + 1];</p>
+                  <p>  arr[j + 1] = temp;</p>
+                }
+            }
+        }
+    }
+
+   <p> public static void main(String[] args) {</p>
+      <p>  int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
+        
+        <p>System.out.println("Original array: " + Arrays.toString(arr));</p>
+
+<p>        // Sort in ascending order</p>
+   <p>     bubbleSortAscending(arr);</p>
+
+<p>        System.out.println("Array in ascending order: " + Arrays.toString(arr));</p>
+    }
+}
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>bubbleSortDescending</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class BubbleSort {</p>
+   <p> public static void bubbleSortDescending(int[] arr) {</p>
+      <p>  int n = arr.length;</p>
+
+<p>        for (int i = 0; i < n - 1; i++) {</p>
+   <p>         for (int j = 0; j < n - i - 1; j++) {</p>
+      <p>          if (arr[j] < arr[j + 1]) {</p>
+         <p>           // Swap arr[j] and arr[j + 1]</p>
+            <p>        int temp = arr[j];</p>
+               <p>     arr[j] = arr[j + 1];</p>
+                  <p>  arr[j + 1] = temp;</p>
+                }
+            }
+        }
+    }
+
+   <p> public static void main(String[] args) {</p>
+      <p>  int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
+        
+        <p>System.out.println("Original array: " + Arrays.toString(arr));</p>
+
+<p>        // Sort in descending order</p>
+   <p>     bubbleSortDescending(arr);</p>
+
+<p>        System.out.println("Array in descending order: " + Arrays.toString(arr));</p>
+    }
+}
+         </p>
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+ <p><b>3c)Write a program to find the largest and smallest element in an array.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+ <p>public class FindMinMax {</p>
+    <p>public static void findMinMax(int[] arr) {</p>
+       <p> if (arr == null || arr.length == 0) {</p>
+          <p>  System.out.println("Array is empty.");</p>
+            <p>return;</p>
+        }
+
+<p>        int min = arr[0];</p>
+   <p>     int max = arr[0];</p>
+
+<p>        for (int i = 1; i < arr.length; i++) {</p>
+   <p>         if (arr[i] < min) {</p>
+      <p>          min = arr[i];</p>
+         <p>   } else if (arr[i] > max) {</p>
+            <p>    max = arr[i];</p>
+            }
+        }
+
+<p>        System.out.println("Smallest element: " + min);</p>
+   <p>     System.out.println("Largest element: " + max);</p>
+    }
+
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
+
+<p>        System.out.println("Array: " + Arrays.toString(arr));</p>
+
+<p>        findMinMax(arr);
+    }
+}
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 4">
+            <h2>Experiment 4</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+ <p><b>4)Given two matrices A and B, write a program to:
+a) Add the matrices
+b) Multiply the matrices
+c) Find the determinant of a matrix
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>import java.util.Scanner;</p>
+
+<p>public class MatrixOperations {</p>
+
+<p>    public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+<p>        System.out.println("Enter details for Matrix A:");</p>
+  <p>      double[][] matrixA = readMatrix(scanner);</p>
+
+<p>        System.out.println("Enter details for Matrix B:");</p>
+  <p>      double[][] matrixB = readMatrix(scanner);</p>
+
+<p>        System.out.println("Matrix A:");</p>
+  <p>      printMatrix(matrixA);</p>
+
+<p>        System.out.println("Matrix B:");</p>
+  <p>        printMatrix(matrixB);</p>
+
+<p>        // a) Add Matrices</p>
+  <p>      double[][] sumMatrix = addMatrices(matrixA, matrixB);</p>
+    <p>    System.out.println("Sum of Matrices A and B:");</p>
+      <p>  printMatrix(sumMatrix);</p>
+
+<p>        // b) Multiply Matrices</p>
+  <p>      double[][] productMatrix = multiplyMatrices(matrixA, matrixB);</p>
+    <p>    System.out.println("Product of Matrices A and B:");</p>
+      <p>  printMatrix(productMatrix);</p>
+
+<p>        // c) Find Determinant of Matrix A</p>
+  <p>      double determinantA = findDeterminant(matrixA);</p>
+    <p>    System.out.println("Determinant of Matrix A: " + determinantA);</p>
+
+<p>        scanner.close();</p>
+    }
+
+<p>    // Method to read a matrix from the user</p>
+  <p>  private static double[][] readMatrix(Scanner scanner) {</p>
+     <p>   System.out.print("Enter the number of rows: ");</p>
+       <p> int rows = scanner.nextInt();</p>
+        <p>System.out.print("Enter the number of columns: ");</p>
+        <p>int columns = scanner.nextInt();</p>
+
+<p>        double[][] matrix = new double[rows][columns];</p>
+
+<p>        System.out.println("Enter matrix elements:");</p>
+  <p>      for (int i = 0; i < rows; i++) {</p>
+    <p>        for (int j = 0; j < columns; j++) {</p>
+      <p>          System.out.print("Enter element at position (" + (i + 1) + "," + (j + 1) + "): ");</p>
+        <p>        matrix[i][j] = scanner.nextDouble();</p>
+            }
+        }
+
+ <p>       return matrix;</p>
+    }
+
+    <p>// Method to print a matrix</p>
+<p>    private static void printMatrix(double[][] matrix) {</p>
+  <p>      for (double[] row : matrix) {</p>
+    <p>        for (double element : row) {</p>
+      <p>          System.out.print(element + " ");</p>
+            }
+        <p>    System.out.println();</p>
+        }
+    }
+
+<p>    // Method to add two matrices</p>
+  <p>  private static double[][] addMatrices(double[][] matrixA, double[][] matrixB) {</p>
+    <p>    int rows = matrixA.length;</p>
+<p>        int columns = matrixA[0].length;</p>
+
+<p>        double[][] sumMatrix = new double[rows][columns];</p>
+
+<p>        for (int i = 0; i < rows; i++) {</p>
+  <p>          for (int j = 0; j < columns; j++) {</p>
+    <p>            sumMatrix[i][j] = matrixA[i][j] + matrixB[i][j];</p>
+            }
+        }
+
+<p>        return sumMatrix;</p>
+    }
+
+    <p>// Method to multiply two matrices</p>
+    <p>private static double[][] multiplyMatrices(double[][] matrixA, double[][] matrixB) {</p>
+    <p>    int rowsA = matrixA.length;</p>
+  <p>      int columnsA = matrixA[0].length;</p>
+<p>        int columnsB = matrixB[0].length;</p>
+
+<p>        double[][] productMatrix = new double[rowsA][columnsB];</p>
+
+      <p>  for (int i = 0; i < rowsA; i++) {</p>
+    <p>        for (int j = 0; j < columnsB; j++) {</p>
+  <p>              for (int k = 0; k < columnsA; k++) {</p>
+<p>                    productMatrix[i][j] += matrixA[i][k] * matrixB[k][j];</p>
+                }
+            }
+        }
+
+<p>        return productMatrix;</p>
+    }
+
+    <p>// Method to find determinant of a 2x2 or 3x3 matrix</p>
+    <p>private static double findDeterminant(double[][] matrix) {</p>
+    <p>    if (matrix.length != matrix[0].length) {</p>
+  <p>          throw new IllegalArgumentException("Determinant can only be calculated for square matrices.");</p>
+        }
+
+<p>        int size = matrix.length;</p>
+
+        <p>if (size == 2) {</p>
+          <p>  return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];</p>
+        <p>} else if (size == 3) {</p>
+        <p>    return matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1])</p>
+      <p>              - matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0])</p>
+    <p>                + matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);</p>
+  <p>      } else {</p>
+<p>            throw new UnsupportedOperationException("Determinant calculation is not supported for matrices larger than 3x3.");</p>
+        }
+    }
+}
+
+                </main>
+
+                <p>Total Visitors: <span id="visitorCounter">0</span></p>
+
+                <!-- Your other HTML content goes here -->
+
+                <script src="counter.js"></script>
+                <p>Total Visitors: <span id="visitorCounter1">0</span></p>
+
+                <script src="counter.js"></script>
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Reset error messages
+            document.getElementById('usernameError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+
+            // Validate username
+            if (username.length < 3) {
+                document.getElementById('usernameError').innerHTML = 'Username must be at least 3 characters';
+                return false;
+            }
+
+            // Validate password
+            if (password.length < 6) {
+                document.getElementById('passwordError').innerHTML = 'Password must be at least 6 characters';
+                return false;
+            }
+
+            // Hide the login form and show the content
+            document.getElementById('loginForm').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+
+            // Form is valid, prevent default form submission
+            return false;
+        }
+    </script>
+</div>
+<script>
+  function toggleContent() {
+    var content = document.getElementById("content");
+    content.style.display = content.style.display === "none" ? "block" : "none";
+  }
+</script>
+</body>
+
+</html>
