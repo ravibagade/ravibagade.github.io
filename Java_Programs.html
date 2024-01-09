@@ -611,6 +611,70 @@ c) Find the determinant of a matrix
         }
     }
 }
+ <p><b>5)Write a java program to perform the following:
+a) Reverse a string 
+b) Check for palindrome 
+c) Compare two strings
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p> a) Reverse a string</p>
+<p> import java.io.*;</p>
+<p> import java.util.Scanner;</p>
+ 
+<p> class GFG {</p>
+    <p> public static void main (String[] args) {</p>
+       
+        <p> String str= "Geeks", nstr="";</p>
+       <p>  char ch;</p>
+       
+      <p> System.out.print("Original word: </p>
+      <p> System.out.println("Geeks"); //Example word</p>
+       
+     <p>  for (int i=0; i<str.length(); i++)</p>
+      {
+        <p> ch= str.charAt(i); //extracts each character</p>
+        <p> nstr= ch+nstr; //adds each character in front of the existing string </p>
+    <p>   }</p>
+      <p> System.out.println("Reversed word: "+ nstr);</p>
+    <p> }}</p>
+
+<p> b) Check for palindrome </p>
+<p> class PalindromeExample{</p>  
+ <p> public static void main(String args[]){  </p>
+  <p> int r,sum=0,temp;    </p>
+ <p>  int n=454;//It is the number variable to be checked for palindrome  </p>
+  
+  <p> temp=n;    </p>
+  <p> while(n>0){    </p>
+   <p> r=n%10;  //getting remainder  </p>
+   <p> sum=(sum*10)+r;    </p>
+   <p> n=n/10;    </p>
+  <p> }    </p>
+ <p>  if(temp==sum)    </p>
+   <p> System.out.println("palindrome number ");  </p>  
+  <p> else    </p>
+   <p> System.out.println("not palindrome");    </p>
+<p> }  </p>
+<p> }  </p>
+
+<p> c) Compare two strings</p>
+
+<p> Public class StringComparison</p>
+ 
+<p> {</p>
+    <p> Public static void main(String[] args)</p>
+ 
+<p> {</p>
+    <p>     String str1 = "Hello";</p>
+        <p> String str2 = "Hello";</p>
+       
+
+        <p> // Using equals()</p>
+        <p> System.out.println("Using equals():");</p>
+    <p>     System.out.println(str1.equals(str2));   // true</p>
+    <p> } </p>
+<p> }</p>
+
 
                 </main>
 
