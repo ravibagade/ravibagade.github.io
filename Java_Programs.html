@@ -674,6 +674,62 @@ c) Compare two strings
     <p>     System.out.println(str1.equals(str2));   // true</p>
     <p> } </p>
 <p> }</p>
+<hr style="color: red; background-color: blue; height: 2px;">  </hr>
+<p><b><p>6)Create a Java class called Student with the following details as variables within it.</p>
+ <p>USNName Branch and Phone.Write a Java program to create n Student objects and print the USN, Name, Branch, and Phone of these objects with suitable headings.</p>
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>import java.util.Scanner;</p>
+
+<p>class Student {</p>
+  <p>  String usn;</p>
+   <p> String name;</p>
+    <p>String branch;</p>
+    <p>String phone;</p>
+<p>}</p>
+
+<p>public class StudentDemo {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  Scanner scanner = new Scanner(System.in);</p>
+
+        <p>// Get the number of students</p>
+        <p>System.out.print("Enter the number of students: ");</p>
+        <p>int n = scanner.nextInt();</p>
+
+        <p>// Create an array to store n Student objects</p>
+        <p>Student[] students = new Student[n];</p>
+
+        <p>// Input details for each student</p>
+      <p>  for (int i = 0; i < n; i++) {</p>
+         <p>   students[i] = new Student();</p>
+
+            <p>System.out.println("Enter details for Student " + (i + 1) + ":");</p>
+            <p>System.out.print("USN: ");</p>
+            <p>students[i].usn = scanner.next();</p>
+            <p>System.out.print("Name: ");</p>
+            <p>students[i].name = scanner.next();</p>
+            <p>System.out.print("Branch: ");</p>
+            <p>students[i].branch = scanner.next();</p>
+            <p>System.out.print("Phone: ");</p>
+            <p>students[i].phone = scanner.next();</p>
+        <p>}</p>
+
+        <p>// Display details of each student</p>
+        <p>System.out.println("\nDetails of Students:");</p>
+        <p>for (int i = 0; i < n; i++) {</p>
+           <p> System.out.println("Student " + (i + 1) + " -");</p>
+            <p>System.out.println("USN: " + students[i].usn);</p>
+            <p>System.out.println("Name: " + students[i].name);</p>
+            <p>System.out.println("Branch: " + students[i].branch);</p>
+            <p>System.out.println("Phone: " + students[i].phone);</p>
+            <p>System.out.println("-----------------------------");</p>
+       <p> }</p>
+
+       <p> // Close the scanner</p>
+        <p>scanner.close();</p>
+    <p>}</p>
+<p>}</p>
+
 
 
                 </main>
