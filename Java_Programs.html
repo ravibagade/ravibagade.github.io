@@ -729,6 +729,70 @@ c) Compare two strings
         <p>scanner.close();</p>
     <p>}</p>
 <p>}</p>
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+ <p>Experiment 7: </p>
+ 
+ <p>Write a Java program to create a class known as “BankAccount” with methods called deposit() and withdraw(). </p>
+ <p>Create a subclass called SBAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.</p>
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+<p>class BankAccount {</p>
+   <p> protected double balance;</p>
+
+   <p> public BankAccount(double initialBalance) {</p>
+      <p>  this.balance = initialBalance;</p>
+    <p>}</p>
+
+    <p>public void deposit(double amount) {</p>
+       <p> balance += amount;</p>
+        <p>System.out.println("Deposited: $" + amount);</p>
+<p>    }</p>
+
+    <p>public void withdraw(double amount) {</p>
+     <p>   if (amount <= balance) { </p>
+      <p>      balance -= amount;</p>
+         <p>   System.out.println("Withdrawn: $" + amount);</p>
+       <p> } else {</p>
+        <p>    System.out.println("Insufficient funds. Withdrawal canceled.");</p>
+       <p> }</p>
+       <p> displayBalance();</p>
+   <p> }</p>
+
+   <p> public void displayBalance() {</p>
+      <p>  System.out.println("Current Balance: $" + balance);</p>
+   <p> }</p>
+<p>}</p>
+
+<p>class SBAccount extends BankAccount {</p>
+   <p> public SBAccount(double initialBalance) {</p>
+      <p>  super(initialBalance);</p>
+   <p> }</p>
+
+    <p>@Override</p>
+    <p>public void withdraw(double amount) {</p>
+       <p> if (balance - amount >= 100) {</p>
+          <p>  super.withdraw(amount);</p>
+        <p>} else {</p>
+           <p> System.out.println("Withdrawal canceled. Minimum balance requirement not met.");</p>
+       <p> }</p>
+    <p>}</p>
+<p>}</p>
+
+<p>public class Main {
+   <p> public static void main(String[] args) {</p>
+      <p>  // Create a regular BankAccount</p>
+        <p>BankAccount regularAccount = new BankAccount(500);</p>
+        <p>regularAccount.deposit(200);</p>
+        <p>regularAccount.withdraw(50);</p>
+
+        <p>System.out.println("\n------------------------\n");</p>
+
+        <p>// Create an SBAccount (Savings Bank Account)</p>
+        <p>SBAccount savingsAccount = new SBAccount(300);</p>
+        <p>savingsAccount.deposit(100);</p>
+        <p>savingsAccount.withdraw(50);   // Will succeed</p>
+        <p>savingsAccount.withdraw(250);  // Will fail due to minimum balance requirement</p>
+    <p>}
+<p>}</p>
 
 
 
