@@ -794,6 +794,52 @@ c) Compare two strings
     <p>}
 <p>}</p>
 
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+ <p>Experiment 8: </p>
+ 
+ <p>Write a JAVA program demonstrating Method overloading and Constructor  Overloading.</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+<p>Public class OverloadingExample {</p>
+    
+   <p> // Constructor overloading</p>
+    <p>OverloadingExample() {</p>
+       <p> System.out.println("Default constructor called");</p>
+    <p>}</p>
+
+    <p>OverloadingExample(int num) {</p>
+       <p> System.out.println("Parameterized constructor with one int parameter called. Value: " + num);</p>
+    <p>}</p>
+
+    <p>OverloadingExample(int num1, int num2) {</p>
+       <p> System.out.println("Parameterized constructor with two int parameters called. Values: " + num1 + ", " + num2);</p>
+    <p>}</p>
+
+    <p>// Method overloading</p>
+    <p>void display() {</p>
+       <p> System.out.println("Method without parameters called");</p>
+   <p> }</p>
+
+    <p>void display(int num) {</p>
+       <p> System.out.println("Method with one int parameter called. Value: " + num);</p>
+    <p>}</p>
+
+    <p>void display(int num1, int num2) {</p>
+      <p>  System.out.println("Method with two int parameters called. Values: " + num1 + ", " + num2);</p>
+    <p>}</p>
+
+    <p>public static void main(String[] args) {</p>
+       <p> // Creating objects with different constructors </p>
+        <p>OverloadingExample obj1 = new OverloadingExample();</p>
+        <p>OverloadingExample obj2 = new OverloadingExample(10);</p>
+        <p>OverloadingExample obj3 = new OverloadingExample(20, 30);</p>
+
+        <p>// Invoking methods with different parameters</p>
+        <p>obj1.display();</p>
+        <p>obj2.display(50);</p>
+        <p>obj3.display(100, 200);</p>
+    <p>}</p>
+<p>}</p>
 
 
                 </main>
