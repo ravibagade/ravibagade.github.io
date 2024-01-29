@@ -969,6 +969,83 @@ c) Compare two strings
 	    <p>}</p>
 	<p>}</p>
 
+<p>Experiment 10: </p>
+ 
+ <p>a.Write a JAVA program to read two integers a and b. Compute a/b and print,</p>
+when b is not zero. Raise an exception when b is equal to zero. Also demonstrate working of ArrayIndexOutOfBound-Exception
+</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>import java.util.Scanner;</p>
+
+<p>public class ExceptionDemo {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  try {</p>
+         <p>   // Read two integers a and b</p>
+            <p>Scanner scanner = new Scanner(System.in);</p>
+            <p>System.out.print("Enter the value of a: ");</p>
+            <p>int a = scanner.nextInt();</p>
+            <p>System.out.print("Enter the value of b: ");</p>
+           <p> int b = scanner.nextInt();</p>
+
+            <p>// Check if b is not zero</p>
+           <p> if (b != 0) {</p>
+              <p>  // Compute a/b</p>
+                <p>int result = a / b;</p>
+                <p>System.out.println("Result of a/b: " + result);</p>
+            <p>} else {</p>
+               <p> // Raise an exception if b is zero</p>
+                <p>throw new ArithmeticException("Cannot divide by zero.");</p>
+            <p>}</p>
+
+            <p>// Demonstrate ArrayIndexOutOfBoundsException</p>
+            <p>int[] array = { 1, 2, 3 };</p>
+            <p>System.out.println("Demonstrating ArrayIndexOutOfBoundsException:");</p>
+            <p>System.out.println("Value at index 3: " + array[3]);</p>
+      <p>  } catch (ArithmeticException e) {</p>
+         <p>   System.out.println("Exception caught: " + e.getMessage());</p>
+        <p>} catch (ArrayIndexOutOfBoundsException e) {</p>
+           <p> System.out.println("Exception caught: " + e.getMessage());</p>
+        <p>} catch (Exception e) {</p>
+           <p> System.out.println("Generic exception caught: " + e.getMessage());</p>
+       <p> }</p>
+    <p>}</p>
+<p>}<p>
+<hr style="color: blue; background-color: blue; height: 2px;">
+<hr style="color: blue; background-color: red; height: 2px;">
+<p>b) Write a Java program to create a method that takes an integer as a parameter and throws an exception if the number is odd</p>
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>public class OddNumberExceptionDemo {</p>
+
+   <p> // Method that throws an exception if the number is odd</p>
+    <p>static void checkIfEven(int number) throws OddNumberException {</p>
+       <p> if (number % 2 != 0) {</p>
+          <p>  throw new OddNumberException("Number is odd: " + number);</p>
+        <p>} else {</p>
+           <p> System.out.println("Number is even: " + number);</p>
+        <p>}</p>
+   <p> }</p>
+
+    <p>public static void main(String[] args) {</p>
+       <p> try {</p>
+          <p>  // Test the method with different numbers</p>
+            <p>checkIfEven(4);  // Even number</p>
+            <p>checkIfEven(7);  // Odd number, will throw an exception</p>
+            <p>checkIfEven(10); // Even number</p>
+        <p>} catch (OddNumberException e) {</p>
+           <p> System.out.println("Exception caught: " + e.getMessage());</p>
+        <p>}</p>
+    <p>}</p>
+<p>}</p>
+
+<p>// Custom exception class for odd numbers</p>
+<p>class OddNumberException extends Exception {</p>
+   <p> public OddNumberException(String message) {</p>
+      <p>  super(message);</p>
+    <p>}</p>
+<p>}</p>
+
+<hr style="color: blue; background-color: red; height: 2px;">
 
                 </main>
 
