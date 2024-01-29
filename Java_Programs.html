@@ -840,6 +840,134 @@ c) Compare two strings
         <p>obj3.display(100, 200);</p>
     <p>}</p>
 <p>}</p>
+<hr style="color: red; background-color: blue; height: 2px;">
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+ <p>Experiment 9: </p>
+ 
+ <p>Design a super class called Staff with details as StaffId, Name, Phone, Salary. Extend this class by writing three subclasses namely Teaching (domain, publications),</p>
+ Technical (skills), and Contract (period). Write a Java program to read and display at least 3 staff objects of all three categories..</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>import java.util.Scanner;</p>
+
+<p>//Superclass</p>
+<p>class BaseStaff {</p>
+<p> private int staffId;</p>
+<p> private String name;</p>
+<p> private String phone;</p>
+<p> private double salary;</p>
+
+<p> public BaseStaff(int staffId, String name, String phone, double salary) {</p>
+<p>     this.staffId = staffId;</p>
+ <p>    this.name = name;</p>
+  <p>   this.phone = phone;</p>
+   <p>  this.salary = salary;</p>
+ <p>}</p>
+
+<p> public void displayDetails() {</p>
+<p>     System.out.println("Staff ID: " + staffId);</p>
+ <p>    System.out.println("Name: " + name);</p>
+ <p>    System.out.println("Phone: " + phone);</p>
+  <p>   System.out.println("Salary: $" + salary);</p>
+<p> }</p>
+<p>}</p>
+
+<p>//Subclass 1: TeachingStaff</p>
+<p>class TeachingStaff extends BaseStaff {</p>
+ <p>private String domain;</p>
+ <p>private String publications;</p>
+
+ <p>public TeachingStaff(int staffId, String name, String phone, double salary, String domain, String publications) {</p>
+    <p> super(staffId, name, phone, salary);</p>
+     <p>this.domain = domain;</p>
+     <p>this.publications = publications;</p>
+ <p>}</p>
+
+ <p>@Override</p>
+ <p>public void displayDetails() {</p>
+    <p> super.displayDetails();</p>
+     <p>System.out.println("Domain: " + domain);</p>
+     <p>System.out.println("Publications: " + publications);</p>
+ <p>}</p>
+<p>}</p>
+
+<p>//Subclass 2: Technical</p>
+<p>class TechnicalStaff extends BaseStaff {</p>
+ <p>private String skills;</p>
+
+<p> public TechnicalStaff(int staffId, String name, String phone, double salary, String skills) {</p>
+   <p>  super(staffId, name, phone, salary);</p>
+     <p>this.skills = skills;</p>
+ <p>}</p>
+
+ <p>@Override</p>
+ <p>public void displayDetails() {</p>
+    <p> super.displayDetails();</p>
+     <p>System.out.println("Skills: " + skills);</p>
+<p> }</p>
+<p>}</p>
+
+<p>//Subclass 3: Contract</p>
+<p>class ContractStaff extends BaseStaff {</p>
+<p> private int period;</p>
+
+ <p>public ContractStaff(int staffId, String name, String phone, double salary, int period) {</p>
+    <p> super(staffId, name, phone, salary);</p>
+     <p>this.period = period;</p>
+ <p>}</p>
+
+ <p>@Override</p>
+ <p>public void displayDetails() {</p>
+    <p> super.displayDetails();</p>
+    <p> System.out.println("Contract Period (months): " + period);</p>
+<p> }</p>
+<p>}</p>
+
+<p>public class StaffManagementSystem2 {</p>
+ <p>public static void main(String[] args) {</p>
+	 
+	<p>        // Creating Teaching staff objects</p>
+	   <p>     TeachingStaff teaching1 = new TeachingStaff(101, "John Doe", "123-456-7890", 60000, "Computer Science", "Research Papers");</p>
+	      <p>  TeachingStaff teaching2 = new TeachingStaff(102, "Jane Smith", "987-654-3210", 70000, "Mathematics", "Books on Algebra");</p>
+	        <p>TeachingStaff teaching3 = new TeachingStaff(103, "Bob Johnson", "111-222-3333", 55000, "Physics", "Scientific Journals");</p>
+
+	        <p>// Creating Technical staff objects</p>
+	        <p>TechnicalStaff technical1 = new TechnicalStaff(201, "Alice Brown", "555-666-7777", 80000, "Java, Python, SQL");</p>
+	        <p>TechnicalStaff technical2 = new TechnicalStaff(202, "Charlie Wilson", "444-333-2222", 75000, "C++, Linux");</p>
+	        <p>TechnicalStaff technical3 = new TechnicalStaff(203, "Eva Davis", "888-999-0000", 90000, "Web Development, JavaScript");</p>
+
+	        <p>// Creating Contract staff objects</p>
+	        <p>ContractStaff contract1 = new  ContractStaff(301, "Sam Green", "123-999-8888", 50000, 6);</p>
+	        <p>ContractStaff contract2 = new  ContractStaff(302, "Lisa White", "777-666-5555", 48000, 4);</p>
+	        <p>ContractStaff contract3 = new  ContractStaff(303, "David Lee", "333-444-5555", 55000, 8);</p>
+
+	        <p>// Displaying details of Teaching staff</p>
+	        <p>System.out.println("Teaching Staff Details:");</p>
+	        <p>teaching1.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>teaching2.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>Steaching3.displayDetails();</p>
+	        <p>System.out.println();</p>
+
+	        <p>// Displaying details of Technical staff</p>
+	        <p>System.out.println("Technical Staff Details:");</p>
+	        <p>technical1.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>technical2.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>technical3.displayDetails();</p>
+	        <p>System.out.println();</p>
+
+	       <p> // Displaying details of Contract staff</p>
+	        <p>System.out.println("Contract Staff Details:");</p>
+	        <p>contract1.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>contract2.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>contract3.displayDetails();</p>
+	    <p>}</p>
+	<p>}</p>
 
 
                 </main>
