@@ -1047,6 +1047,100 @@ when b is not zero. Raise an exception when b is equal to zero. Also demonstrate
 
 <hr style="color: blue; background-color: red; height: 2px;">
 
+<p>EXPT 11.
+<p>Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). </p>
+<p>Create subclasses: SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals</p>
+<p> for each account type</p>
+<hr style="color: blue; background-color: red; height: 2px;">
+<p> abstract class BankAccount {</p>
+    <p> protected double balance;</p>
+
+    <p> public BankAccount(double initialBalance) {</p>
+        <p> this.balance = initialBalance;</p>
+    <p> }</p>
+
+    <p> public abstract void deposit(double amount);</p>
+
+   <p>  public abstract void withdraw(double amount);</p>
+
+   <p>  public double getBalance() {</p>
+       <p>  return balance;</p>
+    <p> }</p>
+<p> }</p>
+
+<p> class SavingsAccount extends BankAccount {</p>
+    <p> private double interestRate;</p>
+
+    <p> public SavingsAccount(double initialBalance, double interestRate) {</p>
+        <p> super(initialBalance);</p>
+        <p> this.interestRate = interestRate;</p>
+    <p> }</p>
+
+    <p> @Override</p>
+    <p> public void deposit(double amount) {</p>
+        <p> balance += amount;</p>
+        <p> applyInterest();</p>
+    <p> }</p>
+
+   <p> @Override</p>
+   <p> public void withdraw(double amount) {</p>
+      <p>  if (amount <= balance) {</p>
+         <p>   balance -= amount;</p>
+            <p>applyInterest();</p>
+       <p> } else {</p>
+          <p>  System.out.println("Insufficient funds");</p>
+        <p>}</p>
+    <p>}</p>
+
+    private void applyInterest() {</p>
+        balance += balance * interestRate;</p>
+    }</p>
+}</p>
+
+<p>class CurrentAccount extends BankAccount {</p>
+   <p> private double overdraftLimit;</p>
+
+    <p>public CurrentAccount(double initialBalance, double overdraftLimit) {</p>
+       <p> super(initialBalance);</p>
+        <p>this.overdraftLimit = overdraftLimit;</p>
+  <p>  }</p>
+
+    <p>@Override</p>
+    <p>public void deposit(double amount) {</p>
+       <p> balance += amount;</p>
+    <p>}</p>
+
+    <p>@Override</p>
+    <p>public void withdraw(double amount) {</p>
+       <p> if (amount <= balance + overdraftLimit) {</p>
+          <p>  balance -= amount;</p>
+        <p>} else {</p>
+           <p> System.out.println("Exceeded overdraft limit");</p>
+        <p>}</p>
+    <p>}</p>
+<p>}</p>
+
+<p>public class BankAccountExample {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  // Example usage</p>
+        <p>SavingsAccount savingsAccount = new SavingsAccount(1000, 0.05);</p>
+        <p>CurrentAccount currentAccount = new CurrentAccount(500, 200);</p>
+
+        <p>System.out.println("Savings Account Balance: " + savingsAccount.getBalance());</p>
+        <p>savingsAccount.deposit(200);</p>
+        <p>System.out.println("After deposit: " + savingsAccount.getBalance());</p>
+        <p>savingsAccount.withdraw(150);</p>
+        <p>System.out.println("After withdrawal: " + savingsAccount.getBalance());</p>
+
+        <p>System.out.println("\nCurrent Account Balance: " + currentAccount.getBalance());</p>
+        <p>currentAccount.withdraw(700);</p>
+        <p>System.out.println("After withdrawal: " + currentAccount.getBalance());</p>
+        <p>currentAccount.withdraw(300);</p>
+        <p>System.out.println("After withdrawal: " + currentAccount.getBalance());</p>
+    <p>}</p>
+<p>}</p>
+<hr style="color: blue; background-color: blue; height: 2px;">
+
                 </main>
 
                 <p>Total Visitors: <span id="visitorCounter">0</span></p>
