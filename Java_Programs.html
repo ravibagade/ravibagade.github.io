@@ -1140,6 +1140,132 @@ when b is not zero. Raise an exception when b is equal to zero. Also demonstrate
     <p>}</p>
 <p>}</p>
 <hr style="color: blue; background-color: blue; height: 2px;">
+<p>EXPT 12.</p>
+<p>Create two packages P1 and P2.</p> 
+<p>In package P1, create class A, class B inherited from A, class C .</p>
+<p> In package P2, create class D inherited from class A in package P1 and class E.</p>
+ <p>Demonstrate working of access modifiers (private, public, protected, default) in all these classes using JAVA</p>
+<hr style="color: blue; background-color: red; height: 2px;">
+<p>// P1/A.java</p>
+<p>package P1;</p>
+
+<p>public class A {</p>
+   <p> private int privateVar;</p>
+    <p>int defaultVar;</p>
+    <p>protected int protectedVar;</p>
+    <p>public int publicVar;</p>
+
+    <p>public A() {</p>
+       <p> privateVar = 10;</p>
+        <p>defaultVar = 20;</p>
+       <p> protectedVar = 30;</p>
+       <p> publicVar = 40;</p>
+    <p>}</p>
+
+   <p> private void privateMethod() {</p>
+     <p>   System.out.println("Private method in class A");</p>
+    <p>}</p>
+
+   <p> void defaultMethod() {</p>
+      <p>  System.out.println("Default method in class A");</p>
+    <p>}</p>
+
+    <p>protected void protectedMethod() {</p>
+       <p> System.out.println("Protected method in class A");</p>
+    <p>}</p>
+
+    <p>public void publicMethod() {</p>
+       <p> System.out.println("Public method in class A");</p>
+   <p> }</p>
+<p>}</p>
+
+<p>// P1/B.java</p>
+<p>package P1;</p>
+
+<p>public class B extends A {</p>
+   <p> public void accessVariablesAndMethods() {</p>
+      <p>  // Accessing variables and methods of class A in class B</p>
+        <p>// privateVar and privateMethod are not accessible here</p>
+        <p>System.out.println("Inherited Variables: defaultVar=" + defaultVar +</p>
+           <p>     ", protectedVar=" + protectedVar + ", publicVar=" + publicVar);</p>
+        <p>defaultMethod();</p>
+        <p>protectedMethod();</p>
+        <p>publicMethod();</p>
+    <p>}</p>
+<p>}</p>
+
+<p>// P1/C.java</p>
+<p>package P1;</p>
+
+<p>public class C {</p>
+   <p> public void accessVariablesAndMethods() {</p>
+      <p>  A a = new A();</p>
+        <p>// Accessing variables and methods of class A in class C</p>
+        <p>// privateVar and privateMethod are not accessible here</p>
+        <p>System.out.println("Variables in class A: defaultVar=" + a.defaultVar +</p>
+           <p>     ", protectedVar=" + a.protectedVar + ", publicVar=" + a.publicVar);</p>
+        <p>a.defaultMethod();</p>
+        <p>a.protectedMethod();</p>
+        <p>a.publicMethod();</p>
+    <p>}</p>
+<p>Package P2:</p>
+<p>// P2/D.java</p>
+<p>package P2;</p>
+<p>import P1.A;</p>
+
+<p>public class D extends A {</p>
+   <p> public void accessVariablesAndMethods() {</p>
+      <p>  // Accessing variables and methods of class A in class D</p>
+        <p>// privateVar and privateMethod are not accessible here</p>
+        <p>System.out.println("Inherited Variables: defaultVar=" + defaultVar +</p>
+           <p>     ", protectedVar=" + protectedVar + ", publicVar=" + publicVar);</p>
+       <p>  defaultMethod();</p>
+       <p>  protectedMethod();</p>
+        <p> publicMethod();</p>
+    <p> }</p>
+<p> }</p>
+
+<p> // P2/E.java</p>
+<p>package P2;</p>
+
+<p>public class E {</p>
+   <p> public void accessClassAVariablesAndMethods() {</p>
+      <p>  A a = new A();</p>
+        <p>// Accessing variables and methods of class A from a different package in class E</p>
+        <p>// Only publicVar and publicMethod are accessible here</p>
+        <p>System.out.println("Public Variables and Methods in class A: publicVar=" + a.publicVar);</p>
+        <p>a.publicMethod();</p>
+    <p>}</p>
+<p>}</p>
+<p>Main Program (outside the packages):</p>
+<p>import P1.A;</p>
+<p>import P1.B;</p>
+<p>import P1.C;</p>
+<p>import P2.D;</p>
+<p>import P2.E;</p>
+
+<p>public class AccessModifiersDemo {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  A a = new A();</p>
+        <p>// Accessing variables and methods of class A from a different package</p>
+        <p>// Only publicVar and publicMethod are accessible here</p>
+        <p>System.out.println("Public Variables and Methods in class A: publicVar=" + a.publicVar);</p>
+        <p>a.publicMethod();</p>
+
+        <p>B b = new B();</p>
+        <p>b.accessVariablesAndMethods();</p>
+		 <p>       C c = new C();</p>
+        <p>c.accessVariablesAndMethods();</p>
+
+        <p>D d = new D();</p>
+        <p>d.accessVariablesAndMethods();</p>
+
+        <p>E e = new E();</p>
+        <p>e.accessClassAVariablesAndMethods();</p>
+    <p>}</p>
+<p>}</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">
 
                 </main>
 
