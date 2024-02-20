@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARM Programming</title>
+    
+        <h2>Welcome! to My Website</h2>
+        <title>ARM Programming</title>
+<body>
+         
+
+                <main>
+                    
+                    <hr style="color: blue; background-color: red; height: 2px;">
+					
+<p> For Explanation of Introduction click here: https://youtu.be/Mta5V-NE6sM</p>
+                    <section id="Experiment1">
+                        <h2>Experiment 1</h2>
+                        <p>Write an ALP to i) Multiply two 16-bit binary numbers. ii) Add two 64-bit numbers</p>
+                        <hr style="color: blue; background-color: blue; height: 2px;">
+                    </section>
+<p><b>i) ALP to multiply two 16 bit binary numbers.</b></p> 
+
+<p>AREA Addition, CODE, READONLY</p>
+	<p>ENTRY</p>
+	<p>MOV R2, #0002</p>
+	<p>MOV R1, #0002</p>
+	<p>MUL R2, R2, R1</p>
+
+<p>L	B L</p>
+	<p>END</p>
+<p>OUTPUT: R2=0004</p>
+ <hr style="color: blue; background-color: blue; height: 2px;">
+<p>ii)<b> Add two 64-bit numbers</b></p>
+<p>AREA Addition, CODE, READONLY</p>
+	<p>ENTRY</p>
+	<p>MOV R0, #0X40000000</p>
+	<p>LDR R1, [R0]</p>
+	<p>MOV R0, #0X40000004</p>
+ 	<p>LDR R2, [R0]</p>
+ 	<p>ADD R3, R1, R2</p>
+ 	<p>MOV R0, #0X40000008</p>
+ 	<p>STR R3, [R0]</p>
+ 	<p>NOP</p>
+ 	<p>NOP</p>
+ 	<p>END</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+      
+<p><b>2 Write an ALP to find the sum of first 10 integer numbers.</b><p>
+<p>AREA ArryAdd, CODE, READONLY</p>
+ 	<p> ENTRY</p>
+ 	 <p>MOV R0, #05</p>
+ 	 <p>MOV R1, #00</p>
+ 	 <p>MOV R2, #0X40000000</p>
+ 	 <p>LDR R3, [R2]</p>
+<p>LOOP ADD R2, R2, #04</p>
+ 	<p> LDR R4, [R2]</p>
+ 	 <p>ADD R3, R3, R4</p>
+ 	 <p>SUB R0, R0, #01</p>
+ 	 <p>CMP R0, #00</p>
+ 	 <p>BNE LOOP</p>
+ 	 <p>MOV R5, #0X4000001C</p>
+ 	 <p>STR R3,[R5]</p>
+	 <p>NOP</p>
+ 	 <p>NOP</p>
+ 	 <p>END</p>
+	 <hr style="color: blue; background-color: red; height: 2px;">
+<p><b>3 Write an ALP to find factorial of a number</b>.</p>
+<p>AREA Factorial, CODE, READONLY</p>
+	<p> ENTRY</p>
+ 	 <p>MOV R0, #05</p>
+ 	 <p>MOV R1, R0</p>
+ 	<p> CMP R0, #01</p>
+ 	 <p>MOV R2, #01</p>
+ 	 <p>BLE STOP</p>
+<p>LOOP SUB R1, R1, #01</p>
+ 	<p> CMP R1, #01</p>
+ 	 <p>BEQ STOP</p>
+ 	 <p>MUL R2, R0, R1</p>
+	 <p>MOV R0, R2</p>
+	 <p>B LOOP</p>
+<p>STOP NOP</p>
+	<p> END</p>
+
+
+<hr style="color: blue; background-color: blue; height: 2px;">
+
+                </main>
+
+                <p>Total Visitors: <span id="visitorCounter">0</span></p>
+
+                <!-- Your other HTML content goes here -->
+
+                <script src="counter.js"></script>
+                <p>Total Visitors: <span id="visitorCounter1">0</span></p>
+
+                <script src="counter.js"></script>
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Reset error messages
+            document.getElementById('usernameError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+
+            // Validate username
+            if (username.length < 3) {
+                document.getElementById('usernameError').innerHTML = 'Username must be at least 3 characters';
+                return false;
+            }
+
+            // Validate password
+            if (password.length < 6) {
+                document.getElementById('passwordError').innerHTML = 'Password must be at least 6 characters';
+                return false;
+            }
+
+            // Hide the login form and show the content
+            document.getElementById('loginForm').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+
+            // Form is valid, prevent default form submission
+            return false;
+        }
+    </script>
+</div>
+<script>
+  function toggleContent() {
+    var content = document.getElementById("content");
+    content.style.display = content.style.display === "none" ? "block" : "none";
+  }
+</script>
+</body>
+
+</html>
