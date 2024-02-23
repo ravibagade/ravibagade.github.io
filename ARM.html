@@ -81,10 +81,177 @@
 	 <p>B LOOP</p>
 <p>STOP NOP</p>
 	<p> END</p>
-
-
 <hr style="color: blue; background-color: blue; height: 2px;">
+<p><b>4 Write an ALP to add an array of 16-bit numbers and store the 32-bit result in internal RAM.</b><p>
+<p>AREA ADDITION,CODE,READONLY</p>
+   <p> ENTRY</p>
+    <p>MOV R5,#6</p>
+    <p>MOV R0,#0</p>
+    <p>LDR R1,=VALUE</p>
+<p>LOOP LDRH R3,[R1],#2</p>
+   <p> ADD R0,R0,R3</p>
+   <p> SUBS R5,R5,#1</p>
+    <p>CMP R5,#0</p>
+   <p> BNE LOOP</p>
+   <p> LDR R4,=RESULT</p>
+   <p> STR R0,[R4]</p>
+<p>STOP B STOP</p>
+<p>VALUE DCD 0x0000,0x1111,0x2222,0x3333,0xAAAA,0xBBBB,0xCCCC</p>
+   <p> AREA INFO,DATA,READWRITE</p>
+<p>RESULT DCD 0x00000000</p>
+<p>END</p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>Write an ALP to find the square of a number (1 to 10) using look-up table.</b></p>
+<p>AREA Square, CODE, READONLY</p>
+	<p>  ENTRY</p>
+	 <p> LDR R0, =TABLE	        ;Load the starting address of the Lookup Table</p>
+	 <p> LDR R1, =6		        ;Load no whose square is to be found</p>
+	 <p> MOV R1, R1, LSL#0X2       ;Generate address corresponding to the square of the given no</p>
+	<p>  ADD R0, R0, R1	        ;Load address of element in Lookup Table</p>
+	<p>  LDR R3, [R0]		        ;Get square of given no in R3</p>
+	<p>  NOP</p>
+	<p>  NOP</p>
+	<p>  NOP</p>
 
+<p>;Lookup Table contains SQUARES of nos from 0 to 10 (in HEX)</p>
+<p>TABLE DCD 0X00000000            ;SQUARE OF 0=0</p>
+	<p>  DCD 0X00000001	        ;SQUARE OF 1=1</p>
+	 <p> DCD 0X00000004	        ;SQUARE OF 2=4</p>
+	 <p> DCD 0X00000009	        ;SQUARE OF 3=9</p>
+	 <p> DCD 0X00000010	        ;SQUARE OF 4=16</p>
+	 <p> DCD 0X00000019	        ;SQUARE OF 5=25</p>
+	 <p> DCD 0X00000024	        ;SQUARE OF 6=36</p>
+	 <p> DCD 0X00000031	        ;SQUARE OF 7=49</p>
+	 <p> DCD 0X00000040	        ;SQUARE OF 8=64</p>
+	 <p> DCD 0X00000051	        ;SQUARE OF 9=81</p>
+	 <p> DCD 0X00000064	        ;SQUARE OF 10=100</p>
+	 <p> END</p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>6.Write an ALP to find the largest/smallest number in an array of 32 numbers.</b></p>
+<p>i. AREA Largest, CODE, READONLY</p>
+	<p> ENTRY</p>
+	<p> MOV R5, #05</p>
+	<p> MOV R0, #0X40000000</p>
+	<p> LDR R1, [R0] </p>
+<p>LOOP ADD R0, R0, #04</p>
+	<p> LDR R2, [R0]</p>
+	 <p>CMP R1, R2</p>
+	 <p>BHI SKIP</p>
+	 <p>MOV R1, R2</p>
+<p>SKIP SUBS R5, R5, #01</p>
+	<p> CMP R5, #00</p>
+	 <p>BHI LOOP</p>
+	 <p>MOV R0, #0X4000001C</p>
+	 <p>STR R1,[R0]</p>
+	<p> END</p>
+<p><b>ii. AREA Smallest, CODE, READONLY</b></p>
+	<p> ENTRY</p>
+	<p> MOV R5, #05</p>
+	 <p>MOV R0, #0X40000000</p>
+	 <p>LDR R1, [R0]</p>
+<p>LOOP ADD R0, R0, #04</p>
+	<p> LDR R2, [R0]</p>
+	 <p>CMP R1, R2</p>
+	 <p>BLE SKIP</p>
+	 <p>MOV R1, R2</p>
+<p>SKIP SUB R5, R5, #01</p>
+	<p> CMP R5, #00</p>
+	 <p>BNE LOOP</p>
+	 <p>MOV R0, #0X4000001C</p>
+	 <p>STR R1,[R0]</p>
+	 <p>END</p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>7. Write an ALP to arrange a series of 32-bit numbers in ascending/descending order.</b></p>
+<p><b>i. AREA ASCENDING,CODE,READONLY</b></p>
+	<p>  ENTRY</p>
+	  <p>MOV R0,#05</p>
+<p>AGAIN MOV R1,#05</p>
+	<p>  MOV R2,#0x40000000</p>
+<p>LOOP  LDR R3,[R2]</p>
+	<p>  ADD R2,R2,#04</p>
+	  <p>LDR R4,[R2]</p>
+	  <p>CMP R3,R4</p>
+	  <p>BGT SKIP</p>
+	  <p>STR R3,[R2]</p>
+	  <p>SUB R2,R2,#04</p>
+	  <p>STR R4,[R2]</p>
+	  <p>ADD R2,R2,#04</p>
+<p>SKIP  SUB R1,R1,#01</p>
+	<p>  CMP R1,#00</p>
+ 	  <p>BNE LOOP</p>
+	  <p>SUB R0,R0,#01</p>
+	  <p>CMP R0,#00</p>
+	  <p>BNE AGAIN</p>
+	  <p>NOP</p>
+	  <p>NOP </p>
+	  <p>END</p>
+<p><b>ii.  AREA DESCENDING,CODE,READONLY</b></p>
+ 	 <p> ENTRY</p>
+  	  <p>MOV R0,#05</p>
+<p>AGAIN MOV R1,#05</p>
+ 	<p>  MOV R2,#0x40000000</p>
+<p>LOOP  LDR R3,[R2]</p>
+ 	<p>  ADD R2,R2,#04</p>
+ 	  <p>LDR R4,[R2]</p>
+ 	  <p>CMP R3,R4</p>
+ 	  <p>BLT SKIP</p>
+ 	  <p>STR R3,[R2]</p>
+ 	  <p>SUB R2,R2,#04</p>
+ 	  <p>STR R4,[R2]</p>
+ 	  <p>ADD R2,R2,#04</p>
+<p>SKIP  SUB R1,R1,#01</p>
+ 	<p>  CMP R1,#00</p>
+	  <p>BNE LOOP</p>
+	  <p>SUB R0,R0,#01</p>
+	  <p>CMP R0,#00</p>
+	  <p>BNE AGAIN</p>
+	  <p>NOP</p>
+	  <p>NOP </p>
+	  <p>END</p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>Expt.8. </p></b>
+<p><b>i) Write an ALP to count the number of ones and zeros in two consecutive memory locations.</p></b>
+<p>AREA OnesAndZeros, CODE, READONLY</p>
+	<p> ENTRY</p>
+	 <p>MOV R6, #0X40000000		;Load the two numbers </p>
+	 <p>MOV R2, #02			;2 memory location counter</p>
+	 <p>MOV R0, #00	                          ;Counter for ZEROS</p>
+	 <p>MOV R1, #00                                      ;Counter for ONES</p>
+<p>LOOP LDR R4, [R6]</p>
+	<p> MOV R3, #32			;32 bits counter</p>
+<p>HERE MOVS R4, R4, ROR #01</p>
+	<p> BHI ONE</p>
+	 <p>ADD R0, R0, #01</p>
+	 <p>B SKIP</p>
+<p>ONE  ADD R1, R1, #01</p>
+<p>SKIP SUB R3, R3, #01</p>
+	 <p>CMP R3, #00</p>
+	 <p>BNE HERE</p>
+	 <p>ADD R6, R6, #04</p>
+	 <p>SUB R2, R2, #01</p>
+	 <p>CMP R2, #00</p>
+	 <p>BNE LOOP</p>
+	 <p>NOP</p>
+	 <p>NOP</p>
+	 <p>END</p>
+<p><b>ii. Write an ALP to Scan a series of 32-bit numbers to find how many are negative.</p></b>
+<p>AREA NoOfNegativeNumbers, CODE, READONLY</p>
+	<p> ENTRY</p>
+	 <p>MOV R0, #05</p>					 
+	 <p>MOV R2, #0X40000000	;Loading the 5 numbers in this memory location</p>
+	 <p>LDR R1, [R2]</p>
+<p>LOOP MOVS R1, R1, LSL #01</p>
+	<p> BLS SKIP</p>						 
+	 <p>ADD R3, R3, #01</p>
+<p>SKIP ADD R2, R2, #04</p>
+	<p> LDR R1, [R2]</p>
+	 <p>SUB R0, R0, #01</p>
+	 <p>CMP R0, #00</p>
+	 <p>BNE LOOP</p>
+	<p> NOP</p>
+	 <p>NOP</p>
+	 <p>END</p>
+	 <hr style="color: blue; background-color: blue; height: 2px;">  </hr>
                 </main>
 
                 <p>Total Visitors: <span id="visitorCounter">0</span></p>
