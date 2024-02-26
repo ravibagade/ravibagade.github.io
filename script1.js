@@ -1,1 +1,1 @@
-alert("Welcome to Assignment Section!");
+alert("Welcome to Notes Section!");
