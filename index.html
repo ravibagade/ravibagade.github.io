@@ -76,6 +76,52 @@
         <h2>Welcome to Class</h2>
         
     </section>
+	    <style>
+        #image-container {
+            overflow: hidden;
+            width: 1000px; /* Adjust the width of the container as needed */
+            margin: 0 auto;
+        }
+
+        #image-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="image-container">
+    <div id="image-slider">
+        <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
+        <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
+        <!-- Add more slides as needed -->
+    </div>
+</div>
+
+<script>
+    const imageSlider = document.getElementById('image-slider');
+
+    function nextSlide() {
+        // Move the first slide to the end, creating a sliding effect
+        const firstSlide = imageSlider.children[0];
+        imageSlider.appendChild(firstSlide.cloneNode(true));
+        imageSlider.removeChild(firstSlide);
+    }
+
+    // Set an interval to move to the next slide every specified intervalTime (in milliseconds)
+    setInterval(nextSlide, 2000); // Adjust the interval time as needed
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
