@@ -1,1 +1,1327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Programs</title>
+    
+        <h2>Welcome! to My Website</h2>
+        <title>Java Programming</title>
+<body>
+<button onclick="toggleContent()">Show Content</button>
+<div id="content" style="display: none;">
+    <div class="center-left">
+        <form id="loginForm" onsubmit="return validateForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <span id="usernameError" class="error"></span><br>
 
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error"></span><br>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <!-- Content to be displayed after login (initially hidden) -->
+        <div class="content" style="display: none;">
+            <p>
+                <nav>
+                    <ul>
+                        <li><a href="#Experiment1">Experiment 1</a></li>
+                        <!-- Fix: Remove spaces in the href values -->
+                        <li><a href="#Experiment2">Experiment 2</a></li>
+                        <li><a href="#Experiment3">Experiment 3</a></li>
+                        <li><a href="#Experiment4">Experiment 4</a></li>
+                    </ul>
+                </nav>
+
+                <main>
+                    <iframe src="https://www.jdoodle.com/online-java-compiler" width="100%" height="500"></iframe>
+                    <hr style="color: blue; background-color: red; height: 2px;">
+
+                    <section id="Experiment1">
+                        <h2>Experiment 1</h2>
+                        <p><b>1.a) Write a program to accept two integer numbers from the standard input and
+                                perform the following arithmetic operations: addition, subtraction, and
+                                multiplication</b></p>
+                        <hr style="color: blue; background-color: blue; height: 2px;">
+                    </section>
+<p> <div class="center-left">
+       <p>public class ArithmeticOperations {</p>
+        <p>public static void main(String[] args) { </p>
+        <p> Scanner scanner = new Scanner(System.in); </p>
+        <p> // Input first number </p>
+        <p>System.out.print("Enter the first number: "); </p>
+         <p>int num1 = scanner.nextInt(); </p>
+
+         <p>// Input second number </p>
+        <p> System.out.print("Enter the second number: "); </p>
+         <p>int num2 = scanner.nextInt(); </p>
+        <p> // Addition </p>
+         <p>int sum = num1 + num2; </p>
+         <p>System.out.println("Sum: " + sum); </p>
+         <p>// Subtraction </p>
+        <p> int difference = num1 - num2; </p>
+        <p> System.out.println("Difference: " + difference); </p>
+
+         <p>// Multiplication </p>
+         <p>int product = num1 * num2; </p>
+        <p> System.out.println("Product: " + product); </p>
+
+         <p>// Close the scanner to avoid resource leak </p>
+         <p>scanner.close();</p>
+    }
+}
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+      <p><b>1b)Write a program to calculate simple and compound interest</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+       <p>
+          <p>public static void main(String[] args) {</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+
+        <p>// Input principal amount</p>
+        <p>System.out.print("Enter the principal amount: ");</p>
+        <p>double principal = scanner.nextDouble();</p>
+
+        <p>// Input rate of interest</p>
+        <p>System.out.print("Enter the rate of interest (in percentage): ");</p>
+        <p>double rate = scanner.nextDouble();</p>
+
+        <p>// Input time in years</p>
+        <p>System.out.print("Enter the time (in years): ");</p>
+        double time = scanner.nextDouble();</p>
+
+        <p>// Calculate simple interest</p>
+        <p>double simpleInterest = (principal * rate * time) / 100;</p>
+
+        <p>// Calculate compound interest</p>
+        <p>double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;</p>
+
+        <p>// Display the results</p>
+        <p>System.out.println("Simple Interest: " + simpleInterest);</p>
+        <p>System.out.println("Compound Interest: " + compoundInterest);</p>
+
+        <p>// Close the scanner to avoid resource leak</p>
+        <p>scanner.close();</p>
+    }
+}
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+      <p><b>1c)Write a Program to Swap Two Numbers with and without temporary variables.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+       <p>
+        <p>  public static void main(String[] args) {</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+
+<p>        // Input principal amount</p>
+   <p>     System.out.print("Enter the principal amount: ");</p>
+      <p>  double principal = scanner.nextDouble();</p>
+
+<p>        // Input rate of interest</p>
+   <p>     System.out.print("Enter the rate of interest (in percentage): ");</p>
+      <p>  double rate = scanner.nextDouble();</p>
+
+<p>        // Input time in years</p>
+   <p>     System.out.print("Enter the time (in years): ");</p>
+      <p>  double time = scanner.nextDouble();</p>
+
+<p>        // Calculate simple interest</p>
+   <p>     double simpleInterest = (principal * rate * time) / 100;</p>
+
+<p>        // Calculate compound interest</p>
+   <p>     double compoundInterest = principal * Math.pow((1 + rate / 100), time) - principal;</p>
+
+<p>        // Display the results</p>
+   <p>     System.out.println("Simple Interest: " + simpleInterest);</p>
+      <p>  System.out.println("Compound Interest: " + compoundInterest);</p>
+
+<p>        // Close the scanner to avoid resource leak</p>
+   <p>     scanner.close();</p>
+    }
+}
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>1.<b>Swapping with a Temporary Variable</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class SwapWithTempVariable {</p>
+ <p>   public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+    <p>    // Input the two numbers</p>
+     <p>   System.out.print("Enter the first number: ");</p>
+       <p> int num1 = scanner.nextInt();</p>
+
+        <p>System.out.print("Enter the second number: ");</p>
+        <p>int num2 = scanner.nextInt();</p>
+
+        <p>// Swapping with a temporary variable</p>
+       <p> int temp;</p>
+       <p> temp = num1;</p>
+        <p>num1 = num2;</p>
+        <p>num2 = temp;</p>
+
+        <p>// Display the swapped numbers</p>
+        <p>System.out.println("After swapping (with temporary variable):");</p>
+        <p>System.out.println("First number: " + num1);</p>
+        <p>System.out.println("Second number: " + num2);</p>
+
+        <p>// Close the scanner to avoid resource leak</p>
+        <p>scanner.close();</p>
+    }
+}
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>2.Swapping without a Temporary Variable</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class SwapWithoutTempVariable {</p>
+ <p>   public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+   <p>     // Input the two numbers</p>
+    <p>    System.out.print("Enter the first number: ");</p>
+      <p>  int num1 = scanner.nextInt();</p>
+
+      <p>  System.out.print("Enter the second number: ");</p>
+       <p> int num2 = scanner.nextInt();</p>
+
+       <p> // Swapping without a temporary variable</p>
+       <p> num1 = num1 + num2;</p>
+        <p>num2 = num1 - num2;</p>
+        <p>num1 = num1 - num2;</p>
+
+        <p>// Display the swapped numbers</p>
+        <p>System.out.println("After swapping (without temporary variable):");</p>
+        <p>System.out.println("First number: " + num1);</p>
+        <p>System.out.println("Second number: " + num2);  </p>   
+    }
+}
+</div>
+
+        </section>
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 2">
+            <h2>Experiment 2</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+            <p><b>2a)Write a program that prints all real solutions to the quadratic equation ax2+bx+c=0. Read in a, b, c and use the quadratic formula.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><div class="center-left">
+         <p> import java.util.Scanner;</p>
+<p>public class QuadraticSolver {</p>
+  <p>  public static void main(String[] args) {</p>
+        <p>// Create a Scanner object to read input from the user</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+        <p>// Read coefficients a, b, and c from the user</p>
+        <p>System.out.print("Enter coefficient a: ");</p>
+        <p>double a = scanner.nextDouble();</p>
+        <p>System.out.print("Enter coefficient b: ");</p>
+        <p>double b = scanner.nextDouble();</p>
+        <p>System.out.print("Enter coefficient c: ");</p>
+        <p>double c = scanner.nextDouble();</p>
+        <p>// Calculate the discriminant</p>
+        <p>double discriminant = b * b - 4 * a * c;</p>
+
+<p>        // Check if the discriminant is non-negative for real solutions</p>
+   <p>     if (discriminant >= 0) {</p>
+      <p>      // Calculate the real solutions using the quadratic formula</p>
+         <p>   double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);</p>
+            <p>double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);</p>
+
+<p>            // Print the real solutions</p>
+   <p>         System.out.println("Real solutions:");</p>
+      <p>      System.out.println("Root 1: " + root1);</p>
+         <p>   System.out.println("Root 2: " + root2);</p>
+        <p>} else {</p>
+           <p> // If the discriminant is negative, no real solutions exist</p>
+            <p>System.out.println("No real solutions.");</p>
+        }
+    } }
+
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>2b)Write a Program to display All Prime Numbers from 1 to N.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+        <p> import java.util.Scanner;</p>
+<p>public class PrimeNumbers {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  // Create a Scanner object to read input from the user</p>
+        <p>Scanner scanner = new Scanner(System.in);</p>
+
+<p>        // Read the value of N from the user</p>
+   <p>     System.out.print("Enter the value of N: ");</p>
+      <p>  int N = scanner.nextInt();</p>
+        <p>System.out.println("Prime numbers from 1 to " + N + ":");</p>
+
+<p>        // Iterate through numbers from 2 to N</p>
+   <p>     for (int i = 2; i <= N; i++) {</p>
+      <p>      boolean isPrime = true;</p>
+
+<p>            // Check if i is divisible by any number from 2 to the square root of i</p>
+   <p>         for (int j = 2; j <= Math.sqrt(i); j++) {</p>
+      <p>          if (i % j == 0) {</p>
+         <p>           isPrime = false;</p>
+            <p>        break;</p>
+               <p> }</p>
+           <p> }</p>
+            <p>// If i is not divisible by any number, it is prime</p>
+            <p>if (isPrime) {</p>
+               <p> System.out.print(i + " ");</p>
+            }
+        }
+    }
+}
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>2c)Write a Program for factorial of a number.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+      <p>  import java.util.Scanner;</p>
+
+<p>public class Factorial {</p>
+
+<p>    public static void main(String[] args) {</p>
+   <p>     // Create a Scanner object to read input from the user</p>
+      <p>  Scanner scanner = new Scanner(System.in);</p>
+
+<p>        // Read the number for which factorial is to be calculated</p>
+   <p>     System.out.print("Enter a non-negative integer: ");</p>
+      <p>  int number = scanner.nextInt();</p>
+
+<p>        // Close the scanner to prevent resource leak</p>
+   <p>     scanner.close();</p>
+
+<p>        // Calculate and display the factorial</p>
+   <p>     long factorial = 1;</p>
+
+<p>        if (number < 0) {</p>
+   <p>         System.out.println("Factorial is not defined for negative numbers.");</p>
+      <p>  } else {</p>
+         <p>   // Calculate factorial without using additional methods</p>
+            <p>for (int i = 1; i <= number; i++) {</p>
+               <p> factorial *= i;</p>
+<p>            }</p>
+
+<p>            System.out.println("Factorial of " + number + " is: " + factorial);</p>
+        }
+    }
+}
+</div>
+         </p>
+        </section>
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 3">
+            <h2>Experiment 3</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+            <p><b>3a)Write a program to search a given element in the array using linear and binary search techniques.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+linear Search
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+<div class="center-left">
+       <p> public class LinearSearch {</p>
+    <p>public static int linearSearch(int[] arr, int target) {</p>
+       <p> for (int i = 0; i < arr.length; i++) {</p>
+          <p>  if (arr[i] == target) {</p>
+             <p>   return i; // Return the index if the element is found</p>
+            <p>}</p>
+        <p>}</p>
+        <p>return -1; // Return -1 if the element is not found</p>
+    <p>}</p>
+
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};</p>
+      <p>  int target = 5;</p>
+        <p>int result = linearSearch(arr, target);</p>
+        
+        <p>if (result != -1) {</p>
+           <p> System.out.println("Element " + target + " found at index " + result + ".");</p>
+        <p>} else {</p>
+            System.out.println("Element " + target + " not found in the array.");</p>
+        }
+    }
+}
+
+         </p>
+<p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+Binary Search
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class BinarySearch {</p>
+   <p> public static int binarySearch(int[] arr, int target) {</p>
+      <p>  int low = 0, high = arr.length - 1;</p>
+
+<p>        while (low <= high) {</p>
+   <p>         int mid = (low + high) / 2;</p>
+      <p>      int midElement = arr[mid];</p>
+
+<p>            if (midElement == target) {</p>
+   <p>             return mid; // Return the index if the element is found</p>
+      <p>      } else if (midElement < target) {</p>
+         <p>       low = mid + 1; // Search in the right half</p>
+            <p>} else {</p>
+               <p> high = mid - 1; // Search in the left half</p>
+            }
+        }
+
+<p>        return -1; // Return -1 if the element is not found</p>
+    }
+
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};</p>
+      <p>  int target = 5;</p>
+        <p>int result = binarySearch(arr, target);</p>
+
+<p>        if (result != -1) {</p>
+   <p>         System.out.println("Element " + target + " found at index " + result + ".");</p>
+      <p>  } else {</p>
+         <p>   System.out.println("Element " + target + " not found in the array.");</p>
+        }
+    }
+}
+
+</p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+  <p><b>3b)	Write a program to sort the elements in ascending and descending order using bubble sort.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+<p><b>bubbleSortAscending</b></p>
+       <p>public class BubbleSort {</p>
+    <p>public static void bubbleSortAscending(int[] arr) {</p>
+       <p> int n = arr.length;</p>
+
+<p>        for (int i = 0; i < n - 1; i++) {</p>
+   <p>         for (int j = 0; j < n - i - 1; j++) {</p>
+      <p>          if (arr[j] > arr[j + 1]) {</p>
+         <p>           // Swap arr[j] and arr[j + 1]</p>
+            <p>        int temp = arr[j];</p>
+               <p>     arr[j] = arr[j + 1];</p>
+                  <p>  arr[j + 1] = temp;</p>
+                }
+            }
+        }
+    }
+
+   <p> public static void main(String[] args) {</p>
+      <p>  int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
+        
+        <p>System.out.println("Original array: " + Arrays.toString(arr));</p>
+
+<p>        // Sort in ascending order</p>
+   <p>     bubbleSortAscending(arr);</p>
+
+<p>        System.out.println("Array in ascending order: " + Arrays.toString(arr));</p>
+    }
+}
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p><b>bubbleSortDescending</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>public class BubbleSort {</p>
+   <p> public static void bubbleSortDescending(int[] arr) {</p>
+      <p>  int n = arr.length;</p>
+
+<p>        for (int i = 0; i < n - 1; i++) {</p>
+   <p>         for (int j = 0; j < n - i - 1; j++) {</p>
+      <p>          if (arr[j] < arr[j + 1]) {</p>
+         <p>           // Swap arr[j] and arr[j + 1]</p>
+            <p>        int temp = arr[j];</p>
+               <p>     arr[j] = arr[j + 1];</p>
+                  <p>  arr[j + 1] = temp;</p>
+                }
+            }
+        }
+    }
+
+   <p> public static void main(String[] args) {</p>
+      <p>  int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
+        
+        <p>System.out.println("Original array: " + Arrays.toString(arr));</p>
+
+<p>        // Sort in descending order</p>
+   <p>     bubbleSortDescending(arr);</p>
+
+<p>        System.out.println("Array in descending order: " + Arrays.toString(arr));</p>
+    }
+}
+         </p>
+
+         </p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+ <p><b>3c)Write a program to find the largest and smallest element in an array.</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>
+ <p>public class FindMinMax {</p>
+    <p>public static void findMinMax(int[] arr) {</p>
+       <p> if (arr == null || arr.length == 0) {</p>
+          <p>  System.out.println("Array is empty.");</p>
+            <p>return;</p>
+        }
+
+<p>        int min = arr[0];</p>
+   <p>     int max = arr[0];</p>
+
+<p>        for (int i = 1; i < arr.length; i++) {</p>
+   <p>         if (arr[i] < min) {</p>
+      <p>          min = arr[i];</p>
+         <p>   } else if (arr[i] > max) {</p>
+            <p>    max = arr[i];</p>
+            }
+        }
+
+<p>        System.out.println("Smallest element: " + min);</p>
+   <p>     System.out.println("Largest element: " + max);</p>
+    }
+
+<p>    public static void main(String[] args) {</p>
+   <p>     int[] arr = {64, 34, 25, 12, 22, 11, 90};</p>
+
+<p>        System.out.println("Array: " + Arrays.toString(arr));</p>
+
+<p>        findMinMax(arr);
+    }
+}
+<hr style="color: blue; background-color: red; height: 2px;">  </hr>
+        <section id="Experiment 4">
+            <h2>Experiment 4</h2>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+ <p><b>4)Given two matrices A and B, write a program to:
+a) Add the matrices
+b) Multiply the matrices
+c) Find the determinant of a matrix
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>import java.util.Scanner;</p>
+
+<p>public class MatrixOperations {</p>
+
+<p>    public static void main(String[] args) {</p>
+  <p>      Scanner scanner = new Scanner(System.in);</p>
+
+<p>        System.out.println("Enter details for Matrix A:");</p>
+  <p>      double[][] matrixA = readMatrix(scanner);</p>
+
+<p>        System.out.println("Enter details for Matrix B:");</p>
+  <p>      double[][] matrixB = readMatrix(scanner);</p>
+
+<p>        System.out.println("Matrix A:");</p>
+  <p>      printMatrix(matrixA);</p>
+
+<p>        System.out.println("Matrix B:");</p>
+  <p>        printMatrix(matrixB);</p>
+
+<p>        // a) Add Matrices</p>
+  <p>      double[][] sumMatrix = addMatrices(matrixA, matrixB);</p>
+    <p>    System.out.println("Sum of Matrices A and B:");</p>
+      <p>  printMatrix(sumMatrix);</p>
+
+<p>        // b) Multiply Matrices</p>
+  <p>      double[][] productMatrix = multiplyMatrices(matrixA, matrixB);</p>
+    <p>    System.out.println("Product of Matrices A and B:");</p>
+      <p>  printMatrix(productMatrix);</p>
+
+<p>        // c) Find Determinant of Matrix A</p>
+  <p>      double determinantA = findDeterminant(matrixA);</p>
+    <p>    System.out.println("Determinant of Matrix A: " + determinantA);</p>
+
+<p>        scanner.close();</p>
+    }
+
+<p>    // Method to read a matrix from the user</p>
+  <p>  private static double[][] readMatrix(Scanner scanner) {</p>
+     <p>   System.out.print("Enter the number of rows: ");</p>
+       <p> int rows = scanner.nextInt();</p>
+        <p>System.out.print("Enter the number of columns: ");</p>
+        <p>int columns = scanner.nextInt();</p>
+
+<p>        double[][] matrix = new double[rows][columns];</p>
+
+<p>        System.out.println("Enter matrix elements:");</p>
+  <p>      for (int i = 0; i < rows; i++) {</p>
+    <p>        for (int j = 0; j < columns; j++) {</p>
+      <p>          System.out.print("Enter element at position (" + (i + 1) + "," + (j + 1) + "): ");</p>
+        <p>        matrix[i][j] = scanner.nextDouble();</p>
+            }
+        }
+
+ <p>       return matrix;</p>
+    }
+
+    <p>// Method to print a matrix</p>
+<p>    private static void printMatrix(double[][] matrix) {</p>
+  <p>      for (double[] row : matrix) {</p>
+    <p>        for (double element : row) {</p>
+      <p>          System.out.print(element + " ");</p>
+            }
+        <p>    System.out.println();</p>
+        }
+    }
+
+<p>    // Method to add two matrices</p>
+  <p>  private static double[][] addMatrices(double[][] matrixA, double[][] matrixB) {</p>
+    <p>    int rows = matrixA.length;</p>
+<p>        int columns = matrixA[0].length;</p>
+
+<p>        double[][] sumMatrix = new double[rows][columns];</p>
+
+<p>        for (int i = 0; i < rows; i++) {</p>
+  <p>          for (int j = 0; j < columns; j++) {</p>
+    <p>            sumMatrix[i][j] = matrixA[i][j] + matrixB[i][j];</p>
+            }
+        }
+
+<p>        return sumMatrix;</p>
+    }
+
+    <p>// Method to multiply two matrices</p>
+    <p>private static double[][] multiplyMatrices(double[][] matrixA, double[][] matrixB) {</p>
+    <p>    int rowsA = matrixA.length;</p>
+  <p>      int columnsA = matrixA[0].length;</p>
+<p>        int columnsB = matrixB[0].length;</p>
+
+<p>        double[][] productMatrix = new double[rowsA][columnsB];</p>
+
+      <p>  for (int i = 0; i < rowsA; i++) {</p>
+    <p>        for (int j = 0; j < columnsB; j++) {</p>
+  <p>              for (int k = 0; k < columnsA; k++) {</p>
+<p>                    productMatrix[i][j] += matrixA[i][k] * matrixB[k][j];</p>
+                }
+            }
+        }
+
+<p>        return productMatrix;</p>
+    }
+
+    <p>// Method to find determinant of a 2x2 or 3x3 matrix</p>
+    <p>private static double findDeterminant(double[][] matrix) {</p>
+    <p>    if (matrix.length != matrix[0].length) {</p>
+  <p>          throw new IllegalArgumentException("Determinant can only be calculated for square matrices.");</p>
+        }
+
+<p>        int size = matrix.length;</p>
+
+        <p>if (size == 2) {</p>
+          <p>  return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];</p>
+        <p>} else if (size == 3) {</p>
+        <p>    return matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1])</p>
+      <p>              - matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0])</p>
+    <p>                + matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);</p>
+  <p>      } else {</p>
+<p>            throw new UnsupportedOperationException("Determinant calculation is not supported for matrices larger than 3x3.");</p>
+        }
+    }
+}
+ <p><b>5)Write a java program to perform the following:
+a) Reverse a string 
+b) Check for palindrome 
+c) Compare two strings
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p> a) Reverse a string</p>
+<p> import java.io.*;</p>
+<p> import java.util.Scanner;</p>
+ 
+<p> class GFG {</p>
+    <p> public static void main (String[] args) {</p>
+       
+        <p> String str= "Geeks", nstr="";</p>
+       <p>  char ch;</p>
+       
+      <p> System.out.print("Original word: </p>
+      <p> System.out.println("Geeks"); //Example word</p>
+       
+     <p>  for (int i=0; i<str.length(); i++)</p>
+      {
+        <p> ch= str.charAt(i); //extracts each character</p>
+        <p> nstr= ch+nstr; //adds each character in front of the existing string </p>
+    <p>   }</p>
+      <p> System.out.println("Reversed word: "+ nstr);</p>
+    <p> }}</p>
+
+<p> b) Check for palindrome </p>
+<p> class PalindromeExample{</p>  
+ <p> public static void main(String args[]){  </p>
+  <p> int r,sum=0,temp;    </p>
+ <p>  int n=454;//It is the number variable to be checked for palindrome  </p>
+  
+  <p> temp=n;    </p>
+  <p> while(n>0){    </p>
+   <p> r=n%10;  //getting remainder  </p>
+   <p> sum=(sum*10)+r;    </p>
+   <p> n=n/10;    </p>
+  <p> }    </p>
+ <p>  if(temp==sum)    </p>
+   <p> System.out.println("palindrome number ");  </p>  
+  <p> else    </p>
+   <p> System.out.println("not palindrome");    </p>
+<p> }  </p>
+<p> }  </p>
+
+<p> c) Compare two strings</p>
+
+<p> Public class StringComparison</p>
+ 
+<p> {</p>
+    <p> Public static void main(String[] args)</p>
+ 
+<p> {</p>
+    <p>     String str1 = "Hello";</p>
+        <p> String str2 = "Hello";</p>
+       
+
+        <p> // Using equals()</p>
+        <p> System.out.println("Using equals():");</p>
+    <p>     System.out.println(str1.equals(str2));   // true</p>
+    <p> } </p>
+<p> }</p>
+<hr style="color: red; background-color: blue; height: 2px;">  </hr>
+<p><b><p>6)Create a Java class called Student with the following details as variables within it.</p>
+ <p>USNName Branch and Phone.Write a Java program to create n Student objects and print the USN, Name, Branch, and Phone of these objects with suitable headings.</p>
+</b></p>
+<hr style="color: blue; background-color: blue; height: 2px;">  </hr>
+<p>import java.util.Scanner;</p>
+
+<p>class Student {</p>
+  <p>  String usn;</p>
+   <p> String name;</p>
+    <p>String branch;</p>
+    <p>String phone;</p>
+<p>}</p>
+
+<p>public class StudentDemo {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  Scanner scanner = new Scanner(System.in);</p>
+
+        <p>// Get the number of students</p>
+        <p>System.out.print("Enter the number of students: ");</p>
+        <p>int n = scanner.nextInt();</p>
+
+        <p>// Create an array to store n Student objects</p>
+        <p>Student[] students = new Student[n];</p>
+
+        <p>// Input details for each student</p>
+      <p>  for (int i = 0; i < n; i++) {</p>
+         <p>   students[i] = new Student();</p>
+
+            <p>System.out.println("Enter details for Student " + (i + 1) + ":");</p>
+            <p>System.out.print("USN: ");</p>
+            <p>students[i].usn = scanner.next();</p>
+            <p>System.out.print("Name: ");</p>
+            <p>students[i].name = scanner.next();</p>
+            <p>System.out.print("Branch: ");</p>
+            <p>students[i].branch = scanner.next();</p>
+            <p>System.out.print("Phone: ");</p>
+            <p>students[i].phone = scanner.next();</p>
+        <p>}</p>
+
+        <p>// Display details of each student</p>
+        <p>System.out.println("\nDetails of Students:");</p>
+        <p>for (int i = 0; i < n; i++) {</p>
+           <p> System.out.println("Student " + (i + 1) + " -");</p>
+            <p>System.out.println("USN: " + students[i].usn);</p>
+            <p>System.out.println("Name: " + students[i].name);</p>
+            <p>System.out.println("Branch: " + students[i].branch);</p>
+            <p>System.out.println("Phone: " + students[i].phone);</p>
+            <p>System.out.println("-----------------------------");</p>
+       <p> }</p>
+
+       <p> // Close the scanner</p>
+        <p>scanner.close();</p>
+    <p>}</p>
+<p>}</p>
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+ <p>Experiment 7: </p>
+ 
+ <p>Write a Java program to create a class known as “BankAccount” with methods called deposit() and withdraw(). </p>
+ <p>Create a subclass called SBAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.</p>
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+<p>class BankAccount {</p>
+   <p> protected double balance;</p>
+
+   <p> public BankAccount(double initialBalance) {</p>
+      <p>  this.balance = initialBalance;</p>
+    <p>}</p>
+
+    <p>public void deposit(double amount) {</p>
+       <p> balance += amount;</p>
+        <p>System.out.println("Deposited: $" + amount);</p>
+<p>    }</p>
+
+    <p>public void withdraw(double amount) {</p>
+     <p>   if (amount <= balance) { </p>
+      <p>      balance -= amount;</p>
+         <p>   System.out.println("Withdrawn: $" + amount);</p>
+       <p> } else {</p>
+        <p>    System.out.println("Insufficient funds. Withdrawal canceled.");</p>
+       <p> }</p>
+       <p> displayBalance();</p>
+   <p> }</p>
+
+   <p> public void displayBalance() {</p>
+      <p>  System.out.println("Current Balance: $" + balance);</p>
+   <p> }</p>
+<p>}</p>
+
+<p>class SBAccount extends BankAccount {</p>
+   <p> public SBAccount(double initialBalance) {</p>
+      <p>  super(initialBalance);</p>
+   <p> }</p>
+
+    <p>@Override</p>
+    <p>public void withdraw(double amount) {</p>
+       <p> if (balance - amount >= 100) {</p>
+          <p>  super.withdraw(amount);</p>
+        <p>} else {</p>
+           <p> System.out.println("Withdrawal canceled. Minimum balance requirement not met.");</p>
+       <p> }</p>
+    <p>}</p>
+<p>}</p>
+
+<p>public class Main {
+   <p> public static void main(String[] args) {</p>
+      <p>  // Create a regular BankAccount</p>
+        <p>BankAccount regularAccount = new BankAccount(500);</p>
+        <p>regularAccount.deposit(200);</p>
+        <p>regularAccount.withdraw(50);</p>
+
+        <p>System.out.println("\n------------------------\n");</p>
+
+        <p>// Create an SBAccount (Savings Bank Account)</p>
+        <p>SBAccount savingsAccount = new SBAccount(300);</p>
+        <p>savingsAccount.deposit(100);</p>
+        <p>savingsAccount.withdraw(50);   // Will succeed</p>
+        <p>savingsAccount.withdraw(250);  // Will fail due to minimum balance requirement</p>
+    <p>}
+<p>}</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+ <p>Experiment 8: </p>
+ 
+ <p>Write a JAVA program demonstrating Method overloading and Constructor  Overloading.</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+<p>Public class OverloadingExample {</p>
+    
+   <p> // Constructor overloading</p>
+    <p>OverloadingExample() {</p>
+       <p> System.out.println("Default constructor called");</p>
+    <p>}</p>
+
+    <p>OverloadingExample(int num) {</p>
+       <p> System.out.println("Parameterized constructor with one int parameter called. Value: " + num);</p>
+    <p>}</p>
+
+    <p>OverloadingExample(int num1, int num2) {</p>
+       <p> System.out.println("Parameterized constructor with two int parameters called. Values: " + num1 + ", " + num2);</p>
+    <p>}</p>
+
+    <p>// Method overloading</p>
+    <p>void display() {</p>
+       <p> System.out.println("Method without parameters called");</p>
+   <p> }</p>
+
+    <p>void display(int num) {</p>
+       <p> System.out.println("Method with one int parameter called. Value: " + num);</p>
+    <p>}</p>
+
+    <p>void display(int num1, int num2) {</p>
+      <p>  System.out.println("Method with two int parameters called. Values: " + num1 + ", " + num2);</p>
+    <p>}</p>
+
+    <p>public static void main(String[] args) {</p>
+       <p> // Creating objects with different constructors </p>
+        <p>OverloadingExample obj1 = new OverloadingExample();</p>
+        <p>OverloadingExample obj2 = new OverloadingExample(10);</p>
+        <p>OverloadingExample obj3 = new OverloadingExample(20, 30);</p>
+
+        <p>// Invoking methods with different parameters</p>
+        <p>obj1.display();</p>
+        <p>obj2.display(50);</p>
+        <p>obj3.display(100, 200);</p>
+    <p>}</p>
+<p>}</p>
+<hr style="color: red; background-color: blue; height: 2px;">
+<hr style="color: blue; background-color: blue; height: 2px;"> 
+ <p>Experiment 9: </p>
+ 
+ <p>Design a super class called Staff with details as StaffId, Name, Phone, Salary. Extend this class by writing three subclasses namely Teaching (domain, publications),</p>
+ Technical (skills), and Contract (period). Write a Java program to read and display at least 3 staff objects of all three categories..</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>import java.util.Scanner;</p>
+
+<p>//Superclass</p>
+<p>class BaseStaff {</p>
+<p> private int staffId;</p>
+<p> private String name;</p>
+<p> private String phone;</p>
+<p> private double salary;</p>
+
+<p> public BaseStaff(int staffId, String name, String phone, double salary) {</p>
+<p>     this.staffId = staffId;</p>
+ <p>    this.name = name;</p>
+  <p>   this.phone = phone;</p>
+   <p>  this.salary = salary;</p>
+ <p>}</p>
+
+<p> public void displayDetails() {</p>
+<p>     System.out.println("Staff ID: " + staffId);</p>
+ <p>    System.out.println("Name: " + name);</p>
+ <p>    System.out.println("Phone: " + phone);</p>
+  <p>   System.out.println("Salary: $" + salary);</p>
+<p> }</p>
+<p>}</p>
+
+<p>//Subclass 1: TeachingStaff</p>
+<p>class TeachingStaff extends BaseStaff {</p>
+ <p>private String domain;</p>
+ <p>private String publications;</p>
+
+ <p>public TeachingStaff(int staffId, String name, String phone, double salary, String domain, String publications) {</p>
+    <p> super(staffId, name, phone, salary);</p>
+     <p>this.domain = domain;</p>
+     <p>this.publications = publications;</p>
+ <p>}</p>
+
+ <p>@Override</p>
+ <p>public void displayDetails() {</p>
+    <p> super.displayDetails();</p>
+     <p>System.out.println("Domain: " + domain);</p>
+     <p>System.out.println("Publications: " + publications);</p>
+ <p>}</p>
+<p>}</p>
+
+<p>//Subclass 2: Technical</p>
+<p>class TechnicalStaff extends BaseStaff {</p>
+ <p>private String skills;</p>
+
+<p> public TechnicalStaff(int staffId, String name, String phone, double salary, String skills) {</p>
+   <p>  super(staffId, name, phone, salary);</p>
+     <p>this.skills = skills;</p>
+ <p>}</p>
+
+ <p>@Override</p>
+ <p>public void displayDetails() {</p>
+    <p> super.displayDetails();</p>
+     <p>System.out.println("Skills: " + skills);</p>
+<p> }</p>
+<p>}</p>
+
+<p>//Subclass 3: Contract</p>
+<p>class ContractStaff extends BaseStaff {</p>
+<p> private int period;</p>
+
+ <p>public ContractStaff(int staffId, String name, String phone, double salary, int period) {</p>
+    <p> super(staffId, name, phone, salary);</p>
+     <p>this.period = period;</p>
+ <p>}</p>
+
+ <p>@Override</p>
+ <p>public void displayDetails() {</p>
+    <p> super.displayDetails();</p>
+    <p> System.out.println("Contract Period (months): " + period);</p>
+<p> }</p>
+<p>}</p>
+
+<p>public class StaffManagementSystem2 {</p>
+ <p>public static void main(String[] args) {</p>
+	 
+	<p>        // Creating Teaching staff objects</p>
+	   <p>     TeachingStaff teaching1 = new TeachingStaff(101, "John Doe", "123-456-7890", 60000, "Computer Science", "Research Papers");</p>
+	      <p>  TeachingStaff teaching2 = new TeachingStaff(102, "Jane Smith", "987-654-3210", 70000, "Mathematics", "Books on Algebra");</p>
+	        <p>TeachingStaff teaching3 = new TeachingStaff(103, "Bob Johnson", "111-222-3333", 55000, "Physics", "Scientific Journals");</p>
+
+	        <p>// Creating Technical staff objects</p>
+	        <p>TechnicalStaff technical1 = new TechnicalStaff(201, "Alice Brown", "555-666-7777", 80000, "Java, Python, SQL");</p>
+	        <p>TechnicalStaff technical2 = new TechnicalStaff(202, "Charlie Wilson", "444-333-2222", 75000, "C++, Linux");</p>
+	        <p>TechnicalStaff technical3 = new TechnicalStaff(203, "Eva Davis", "888-999-0000", 90000, "Web Development, JavaScript");</p>
+
+	        <p>// Creating Contract staff objects</p>
+	        <p>ContractStaff contract1 = new  ContractStaff(301, "Sam Green", "123-999-8888", 50000, 6);</p>
+	        <p>ContractStaff contract2 = new  ContractStaff(302, "Lisa White", "777-666-5555", 48000, 4);</p>
+	        <p>ContractStaff contract3 = new  ContractStaff(303, "David Lee", "333-444-5555", 55000, 8);</p>
+
+	        <p>// Displaying details of Teaching staff</p>
+	        <p>System.out.println("Teaching Staff Details:");</p>
+	        <p>teaching1.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>teaching2.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>Steaching3.displayDetails();</p>
+	        <p>System.out.println();</p>
+
+	        <p>// Displaying details of Technical staff</p>
+	        <p>System.out.println("Technical Staff Details:");</p>
+	        <p>technical1.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>technical2.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>technical3.displayDetails();</p>
+	        <p>System.out.println();</p>
+
+	       <p> // Displaying details of Contract staff</p>
+	        <p>System.out.println("Contract Staff Details:");</p>
+	        <p>contract1.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>contract2.displayDetails();</p>
+	        <p>System.out.println("------------------------");</p>
+	        <p>contract3.displayDetails();</p>
+	    <p>}</p>
+	<p>}</p>
+
+<p>Experiment 10: </p>
+ 
+ <p>a.Write a JAVA program to read two integers a and b. Compute a/b and print,</p>
+when b is not zero. Raise an exception when b is equal to zero. Also demonstrate working of ArrayIndexOutOfBound-Exception
+</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>import java.util.Scanner;</p>
+
+<p>public class ExceptionDemo {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  try {</p>
+         <p>   // Read two integers a and b</p>
+            <p>Scanner scanner = new Scanner(System.in);</p>
+            <p>System.out.print("Enter the value of a: ");</p>
+            <p>int a = scanner.nextInt();</p>
+            <p>System.out.print("Enter the value of b: ");</p>
+           <p> int b = scanner.nextInt();</p>
+
+            <p>// Check if b is not zero</p>
+           <p> if (b != 0) {</p>
+              <p>  // Compute a/b</p>
+                <p>int result = a / b;</p>
+                <p>System.out.println("Result of a/b: " + result);</p>
+            <p>} else {</p>
+               <p> // Raise an exception if b is zero</p>
+                <p>throw new ArithmeticException("Cannot divide by zero.");</p>
+            <p>}</p>
+
+            <p>// Demonstrate ArrayIndexOutOfBoundsException</p>
+            <p>int[] array = { 1, 2, 3 };</p>
+            <p>System.out.println("Demonstrating ArrayIndexOutOfBoundsException:");</p>
+            <p>System.out.println("Value at index 3: " + array[3]);</p>
+      <p>  } catch (ArithmeticException e) {</p>
+         <p>   System.out.println("Exception caught: " + e.getMessage());</p>
+        <p>} catch (ArrayIndexOutOfBoundsException e) {</p>
+           <p> System.out.println("Exception caught: " + e.getMessage());</p>
+        <p>} catch (Exception e) {</p>
+           <p> System.out.println("Generic exception caught: " + e.getMessage());</p>
+       <p> }</p>
+    <p>}</p>
+<p>}<p>
+<hr style="color: blue; background-color: blue; height: 2px;">
+<hr style="color: blue; background-color: red; height: 2px;">
+<p>b) Write a Java program to create a method that takes an integer as a parameter and throws an exception if the number is odd</p>
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>public class OddNumberExceptionDemo {</p>
+
+   <p> // Method that throws an exception if the number is odd</p>
+    <p>static void checkIfEven(int number) throws OddNumberException {</p>
+       <p> if (number % 2 != 0) {</p>
+          <p>  throw new OddNumberException("Number is odd: " + number);</p>
+        <p>} else {</p>
+           <p> System.out.println("Number is even: " + number);</p>
+        <p>}</p>
+   <p> }</p>
+
+    <p>public static void main(String[] args) {</p>
+       <p> try {</p>
+          <p>  // Test the method with different numbers</p>
+            <p>checkIfEven(4);  // Even number</p>
+            <p>checkIfEven(7);  // Odd number, will throw an exception</p>
+            <p>checkIfEven(10); // Even number</p>
+        <p>} catch (OddNumberException e) {</p>
+           <p> System.out.println("Exception caught: " + e.getMessage());</p>
+        <p>}</p>
+    <p>}</p>
+<p>}</p>
+
+<p>// Custom exception class for odd numbers</p>
+<p>class OddNumberException extends Exception {</p>
+   <p> public OddNumberException(String message) {</p>
+      <p>  super(message);</p>
+    <p>}</p>
+<p>}</p>
+
+<hr style="color: blue; background-color: red; height: 2px;">
+
+<p>EXPT 11.
+<p>Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). </p>
+<p>Create subclasses: SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals</p>
+<p> for each account type</p>
+<hr style="color: blue; background-color: red; height: 2px;">
+<p> abstract class BankAccount {</p>
+    <p> protected double balance;</p>
+
+    <p> public BankAccount(double initialBalance) {</p>
+        <p> this.balance = initialBalance;</p>
+    <p> }</p>
+
+    <p> public abstract void deposit(double amount);</p>
+
+   <p>  public abstract void withdraw(double amount);</p>
+
+   <p>  public double getBalance() {</p>
+       <p>  return balance;</p>
+    <p> }</p>
+<p> }</p>
+
+<p> class SavingsAccount extends BankAccount {</p>
+    <p> private double interestRate;</p>
+
+    <p> public SavingsAccount(double initialBalance, double interestRate) {</p>
+        <p> super(initialBalance);</p>
+        <p> this.interestRate = interestRate;</p>
+    <p> }</p>
+
+    <p> @Override</p>
+    <p> public void deposit(double amount) {</p>
+        <p> balance += amount;</p>
+        <p> applyInterest();</p>
+    <p> }</p>
+
+   <p> @Override</p>
+   <p> public void withdraw(double amount) {</p>
+      <p>  if (amount <= balance) {</p>
+         <p>   balance -= amount;</p>
+            <p>applyInterest();</p>
+       <p> } else {</p>
+          <p>  System.out.println("Insufficient funds");</p>
+        <p>}</p>
+    <p>}</p>
+
+    private void applyInterest() {</p>
+        balance += balance * interestRate;</p>
+    }</p>
+}</p>
+
+<p>class CurrentAccount extends BankAccount {</p>
+   <p> private double overdraftLimit;</p>
+
+    <p>public CurrentAccount(double initialBalance, double overdraftLimit) {</p>
+       <p> super(initialBalance);</p>
+        <p>this.overdraftLimit = overdraftLimit;</p>
+  <p>  }</p>
+
+    <p>@Override</p>
+    <p>public void deposit(double amount) {</p>
+       <p> balance += amount;</p>
+    <p>}</p>
+
+    <p>@Override</p>
+    <p>public void withdraw(double amount) {</p>
+       <p> if (amount <= balance + overdraftLimit) {</p>
+          <p>  balance -= amount;</p>
+        <p>} else {</p>
+           <p> System.out.println("Exceeded overdraft limit");</p>
+        <p>}</p>
+    <p>}</p>
+<p>}</p>
+
+<p>public class BankAccountExample {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  // Example usage</p>
+        <p>SavingsAccount savingsAccount = new SavingsAccount(1000, 0.05);</p>
+        <p>CurrentAccount currentAccount = new CurrentAccount(500, 200);</p>
+
+        <p>System.out.println("Savings Account Balance: " + savingsAccount.getBalance());</p>
+        <p>savingsAccount.deposit(200);</p>
+        <p>System.out.println("After deposit: " + savingsAccount.getBalance());</p>
+        <p>savingsAccount.withdraw(150);</p>
+        <p>System.out.println("After withdrawal: " + savingsAccount.getBalance());</p>
+
+        <p>System.out.println("\nCurrent Account Balance: " + currentAccount.getBalance());</p>
+        <p>currentAccount.withdraw(700);</p>
+        <p>System.out.println("After withdrawal: " + currentAccount.getBalance());</p>
+        <p>currentAccount.withdraw(300);</p>
+        <p>System.out.println("After withdrawal: " + currentAccount.getBalance());</p>
+    <p>}</p>
+<p>}</p>
+<hr style="color: blue; background-color: blue; height: 2px;">
+<p>EXPT 12.</p>
+<p>Create two packages P1 and P2.</p> 
+<p>In package P1, create class A, class B inherited from A, class C .</p>
+<p> In package P2, create class D inherited from class A in package P1 and class E.</p>
+ <p>Demonstrate working of access modifiers (private, public, protected, default) in all these classes using JAVA</p>
+<hr style="color: blue; background-color: red; height: 2px;">
+<p>// P1/A.java</p>
+<p>package P1;</p>
+
+<p>public class A {</p>
+   <p> private int privateVar;</p>
+    <p>int defaultVar;</p>
+    <p>protected int protectedVar;</p>
+    <p>public int publicVar;</p>
+
+    <p>public A() {</p>
+       <p> privateVar = 10;</p>
+        <p>defaultVar = 20;</p>
+       <p> protectedVar = 30;</p>
+       <p> publicVar = 40;</p>
+    <p>}</p>
+
+   <p> private void privateMethod() {</p>
+     <p>   System.out.println("Private method in class A");</p>
+    <p>}</p>
+
+   <p> void defaultMethod() {</p>
+      <p>  System.out.println("Default method in class A");</p>
+    <p>}</p>
+
+    <p>protected void protectedMethod() {</p>
+       <p> System.out.println("Protected method in class A");</p>
+    <p>}</p>
+
+    <p>public void publicMethod() {</p>
+       <p> System.out.println("Public method in class A");</p>
+   <p> }</p>
+<p>}</p>
+
+<p>// P1/B.java</p>
+<p>package P1;</p>
+
+<p>public class B extends A {</p>
+   <p> public void accessVariablesAndMethods() {</p>
+      <p>  // Accessing variables and methods of class A in class B</p>
+        <p>// privateVar and privateMethod are not accessible here</p>
+        <p>System.out.println("Inherited Variables: defaultVar=" + defaultVar +</p>
+           <p>     ", protectedVar=" + protectedVar + ", publicVar=" + publicVar);</p>
+        <p>defaultMethod();</p>
+        <p>protectedMethod();</p>
+        <p>publicMethod();</p>
+    <p>}</p>
+<p>}</p>
+
+<p>// P1/C.java</p>
+<p>package P1;</p>
+
+<p>public class C {</p>
+   <p> public void accessVariablesAndMethods() {</p>
+      <p>  A a = new A();</p>
+        <p>// Accessing variables and methods of class A in class C</p>
+        <p>// privateVar and privateMethod are not accessible here</p>
+        <p>System.out.println("Variables in class A: defaultVar=" + a.defaultVar +</p>
+           <p>     ", protectedVar=" + a.protectedVar + ", publicVar=" + a.publicVar);</p>
+        <p>a.defaultMethod();</p>
+        <p>a.protectedMethod();</p>
+        <p>a.publicMethod();</p>
+    <p>}</p>
+<p>Package P2:</p>
+<p>// P2/D.java</p>
+<p>package P2;</p>
+<p>import P1.A;</p>
+
+<p>public class D extends A {</p>
+   <p> public void accessVariablesAndMethods() {</p>
+      <p>  // Accessing variables and methods of class A in class D</p>
+        <p>// privateVar and privateMethod are not accessible here</p>
+        <p>System.out.println("Inherited Variables: defaultVar=" + defaultVar +</p>
+           <p>     ", protectedVar=" + protectedVar + ", publicVar=" + publicVar);</p>
+       <p>  defaultMethod();</p>
+       <p>  protectedMethod();</p>
+        <p> publicMethod();</p>
+    <p> }</p>
+<p> }</p>
+
+<p> // P2/E.java</p>
+<p>package P2;</p>
+
+<p>public class E {</p>
+   <p> public void accessClassAVariablesAndMethods() {</p>
+      <p>  A a = new A();</p>
+        <p>// Accessing variables and methods of class A from a different package in class E</p>
+        <p>// Only publicVar and publicMethod are accessible here</p>
+        <p>System.out.println("Public Variables and Methods in class A: publicVar=" + a.publicVar);</p>
+        <p>a.publicMethod();</p>
+    <p>}</p>
+<p>}</p>
+<p>Main Program (outside the packages):</p>
+<p>import P1.A;</p>
+<p>import P1.B;</p>
+<p>import P1.C;</p>
+<p>import P2.D;</p>
+<p>import P2.E;</p>
+
+<p>public class AccessModifiersDemo {</p>
+   <p> public static void main(String[] args) {</p>
+      <p>  A a = new A();</p>
+        <p>// Accessing variables and methods of class A from a different package</p>
+        <p>// Only publicVar and publicMethod are accessible here</p>
+        <p>System.out.println("Public Variables and Methods in class A: publicVar=" + a.publicVar);</p>
+        <p>a.publicMethod();</p>
+
+        <p>B b = new B();</p>
+        <p>b.accessVariablesAndMethods();</p>
+		 <p>       C c = new C();</p>
+        <p>c.accessVariablesAndMethods();</p>
+
+        <p>D d = new D();</p>
+        <p>d.accessVariablesAndMethods();</p>
+
+        <p>E e = new E();</p>
+        <p>e.accessClassAVariablesAndMethods();</p>
+    <p>}</p>
+<p>}</p>
+
+<hr style="color: blue; background-color: blue; height: 2px;">
+
+                </main>
+
+                <p>Total Visitors: <span id="visitorCounter">0</span></p>
+
+                <!-- Your other HTML content goes here -->
+
+                <script src="counter.js"></script>
+                <p>Total Visitors: <span id="visitorCounter1">0</span></p>
+
+                <script src="counter.js"></script>
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Reset error messages
+            document.getElementById('usernameError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+
+            // Validate username
+            if (username.length < 3) {
+                document.getElementById('usernameError').innerHTML = 'Username must be at least 3 characters';
+                return false;
+            }
+
+            // Validate password
+            if (password.length < 6) {
+                document.getElementById('passwordError').innerHTML = 'Password must be at least 6 characters';
+                return false;
+            }
+
+            // Hide the login form and show the content
+            document.getElementById('loginForm').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+
+            // Form is valid, prevent default form submission
+            return false;
+        }
+    </script>
+</div>
+<script>
+  function toggleContent() {
+    var content = document.getElementById("content");
+    content.style.display = content.style.display === "none" ? "block" : "none";
+  }
+</script>
+</body>
+
+</html>
