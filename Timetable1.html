@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Table</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> <!-- Include jsPDF from CDN -->
+</head>
+<button id="downloadPdf">Download PDF</button>
+
+    <title>Timetable Software</title>
+    <style>
+        /* CSS styles for the timetable */
+        .timetable {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .timetable th, .timetable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .timetable th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable Software</title>
+    <style>
+        /* CSS styles for the timetable */
+        .timetable {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .timetable th, .timetable td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .timetable th {
+            background-color: #f2f2f2;
+        }
+        .add-button {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="timetable">
+<table>
+    <tr>
+        <th></th>
+        <th>8:30AM -09.30AM</th>
+        <th>9:30AM- 10.30AM</th>
+        <th>10:30AM - 10.45AM</th>
+        <th>10.45AM -11.45AM</th>
+		<th>11.45AM -12.45PM</th>
+		<th>12.45PM-01.30PM</th>
+		<th>01.30PM-02.20PM</th>
+		<th>02.20PM-03.10PM</th>
+		<th>03.10PM-04.00PM</th>
+    </tr>
+    <tr>
+        <th>Monday</th>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td rowspan="6">Break</td> <!-- Use rowspan to extend the cell across multiple rows -->
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td rowspan="6">Break</td> <!-- Use rowspan to extend the cell across multiple rows -->
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+    </tr>
+    <tr>
+        <th>Tuesday</th>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+    </tr>
+    <tr>
+        <th>Wednesday</th>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+    </tr>
+    <tr>
+        <th>Thursday</th>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+    </tr>
+   <tr>
+        <th>Friday</th>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+    </tr>
+	 <tr>
+        <th>Saturday</th>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+        <td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+		<td><span class="add-button" onclick="addSubject(this)">Add</span></td>
+    </tr>
+</table>
+
+
+</div>
+
+<script>
+    function addSubject(cell) {
+        var subject = prompt("Enter subject:");
+        if (subject !== null && subject !== "") {
+            cell.innerHTML = subject;
+            cell.classList.remove("add-button");
+        }
+    }
+</script>
+
+</body>
+</html>
+
+</html>
+
+<div class="teacher-table">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Table</title>
+    <style>
+        /* CSS styles for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Faculty</th>
+        <th>Sub Code</th>
+    </tr>
+    <tr>
+        <td>
+            <select id="subjectDropdown">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="facultyDropdown">
+                <option value="Mr. Smith">Mr. Smith</option>
+                <option value="Ms. Johnson">Ms. Johnson</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="subCodeDropdown">
+                <option value="MATH101">MATH101</option>
+                <option value="SCI102">SCI102</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+    </tr>
+	    <tr>
+        <td>
+            <select id="subjectDropdown">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="facultyDropdown">
+                <option value="Mr. Smith">Mr. Smith</option>
+                <option value="Ms. Johnson">Ms. Johnson</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="subCodeDropdown">
+                <option value="MATH101">MATH101</option>
+                <option value="SCI102">SCI102</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+    </tr>
+	    <tr>
+        <td>
+            <select id="subjectDropdown">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="facultyDropdown">
+                <option value="Mr. Smith">Mr. Smith</option>
+                <option value="Ms. Johnson">Ms. Johnson</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="subCodeDropdown">
+                <option value="MATH101">MATH101</option>
+                <option value="SCI102">SCI102</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+    </tr>
+	    <tr>
+        <td>
+            <select id="subjectDropdown">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="facultyDropdown">
+                <option value="Mr. Smith">Mr. Smith</option>
+                <option value="Ms. Johnson">Ms. Johnson</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="subCodeDropdown">
+                <option value="MATH101">MATH101</option>
+                <option value="SCI102">SCI102</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+    </tr>
+	    <tr>
+        <td>
+            <select id="subjectDropdown">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="facultyDropdown">
+                <option value="Mr. Smith">Mr. Smith</option>
+                <option value="Ms. Johnson">Ms. Johnson</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="subCodeDropdown">
+                <option value="MATH101">MATH101</option>
+                <option value="SCI102">SCI102</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+    </tr>
+	    <tr>
+        <td>
+            <select id="subjectDropdown">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="facultyDropdown">
+                <option value="Mr. Smith">Mr. Smith</option>
+                <option value="Ms. Johnson">Ms. Johnson</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+        <td>
+            <select id="subCodeDropdown">
+                <option value="MATH101">MATH101</option>
+                <option value="SCI102">SCI102</option>
+                <!-- Add more options as needed -->
+            </select>
+        </td>
+    </tr>
+    <!-- Add more rows for additional subjects -->
+</table>
+<script>
+    document.getElementById("downloadPdf").addEventListener("click", function() {
+        const doc = new jsPDF(); // Create new PDF document
+        const htmlContent = document.body.innerHTML; // Get HTML content of the page
+        doc.html(htmlContent, {
+            callback: function (doc) {
+                doc.save("document.pdf"); // Save the PDF file with a specified name
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
