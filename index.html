@@ -3,91 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-</head>
-    <title>Welcome</title>
+    <title>Your Class - Welcome</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            color: #333;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
             padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
 
         nav {
-         background-color: #ffffff; /* Set the background color to white */
-    color: #333; /* Set the text color to a contrasting color, such as dark gray */
-    text-align: center;
-    padding: 20px;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
         }
-		nav a {
-    margin-right: 15px; /* Adjust the margin value as needed */
-    text-decoration: none;
-}
-<body>
-    <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flipping Text</title>
-  <style>
-    @keyframes flip {
-      0% {
-        transform: perspective(400px) rotateY(0);
-      }
-      50% {
-        transform: perspective(400px) rotateY(180deg);
-      }
-      100% {
-        transform: perspective(400px) rotateY(0);
-      }
-    }
 
-    .flipping-text {
-      display: inline-block;
-      font-family: Arial, sans-serif;
-	  color: #ff0000; 
-      font-size: 24px;
-      animation: flip 3s infinite;
-    }
-  </style>
-</head>
-<body>
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-    <header>
-        <h1>Your Class</h1>
-    </header>
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    <nav>
-        <!-- Include your navigation links here -->
-		
-		<a href="About.html" target="_blank">About</a>
-        <a href="Java_Programs.html" target="_blank">Java_Programs</a>
-		<a href="ARM.html" target="_blank">ARM Programs</a>
-        <a href="Assinment3.html" target="_blank">Assignment for 3rd Sem</a>
-		 <a href="Notes.html" target="_blank">Notes</a>
-		  <a href="Syllabus.html" target="_blank">VTU Syllabus</a>
-		  <a href="Python_Programs.html" target="_blank">Python Programs</a>
-    </nav>
-	    <section>
-        <!-- Your main content goes here -->
-        <h2>Welcome to Class</h2>
-        
-    </section>
-	    <style>
+        section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .flipping-text {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            color: #ff0000;
+            font-size: 1.5rem;
+            animation: flip 3s infinite;
+            margin: 10px 0;
+        }
+
+        @keyframes flip {
+            0% {
+                transform: perspective(400px) rotateY(0);
+            }
+            50% {
+                transform: perspective(400px) rotateY(180deg);
+            }
+            100% {
+                transform: perspective(400px) rotateY(0);
+            }
+        }
+
         #image-container {
             overflow: hidden;
-            width: 1000px; /* Adjust the width of the container as needed */
-            margin: 0 auto;
+            width: 80%;
+            max-width: 1000px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         #image-slider {
@@ -102,50 +99,76 @@
         img {
             width: 100%;
             height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-<div id="image-container">
-    <div id="image-slider">
-        <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
-        <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
-        <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
-        <!-- Add more slides as needed -->
+    <!-- Header Section -->
+    <header>
+        <h1>Your Class</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="About.html" target="_blank">About</a>
+        <a href="Java_Programs.html" target="_blank">Java Programs</a>
+        <a href="ARM.html" target="_blank">ARM Programs</a>
+        <a href="Assinment3.html" target="_blank">Assignment for 3rd Sem</a>
+        <a href="Notes.html" target="_blank">Notes</a>
+        <a href="Syllabus.html" target="_blank">VTU Syllabus</a>
+        <a href="Python_Programs.html" target="_blank">Python Programs</a>
+		<a href="Second_Hand_Books.html" target="_blank">Second Hand Books</a>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section>
+        <h2>Welcome to Class</h2>
+        <div class="flipping-text">Second Hand Text book are availabe <b>(new)</b></div>
+
+		<p><b><h1>1st assignment for 3rd Sem is updated (new)</h1></b></p>
+        <p>All ARM Programs are updated(new)</p>
+        <p>All the Java Programs are updated</p>
+    </section>
+
+    <!-- Image Slider -->
+    <div id="image-container">
+        <div id="image-slider">
+            <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
+        </div>
     </div>
-</div>
 
-<script>
-    const imageSlider = document.getElementById('image-slider');
+    <script>
+        const imageSlider = document.getElementById('image-slider');
 
-    function nextSlide() {
-        // Move the first slide to the end, creating a sliding effect
-        const firstSlide = imageSlider.children[0];
-        imageSlider.appendChild(firstSlide.cloneNode(true));
-        imageSlider.removeChild(firstSlide);
-    }
-
-    // Set an interval to move to the next slide every specified intervalTime (in milliseconds)
-    setInterval(nextSlide, 2000); // Adjust the interval time as needed
-</script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <p><div class="flipping-text"><small>1st assignemnt for 3rd Sem is updated <b>(new)</b></small></div></p>
-	 <p><div class="flipping-text"><small>All ARM Programs are updated <b>(new)</b></small></div></p>
-	<p>All the Java Programs are updated</p>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        function nextSlide() {
+            const firstSlide = imageSlider.children[0];
+            imageSlider.appendChild(firstSlide.cloneNode(true));
+            imageSlider.removeChild(firstSlide);
         }
-    </style>
-</head>
 
+        setInterval(nextSlide, 2000);
+    </script>
 
+    <!-- Footer Section -->
     <footer>
-        <!-- Include your footer content here -->
         <p>© 2024 My Website. All rights reserved.</p>
     </footer>
 
