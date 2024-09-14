@@ -1,3 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Navigation Bar */
+        .navbar {
+            background-color: #f4f4f4;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        .navbar a:hover {
+            color: #007BFF;
+        }
+        /* Category Tabs */
+        .categories {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .categories button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .categories button.active {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        /* Grid for Book/Product display */
+        .book-grid {
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .book-grid.active {
+            display: grid;
+        }
+        .book-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .book-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .book-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .book-item p {
+            color: #777;
+        }
+        .book-item a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .book-item a:hover {
+            background-color: #0056b3;
+        }
+        /* Footer */
+        .footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">Book Store</a>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Categories</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
 
-<p> Contact 87925 30743</p>
+    <!-- Category Tabs -->
+    <div class="categories">
+        <button class="active" onclick="showCategory('engineering')">Engineering</button>
+        <button onclick="showCategory('personality')">Personality Development</button>
+    </div>
+
+    <!-- Engineering Books -->
+    <div id="engineering" class="book-grid active">
+        <div class="book-item">
+            <img src="https://via.placeholder.com/150" alt="Engineering Book 1">
+            <h3>Basic Electronics</h3>
+            <p>Abida Kanvi</p>
+        </div>
+    </div>
+
+    <!-- Personality Development Books -->
+<div id="personality" class="book-grid">
+    <div class="book-item">
+        <div>
+		    <div id="image-container">
+        <div id="image-slider">
+            <div class="slide"><img src="image5.jpg" alt="image 5"></div>
+
+        </div>
+    </div>
+        <h3>Who will cry when you Die</h3>
+        <p>Robin Sharma</p>
+        <p>Cost: 100 Rs</p>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Book Store. All rights reserved.</p>
+    </div>
+
+    <!-- JavaScript to Handle Category Toggle -->
+    <script>
+        function showCategory(category) {
+            // Hide all book grids
+            document.querySelectorAll('.book-grid').forEach(grid => {
+                grid.classList.remove('active');
+            });
+            // Show the selected category
+            document.getElementById(category).classList.add('active');
+            
+            // Update active button
+            document.querySelectorAll('.categories button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
