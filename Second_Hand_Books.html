@@ -109,10 +109,70 @@
     </div>
 
     <!-- Category Tabs -->
-    <div class="categories">
-        <button class="active" onclick="showCategory('engineering')">Engineering</button>
-        <button onclick="showCategory('personality')">Personality Development</button>
-    </div>
+ <!-- Category Tabs -->
+<div class="categories" style="display: flex; justify-content: space-between; border-bottom: 2px solid #ccc; position: relative;">
+    <button class="active" onclick="showCategory('engineering')" style="flex: 1; padding: 10px; border-right: 1px solid #ccc;">
+        Engineering
+    </button>
+    
+    <button class="tab-tooltip" onclick="showCategory('personality')" style="flex: 1; padding: 10px; position: relative;">
+        Personality Development
+        <!-- Tooltip Prompt -->
+        <span class="tooltip-text">Click here for more!</span>
+    </button>
+</div>
+
+<style>
+    .categories button {
+        background-color: #f1f1f1;
+        border: none;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .categories button:hover {
+        background-color: #ddd;
+    }
+
+    .categories button.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    /* Tooltip Styling */
+    .tab-tooltip:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        opacity: 0;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        top: -35px;
+        right: 0;
+        z-index: 1;
+        width: 150px;
+        transition: opacity 0.3s;
+    }
+
+    /* Simple Pulse Animation */
+    .tab-tooltip {
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+</style>
+
 
     <!-- Engineering Books -->
     <div id="engineering" class="book-grid active">
@@ -133,6 +193,23 @@
             <p>R S Agarwal</p>
         </div>
         
+			<div class="book-item">
+            <img src="VLSI.jpg" alt="Engineering Book 1">
+            <h3>Principles Of Vlsi And Cmos Integrated Circuits</h3>
+        </div>
+		
+			<div class="book-item">
+            <img src="Gate.jpg" alt="Engineering Book 1">
+            <h3>Gate Book for Elecrical and Electronics </h3>
+			<p>Free</p>
+          
+        </div>
+		
+			<div class="book-item">
+            <img src="ei.jpg" alt="Engineering Book 1">
+            <h3>Electronics Instrumentation</h3>
+            <p>H S Kalsi</p>
+        </div>
     </div>
 
     <!-- Personality Development Books -->
