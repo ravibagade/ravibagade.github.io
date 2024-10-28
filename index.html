@@ -13,20 +13,72 @@
             color: #333;
         }
 
-    header {
-    background-color: #1976D2; /* Changed to blue */
-    color: white;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+        header {
+            background-color: #1976D2;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
         }
 
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .login-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-form h2 {
+            color: #1976D2;
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .login-form button {
+            padding: 10px 20px;
+            background-color: #1976D2;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #1565C0;
+        }
+
+        nav, section, footer, .flipping-text, #image-container {
+            display: none;
+        }
+
+        /* Main content styles */
         nav {
             background-color: #ffffff;
             color: #333;
@@ -38,14 +90,14 @@
         nav a {
             margin: 0 10px;
             text-decoration: none;
-            color: #1976D2; /* Blue link */
+            color: #1976D2;
             font-weight: bold;
             font-size: 1.1rem;
         }
 
         nav a:hover {
             text-decoration: underline;
-            color: #FF7043; /* Orange hover */
+            color: #FF7043;
         }
 
         section {
@@ -62,8 +114,8 @@
         .flipping-text {
             display: inline-block;
             font-family: Arial, sans-serif;
-            color: #FFFFFF; /* White text */
-            background-color: #FF5252; /* Bright red background */
+            color: #FFFFFF;
+            background-color: #FF5252;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 1.5rem;
@@ -124,6 +176,16 @@
 </head>
 <body>
 
+    <!-- Login Section -->
+    <div class="login-container" id="login-container">
+        <div class="login-form">
+            <h2>Login to Your Class</h2>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="text" id="usn" placeholder="Enter your USN" required>
+            <button onclick="login()">Submit</button>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header>
         <h1>Your Class</h1>
@@ -134,19 +196,18 @@
         <a href="About.html" target="_blank">About</a>
         <a href="Java_Programs.html" target="_blank">Java Programs</a>
         <a href="ARM.html" target="_blank">ARM Programs</a>
-        <a href="Assinment.html" target="_blank">Assignment Section</a>
+        <a href="Assignment.html" target="_blank">Assignment Section</a>
         <a href="Syllabus.html" target="_blank">VTU Syllabus</a>
         <a href="Python_Programs.html" target="_blank">Python Programs</a>
-		<a href="Second_Hand_Books.html" target="_blank">Second Hand Books</a>
+        <a href="Second_Hand_Books.html" target="_blank">Second Hand Books</a>
     </nav>
 
     <!-- Welcome Section -->
     <section>
         <h2>Welcome to Class</h2>
         <div class="flipping-text">Second Hand Text books are available <b>(new)</b></div>
-
-		<p><b><h1>1st assignment for 3rd Sem is updated (new)</h1></b></p>
-		<p><b><h1>1st assignment for 5th Sem is updated (new)</h1></b></p>
+        <p><b><h1>1st assignment for 3rd Sem is updated (new)</h1></b></p>
+        <p><b><h1>1st assignment for 5th Sem is updated (new)</h1></b></p>
         <p>All ARM Programs are updated (new)</p>
         <p>All the Java Programs are updated</p>
     </section>
@@ -161,6 +222,17 @@
     </div>
 
     <script>
+        function login() {
+            const name = document.getElementById('name').value;
+            const usn = document.getElementById('usn').value;
+            if (name && usn) {
+                document.getElementById('login-container').style.display = 'none';
+                document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
+            } else {
+                alert('Please enter both name and USN.');
+            }
+        }
+
         const imageSlider = document.getElementById('image-slider');
 
         function nextSlide() {
