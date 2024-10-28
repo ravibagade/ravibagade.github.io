@@ -176,78 +176,91 @@
 </head>
 <body>
 
-    <!-- Login Section -->
-    <div class="login-container" id="login-container">
-        <div class="login-form">
-            <h2>Login to Your Class</h2>
-            <input type="text" id="name" placeholder="Enter your name" required>
-            <input type="text" id="usn" placeholder="Enter your USN" required>
-            <button onclick="login()">Submit</button>
-        </div>
+<!-- Login Section -->
+<div class="login-container" id="login-container">
+    <div class="login-form">
+        <h2>Login to Your Class</h2>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="text" id="usn" placeholder="Enter your USN" required>
+        <button onclick="login()">Submit</button>
     </div>
+</div>
 
-    <!-- Header Section -->
-    <header>
-        <h1>Your Class</h1>
-    </header>
+<script>
+    function login() {
+        const name = document.getElementById('name').value.trim();
+        const usn = document.getElementById('usn').value.trim();
+        
+        // Regular expression to check if USN starts with '2JH23' or '2JH24'
+        const usnPattern = /^(2JH23EC|2JH24EC)/;
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="About.html" target="_blank">About</a>
-        <a href="Java_Programs.html" target="_blank">Java Programs</a>
-        <a href="ARM.html" target="_blank">ARM Programs</a>
-        <a href="Assignment.html" target="_blank">Assignment Section</a>
-        <a href="Syllabus.html" target="_blank">VTU Syllabus</a>
-        <a href="Python_Programs.html" target="_blank">Python Programs</a>
-        <a href="Second_Hand_Books.html" target="_blank">Second Hand Books</a>
-    </nav>
-
-    <!-- Welcome Section -->
-    <section>
-        <h2>Welcome to Class</h2>
-        <div class="flipping-text">Second Hand Text books are available <b>(new)</b></div>
-        <p><b><h1>1st assignment for 3rd Sem is updated (new)</h1></b></p>
-        <p><b><h1>1st assignment for 5th Sem is updated (new)</h1></b></p>
-        <p>All ARM Programs are updated (new)</p>
-        <p>All the Java Programs are updated</p>
-    </section>
-
-    <!-- Image Slider -->
-    <div id="image-container">
-        <div id="image-slider">
-            <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
-            <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
-            <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
-        </div>
-    </div>
-
-    <script>
-        function login() {
-            const name = document.getElementById('name').value;
-            const usn = document.getElementById('usn').value;
-            if (name && usn) {
-                document.getElementById('login-container').style.display = 'none';
-                document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
-            } else {
-                alert('Please enter both name and USN.');
-            }
+        if (!name || !usn) {
+            alert('Please enter both name and USN.');
+            return;
         }
 
-        const imageSlider = document.getElementById('image-slider');
-
-        function nextSlide() {
-            const firstSlide = imageSlider.children[0];
-            imageSlider.appendChild(firstSlide.cloneNode(true));
-            imageSlider.removeChild(firstSlide);
+        // Validate the USN pattern and length
+        if (usnPattern.test(usn) && usn.length === 10) {
+            alert('Login successful!');
+            // Proceed with login actions, like hiding the login form and showing main content
+            document.getElementById('login-container').style.display = 'none';
+            document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
+        } else {
+            alert('Invalid USN. Please enter a USN that starts with "2JH23EC" or "2JH24EC" and is exactly 10 characters long.');
         }
+    }
 
-        setInterval(nextSlide, 2000);
-    </script>
+    const imageSlider = document.getElementById('image-slider');
 
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2024 My Website. All rights reserved.</p>
-    </footer>
+    function nextSlide() {
+        const firstSlide = imageSlider.children[0];
+        imageSlider.appendChild(firstSlide.cloneNode(true));
+        imageSlider.removeChild(firstSlide);
+    }
+
+    setInterval(nextSlide, 2000);
+</script>
+
+
+<!-- Header Section -->
+<header>
+    <h1>Your Class</h1>
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="About.html" target="_blank">About</a>
+    <a href="Java_Programs.html" target="_blank">Java Programs</a>
+    <a href="ARM.html" target="_blank">ARM Programs</a>
+    <a href="Assinment_Section.html" target="_blank">Assignment Section</a>
+    <a href="Syllabus.html" target="_blank">VTU Syllabus</a>
+    <a href="Python_Programs.html" target="_blank">Python Programs</a>
+    <a href="Second_Hand_Books.html" target="_blank">Second Hand Books</a>
+</nav>
+
+<!-- Welcome Section -->
+<section>
+    <h2>Welcome to Class</h2>
+    <div class="flipping-text">Second Hand Text books are available <b>(new)</b></div>
+    <p><b><h1>1st assignment for 3rd Sem is updated (new)</h1></b></p>
+    <p><b><h1>1st assignment for 5th Sem is updated (new)</h1></b></p>
+    <p>All ARM Programs are updated (new)</p>
+    <p>All the Java Programs are updated</p>
+</section>
+
+<!-- Image Slider -->
+<div id="image-container">
+    <div id="image-slider">
+        <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
+        <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <p>© 2024 My Website. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
