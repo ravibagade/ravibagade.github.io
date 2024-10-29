@@ -187,28 +187,40 @@
 </div>
 
 <script>
-    function login() {
-        const name = document.getElementById('name').value.trim();
-        const usn = document.getElementById('usn').value.trim();
-        
-        // Regular expression to check if USN starts with '2JH23' or '2JH24'
-        const usnPattern = /^(2JH23EC|2JH24EC)/;
+function login() {
+    const name = document.getElementById('name').value.trim();
+    const usn = document.getElementById('usn').value.trim();
 
-        if (!name || !usn) {
-            alert('Please enter both name and USN.');
-            return;
-        }
+    // Regular expression to check if USN starts with '2JH23' or '2JH24'
+    const usnPattern = /^(2JH23EC|2JH24EC)/;
 
-        // Validate the USN pattern and length
-        if (usnPattern.test(usn) && usn.length === 10) {
-            alert('Login successful!');
-            // Proceed with login actions, like hiding the login form and showing main content
-            document.getElementById('login-container').style.display = 'none';
-            document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
-        } else {
-            alert('Invalid USN. Please enter a USN that starts with "2JH23EC" or "2JH24EC" and is exactly 10 characters long.');
-        }
+    if (!name) {
+        alert('Please enter your name.');
+        return;
     }
+
+    // Check if user is an admin (only name "admin" is needed, no USN required)
+    if (name.toLowerCase() === "admin") {
+        alert('Admin login successful!');
+        document.getElementById('login-container').style.display = 'none';
+        document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
+        return;
+    }
+
+    // If not admin, validate name and USN
+    if (!usn) {
+        alert('Please enter your USN.');
+        return;
+    }
+
+    if (usnPattern.test(usn) && usn.length === 10) {
+        alert('Login successful!');
+        document.getElementById('login-container').style.display = 'none';
+        document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
+    } else {
+        alert('Invalid USN. Please enter a USN that starts with "2JH23EC" or "2JH24EC" and is exactly 10 characters long.');
+    }
+}
 
     const imageSlider = document.getElementById('image-slider');
 
