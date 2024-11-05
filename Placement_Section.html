@@ -20,8 +20,8 @@
         }
 
         /* Header styling */
-        h1 {
-            background-color: #4CAF50; /* Green background */
+        h1, h2 {
+            background-color: #4CAF50; /* Green background for main header */
             color: white;
             padding: 15px;
             text-align: center;
@@ -45,8 +45,8 @@
         }
 
         /* Contact section styling */
-        h2 {
-            background-color: #ffcc00; /* Yellow background */
+        .contact-header {
+            background-color: #ffcc00; /* Yellow background for contact header */
             color: #333;
             padding: 10px;
             text-align: center;
@@ -54,13 +54,22 @@
             margin-top: 20px;
         }
 
-        /* Job ad container styling */
+        /* Container for job ads to align side by side */
+        .job-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Job ad styling */
         .job-ad {
             background-color: #fff;
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
+            max-width: 300px;
             width: 100%;
             text-align: center;
             margin-top: 20px;
@@ -100,40 +109,43 @@
     <p>5. HCL, click here: <a href="HCL.pdf" target="_blank">HCL Aptitude QP</a></p>
 
     <!-- Contact Information Section -->
-    <h2>For JAVA Full Stack Developer Training, please Contact Us.</h2>
+    <h2 class="contact-header">For JAVA Full Stack Developer Training, please Contact Us.</h2>
 
     <!-- Job Openings Section -->
-    <h2>Job openings in Hubli</h2>
-    <div class="job-ad">
-        <h2>Job Title: Localization Engineer</h2>
-        <div class="job-details">
-		    <p><strong>Company:</strong>Valuepoint Knowledgeworks</p>
-            <p><strong>Package:</strong> Not Disclosed</p>
-            <p><strong>Location:</strong> Bengaluru, Hubli, Mangaluru, Mysuru, Belgaum</p>
-        </div>
-        <a href="https://knowledgew.com/en/careers/" class="apply-button" target="_blank">Apply Now</a>
-    </div>
-	
-    <div class="job-ad">
-        <h2>Job Title: Channel Sales Executive</h2>
-        <div class="job-details">
-		    <p><strong>Company:</strong>Club Oxygen</p>
-            <p><strong>Package:</strong> Not Disclosed</p>
-            <p><strong>Location:</strong> Bengaluru, Hubli,Mumbai, Hubli, Indore, Mangaluru, Lucknow, Ahmedabad</p>
-        </div>
-        <a href="https://www.naukri.com/job-listings-channel-sales-executive-club-oxygen-visakhapatnam-hyderabad-salem-chennai-jaipur-coimbatore-kochi-udaipur-madurai-varanasi-bhopal-mumbai-hubli-indore-mangaluru-lucknow-ahmedabad-bengaluru-1-to-6-years-281122504098?src=seo_srp&sid=17307953464993789&xp=9&px=1" class="apply-button" target="_blank">Apply Now</a>
-    </div>
-	
-	  <div class="job-ad">
-        <h2>Job Title: Associate Sales Manager</h2>
-        <div class="job-details">
-		    <p><strong>Company:</strong>Swiggy</p>
-            <p><strong>Package:</strong> Not Disclosed</p>
-            <p><strong>Location:</strong> Bengaluru, Hubli, Mangaluru, Mysuru, Belgaum</p>
-        </div>
-        <a href="https://careers.swiggy.com/#/careers?src=careers&p=eyJwYWdlVHlwZSI6ICJqZCIsICJjdlNvdXJjZSI6ICJjYXJlZXJzIiwgInJlcUlkIjogIjE1MDg2IiwgInJlcXVlc3RlciI6IHsiaWQiOiAiIiwgImNvZGUiOiAiIiwgIm5hbWUiOiAiIn0sICJwYWdlIjogImNhcmVlcnMiLCAiYnVmaWx0ZXIiOiAtMSwgImN1c3RvbUZp" class="apply-button" target="_blank">Apply Now</a>
-    </div>
+    <h2>Job Openings in Hubli</h2>
 
+    <!-- Job listings container -->
+    <div class="job-container">
+        <div class="job-ad">
+            <h2>Job Title: Localization Engineer</h2>
+            <div class="job-details">
+                <p><strong>Company:</strong> Valuepoint Knowledgeworks</p>
+                <p><strong>Package:</strong> Not Disclosed</p>
+                <p><strong>Location:</strong> Bengaluru, Hubli, Mangaluru, Mysuru, Belgaum</p>
+            </div>
+            <a href="https://knowledgew.com/en/careers/" class="apply-button" target="_blank">Apply Now</a>
+        </div>
+
+        <div class="job-ad">
+            <h2>Job Title: Channel Sales Executive</h2>
+            <div class="job-details">
+                <p><strong>Company:</strong> Club Oxygen</p>
+                <p><strong>Package:</strong> Not Disclosed</p>
+                <p><strong>Location:</strong> Bengaluru, Hubli, Mumbai, Indore, Mangaluru, Lucknow, Ahmedabad</p>
+            </div>
+            <a href="https://www.naukri.com/job-listings-channel-sales-executive-club-oxygen-visakhapatnam-hyderabad-salem-chennai-jaipur-coimbatore-kochi-udaipur-madurai-varanasi-bhopal-mumbai-hubli-indore-mangaluru-lucknow-ahmedabad-bengaluru-1-to-6-years-281122504098?src=seo_srp&sid=17307953464993789&xp=9&px=1" class="apply-button" target="_blank">Apply Now</a>
+        </div>
+
+        <div class="job-ad">
+            <h2>Job Title: Associate Sales Manager</h2>
+            <div class="job-details">
+                <p><strong>Company:</strong> Swiggy</p>
+                <p><strong>Package:</strong> Not Disclosed</p>
+                <p><strong>Location:</strong> Bengaluru, Hubli, Mangaluru, Mysuru, Belgaum</p>
+            </div>
+            <a href="https://careers.swiggy.com/#/careers?src=careers&p=eyJwYWdlVHlwZSI6ICJqZCIsICJjdlNvdXJjZSI6ICJjYXJlZXJzIiwgInJlcUlkIjogIjE1MDg2IiwgInJlcXVlc3RlciI6IHsiaWQiOiAiIiwgImNvZGUiOiAiIiwgIm5hbWUiOiAiIn0sICJwYWdlIjogImNhcmVlcnMiLCAiYnVmaWx0ZXIiOiAtMSwgImN1c3RvbUZp" class="apply-button" target="_blank">Apply Now</a>
+        </div>
+    </div>
 
 </body>
 </html>
