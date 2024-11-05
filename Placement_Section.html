@@ -12,6 +12,11 @@
             background-color: #f0f8ff; /* Light blue */
             color: #333; /* Darker text color for readability */
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         /* Header styling */
@@ -20,6 +25,8 @@
             color: white;
             padding: 15px;
             text-align: center;
+            width: 100%;
+            margin: 0;
         }
 
         /* Paragraph styling */
@@ -43,21 +50,90 @@
             color: #333;
             padding: 10px;
             text-align: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Job ad container styling */
+        .job-ad {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .job-details p {
+            margin: 8px 0;
+        }
+
+        /* Apply button styling */
+        .apply-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .apply-button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
 
-    <!-- Your content goes here -->
+    <!-- Header -->
     <h1>Welcome</h1>
+
+    <!-- Question Papers Section -->
     <p>Various Company Question Papers</p>
     <p>1. INFOSYS, click here: <a href="INFOSYS.pdf" target="_blank">INFOSYS Aptitude QP</a></p>
     <p>2. ACCENTURE, click here: <a href="ACCENTURE.pdf" target="_blank">ACCENTURE Aptitude QP</a></p>
     <p>3. Wipro, click here: <a href="Wipro.pdf" target="_blank">Wipro Aptitude QP</a></p>
     <p>4. TCS, click here: <a href="TCS.pdf" target="_blank">TCS Aptitude QP</a></p>
     <p>5. HCL, click here: <a href="HCL.pdf" target="_blank">HCL Aptitude QP</a></p>
-    
+
+    <!-- Contact Information Section -->
     <h2>For JAVA Full Stack Developer Training, please Contact Us.</h2>
+
+    <!-- Job Openings Section -->
+    <h2>Job openings in Hubli</h2>
+    <div class="job-ad">
+        <h2>Job Title: Localization Engineer</h2>
+        <div class="job-details">
+		    <p><strong>Company:</strong>Valuepoint Knowledgeworks</p>
+            <p><strong>Package:</strong> Not Disclosed</p>
+            <p><strong>Location:</strong> Bengaluru, Hubli, Mangaluru, Mysuru, Belgaum</p>
+        </div>
+        <a href="https://knowledgew.com/en/careers/" class="apply-button" target="_blank">Apply Now</a>
+    </div>
+	
+    <div class="job-ad">
+        <h2>Job Title: Channel Sales Executive</h2>
+        <div class="job-details">
+		    <p><strong>Company:</strong>Club Oxygen</p>
+            <p><strong>Package:</strong> Not Disclosed</p>
+            <p><strong>Location:</strong> Bengaluru, Hubli,Mumbai, Hubli, Indore, Mangaluru, Lucknow, Ahmedabad</p>
+        </div>
+        <a href="https://www.naukri.com/job-listings-channel-sales-executive-club-oxygen-visakhapatnam-hyderabad-salem-chennai-jaipur-coimbatore-kochi-udaipur-madurai-varanasi-bhopal-mumbai-hubli-indore-mangaluru-lucknow-ahmedabad-bengaluru-1-to-6-years-281122504098?src=seo_srp&sid=17307953464993789&xp=9&px=1" class="apply-button" target="_blank">Apply Now</a>
+    </div>
+	
+	  <div class="job-ad">
+        <h2>Job Title: Associate Sales Manager</h2>
+        <div class="job-details">
+		    <p><strong>Company:</strong>Swiggy</p>
+            <p><strong>Package:</strong> Not Disclosed</p>
+            <p><strong>Location:</strong> Bengaluru, Hubli, Mangaluru, Mysuru, Belgaum</p>
+        </div>
+        <a href="https://careers.swiggy.com/#/careers?src=careers&p=eyJwYWdlVHlwZSI6ICJqZCIsICJjdlNvdXJjZSI6ICJjYXJlZXJzIiwgInJlcUlkIjogIjE1MDg2IiwgInJlcXVlc3RlciI6IHsiaWQiOiAiIiwgImNvZGUiOiAiIiwgIm5hbWUiOiAiIn0sICJwYWdlIjogImNhcmVlcnMiLCAiYnVmaWx0ZXIiOiAtMSwgImN1c3RvbUZp" class="apply-button" target="_blank">Apply Now</a>
+    </div>
+
 
 </body>
 </html>
