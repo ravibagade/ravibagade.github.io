@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Class - Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+            color: #333;
+        }
+
+        header {
+            background-color: #1976D2;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .login-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-form h2 {
+            color: #1976D2;
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .login-form button {
+            padding: 10px 20px;
+            background-color: #1976D2;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #1565C0;
+        }
+
+        nav, section, footer, .flipping-text, #image-container {
+            display: none;
+        }
+
+        /* Main content styles */
+        nav {
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #1976D2;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: #FF7043;
+        }
+
+        section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .flipping-text {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            color: #FFFFFF;
+            background-color: #FF5252;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            animation: flip 3s infinite;
+            margin: 10px 0;
+        }
+
+        @keyframes flip {
+            0% {
+                transform: perspective(400px) rotateY(0);
+            }
+            50% {
+                transform: perspective(400px) rotateY(180deg);
+            }
+            100% {
+                transform: perspective(400px) rotateY(0);
+            }
+        }
+
+        #image-container {
+            overflow: hidden;
+            width: 80%;
+            max-width: 1000px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #image-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Login Section -->
+<div class="login-container" id="login-container">
+    <div class="login-form">
+        <h2>Login to Your Class</h2>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="text" id="usn" placeholder="Enter your USN" required>
+        <button onclick="login()">Submit</button>
+    </div>
+</div>
+
+<script>
+function login() {
+    const name = document.getElementById('name').value.trim();
+    const usn = document.getElementById('usn').value.trim();
+
+    // Regular expression to check if USN starts with '2JH23' or '2JH24'
+    const usnPattern = /^(2JH22EC|2JH23EC|2JH24EC)/;
+
+    if (!name) {
+        alert('Please enter your name.');
+        return;
+    }
+
+    // Check if user is an admin (only name "admin" is needed, no USN required)
+    if (name.toLowerCase() === "admin") {
+        alert('Admin login successful!');
+        document.getElementById('login-container').style.display = 'none';
+        document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
+        return;
+    }
+
+    // If not admin, validate name and USN
+    if (!usn) {
+        alert('Please enter your USN.');
+        return;
+    }
+
+    if (usnPattern.test(usn) && usn.length === 10) {
+        alert('Login successful!');
+        document.getElementById('login-container').style.display = 'none';
+        document.querySelectorAll('nav, section, .flipping-text, #image-container').forEach(el => el.style.display = 'block');
+    } else {
+        alert('Invalid USN. Please enter a USN that starts with "2JH22EC", "2JH23EC" or "2JH24EC" and is exactly 10 characters long.');
+    }
+}
+
+    const imageSlider = document.getElementById('image-slider');
+
+    function nextSlide() {
+        const firstSlide = imageSlider.children[0];
+        imageSlider.appendChild(firstSlide.cloneNode(true));
+        imageSlider.removeChild(firstSlide);
+    }
+
+    setInterval(nextSlide, 2000);
+</script>
+
+
+<!-- Header Section -->
+<header>
+    <h1>Your Class</h1>
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="About.html" target="_blank">About</a>
+    <a href="Java_Programs.html" target="_blank">Java Programs</a>
+        <a href="Second_Hand_Books.html" target="_blank">Second Hand Books</a>
+    <a href="Assinment_Section.html" target="_blank">Assignment Section</a>
+    <a href="Syllabus.html" target="_blank">VTU Syllabus</a>
+    <a href="Python_Programs.html" target="_blank">Python Programs</a>
+    <a href="Video_Lectures.html" target="_blank">Video Lectures</a>
+	<a href="Placement_Section.html" target="_blank">Placement Section</a>
+</nav>
+
+<!-- Welcome Section -->
+<section>
+    <h1>Welcome to Class</h1>
+    <div class="flipping-text">
+        Second Hand Textbooks are available <strong>(new)</strong>
+    </div>
+
+    <h2>Job Openings</h3>
+    <p>For job openings in Hubli-Dharwad, please see the <strong>Placement Section</strong> (new).</p>
+
+    <h2>Unlock Your Tech Potential!</h3>
+    <p>Join our <strong>FREE online training channel</strong>, every Sunday, and master:</p>
+    <ul>
+        <li>‣ JAVA</li>
+        <li>‣ PYTHON</li>
+        <li>‣ Industry Insights</li>
+    </ul>
+    <p>Plus, get <strong>placement assistance</strong> to kickstart your career!</p>
+    <p>Subscribe now and elevate your skills!</p>
+    
+    <p>Follow the Lara Technologies North Karnataka channel on WhatsApp: 
+        <a href="https://whatsapp.com/channel/0029VaxiQsSICVfhkPZxLy25" target="_blank">
+            Click here to join
+        </a>
+    </p>
+</section>
+
+
+<!-- Image Slider -->
+<div id="image-container">
+    <div id="image-slider">
+        <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
+        <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+        <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <p>© 2024 My Website. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
