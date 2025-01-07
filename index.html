@@ -21,21 +21,21 @@
         }
 
         .container {
-            max-width: 300px; /* Reduced width */
-            margin: 30px auto; /* Reduced top margin */
+            max-width: 300px;
+            margin: 30px auto;
             background: #fff;
-            padding: 15px; /* Reduced padding */
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         input, button {
             width: 100%;
-            padding: 8px; /* Reduced padding */
-            margin: 8px 0; /* Reduced margin */
+            padding: 8px;
+            margin: 8px 0;
             border-radius: 4px;
             border: 1px solid #ddd;
-            font-size: 14px; /* Reduced font size */
+            font-size: 14px;
         }
 
         button {
@@ -43,7 +43,6 @@
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 14px; /* Reduced font size */
         }
 
         footer {
@@ -55,13 +54,12 @@
 
         #message {
             text-align: center;
-            margin-top: 10px; /* Reduced margin */
-            font-size: 12px; /* Reduced font size */
+            margin-top: 10px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-
     <!-- Login Section -->
     <div class="container">
         <form id="authForm" class="login-form">
@@ -79,16 +77,17 @@
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
 
     <script type="module">
+        // Import Firebase modules
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
         import { 
             getAuth, 
             signInWithEmailAndPassword, 
             createUserWithEmailAndPassword, 
-            signOut, 
-            fetchSignInMethodsForEmail 
+            fetchSignInMethodsForEmail, 
+            sendEmailVerification 
         } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
-        // Your Firebase configuration
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyAI2x75BicdQc8nx-HdlvSdxzUMJrVJwA8",
             authDomain: "user-cd32e.firebaseapp.com",
@@ -116,20 +115,25 @@
             const password = passwordInput.value;
 
             try {
+                // Check if email already exists
                 const methods = await fetchSignInMethodsForEmail(auth, email);
                 if (methods.length > 0) {
-                    message.textContent = `This email is already in use. Please log in instead.`;
-                    message.style.color = 'red';
+                    message.textContent = "This email is already in use. Please log in instead.";
+                    message.style.color = "red";
                     return;
                 }
 
+                // Create user account
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                message.textContent = `Sign Up Successful! Welcome, ${userCredential.user.email}.`;
-                message.style.color = 'green';
-                redirectToDashboard();
+                const user = userCredential.user;
+
+                // Send email verification
+                await sendEmailVerification(user);
+                message.textContent = `Sign Up Successful! Verification email sent to ${user.email}. Please verify your email before logging in.`;
+                message.style.color = "green";
             } catch (error) {
                 message.textContent = `Sign Up Error: ${error.message}`;
-                message.style.color = 'red';
+                message.style.color = "red";
             }
         });
 
@@ -160,6 +164,5 @@
             window.location.href = "dashboard.html";
         }
     </script>
-
 </body>
 </html>
