@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abacus Kids</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fdf6e3;
+      color: #333;
+    }
+
+    header {
+      background-color: #ffcc00;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #444;
+    }
+
+    nav {
+      background-color: #ff9900;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .courses, .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff8dc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 200px;
+    }
+
+    footer {
+      background-color: #ffcc00;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .abacus {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+    }
+
+    .rod {
+      background-color: #999;
+      width: 20px;
+      height: 200px;
+      position: relative;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bead {
+      width: 40px;
+      height: 40px;
+      background-color: #ff6666;
+      border-radius: 50%;
+      cursor: grab;
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Abacus Kids</h1>
+    <p>Fun with Numbers and Brain Boosting!</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#practice">Practice</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Abacus Kids is a fun-filled platform to help children improve their math and memory skills using the Abacus technique!</p>
+  </section>
+
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <div class="courses">
+      <div class="card">
+        <h3>Beginner</h3>
+        <p>Age: 4-6 yrs</p>
+        <p>Fun & Play-Based Abacus Learning</p>
+      </div>
+      <div class="card">
+        <h3>Intermediate</h3>
+        <p>Age: 7-9 yrs</p>
+        <p>Basic Mental Math and Speed Drills</p>
+      </div>
+      <div class="card">
+        <h3>Advanced</h3>
+        <p>Age: 10-12 yrs</p>
+        <p>Complex Calculations, Memory Training</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Abacus Practice Tool</h2>
+    <p>Drag the beads to count. Practice numbers from 1 to 10!</p>
+    <div class="abacus">
+      <div class="rod">
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+      </div>
+      <div class="rod">
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+        <div class="bead" draggable="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@abacuskids.com</p>
+    <p>Phone: +91 98765 43210</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Abacus Kids. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const beads = document.querySelectorAll('.bead');
+
+    beads.forEach(bead => {
+      bead.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', null);
+      });
+
+      bead.addEventListener('drag', (e) => {
+        e.target.style.transform = 'translateY(-10px)';
+      });
+
+      bead.addEventListener('dragend', (e) => {
+        e.target.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+
+</body>
+</html>
