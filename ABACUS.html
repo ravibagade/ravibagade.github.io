@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Abacus Soroban Demo</title>
+  <title>Sumana Foundation - Abacus Classes</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive;
       background: #f0f8ff;
-      text-align: center;
       margin: 0;
+      text-align: center;
     }
 
     header {
@@ -17,11 +17,46 @@
       padding: 20px;
     }
 
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header h2 {
+      margin: 5px 0;
+      font-size: 1.5em;
+      color: #444;
+    }
+
+    .section {
+      padding: 30px;
+    }
+
+    .courses {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .course-card {
+      background: #fff8dc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 220px;
+    }
+
+    .course-card h3 {
+      margin-top: 0;
+    }
+
     .abacus {
       display: flex;
       justify-content: center;
       gap: 40px;
       margin: 30px;
+      flex-wrap: wrap;
     }
 
     .rod-container {
@@ -76,22 +111,75 @@
       display: inline-block;
       font-size: 1.5em;
       border-radius: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
+    }
+
+    footer {
+      background-color: #ffcc00;
+      padding: 15px;
+      font-weight: bold;
+    }
+
+    .contact {
+      background-color: #e6f7ff;
+      padding: 30px;
+      font-size: 1.1em;
+    }
+
+    .contact p {
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Abacus Practice Tool</h1>
-  <p>Click beads to move them. Top bead = 5, each bottom bead = 1</p>
+  <h1>Sumana Foundation</h1>
+  <h2>Abacus Classes</h2>
 </header>
 
-<div class="abacus" id="abacus"></div>
+<section class="section">
+  <h2>Our Course Levels</h2>
+  <div class="courses">
+    <div class="course-card">
+      <h3>Beginner</h3>
+      <p>Age: 4-6 yrs</p>
+      <p>Fun & Play-Based Abacus Learning</p>
+    </div>
+    <div class="course-card">
+      <h3>Intermediate</h3>
+      <p>Age: 7-9 yrs</p>
+      <p>Basic Mental Math and Speed Drills</p>
+    </div>
+    <div class="course-card">
+      <h3>Advanced</h3>
+      <p>Age: 10-12 yrs</p>
+      <p>Complex Calculations, Memory Training</p>
+    </div>
+  </div>
+</section>
 
-<div class="counter">
-  Total: <span id="totalValue">0</span>
-</div>
+<section class="section">
+  <h2>Interactive Abacus Practice Tool</h2>
+  <p>Click beads to move them. Top bead = 5, each bottom bead = 1</p>
+
+  <div class="abacus" id="abacus"></div>
+
+  <div class="counter">
+    Total: <span id="totalValue">0</span>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Name:</strong> Ravi Bagade</p>
+  <p><strong>Phone:</strong> +91 87925 30743</p>
+  <p><strong>Email:</strong> <a href="mailto:ravibagade512@gmail.com">ravibagade512@gmail.com</a></p>
+</section>
+
+<footer>
+  © 2025 Sumana Foundation. All rights reserved.
+</footer>
 
 <script>
   const rodLabels = ['Tens', 'Units'];
@@ -105,7 +193,6 @@
     rod.className = 'rod';
     rod.dataset.place = rodIndex === 0 ? 10 : 1;
 
-    // Top (heaven) bead — worth 5
     const topBead = document.createElement('div');
     topBead.className = 'bead';
     topBead.dataset.value = '5';
@@ -115,12 +202,10 @@
     });
     rod.appendChild(topBead);
 
-    // Divider bar
     const divider = document.createElement('div');
     divider.className = 'divider';
     rod.appendChild(divider);
 
-    // Bottom (earth) beads — each worth 1
     for (let i = 0; i < 4; i++) {
       const bottomBead = document.createElement('div');
       bottomBead.className = 'bead';
