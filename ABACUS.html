@@ -3,83 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Abacus Kids</title>
+  <title>Abacus Soroban Demo</title>
   <style>
     body {
+      font-family: 'Comic Sans MS', cursive;
+      background: #f0f8ff;
+      text-align: center;
       margin: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #fdf6e3;
-      color: #333;
     }
 
     header {
-      background-color: #ffcc00;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      color: #444;
-    }
-
-    nav {
-      background-color: #ff9900;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 40px;
-      text-align: center;
-    }
-
-    .courses, .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #fff8dc;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 200px;
-    }
-
-    footer {
-      background-color: #ffcc00;
-      text-align: center;
+      background: #ffcc00;
       padding: 20px;
     }
 
     .abacus {
       display: flex;
       justify-content: center;
-      gap: 50px;
-      margin-top: 30px;
+      gap: 40px;
+      margin: 30px;
+    }
+
+    .rod-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .rod {
-      background-color: #999;
-      width: 20px;
-      height: 200px;
+      width: 80px;
+      height: 300px;
+      background-color: #ddd;
       position: relative;
       border-radius: 10px;
-      padding: 10px;
+      border: 2px solid #555;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    .divider {
+      height: 10px;
+      background-color: #333;
+      margin: 10px 0;
     }
 
     .bead {
@@ -87,100 +54,115 @@
       height: 40px;
       background-color: #ff6666;
       border-radius: 50%;
-      cursor: grab;
+      margin: 5px auto;
+      cursor: pointer;
       transition: transform 0.3s ease;
+    }
+
+    .bead.active {
+      background-color: #e63946;
+      box-shadow: 0 0 10px #ffaaa5;
+      transform: translateY(-20px);
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .counter {
+      background: #fff3cd;
+      padding: 15px 30px;
+      display: inline-block;
+      font-size: 1.5em;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Abacus Kids</h1>
-    <p>Fun with Numbers and Brain Boosting!</p>
-  </header>
+<header>
+  <h1>Abacus Practice Tool</h1>
+  <p>Click beads to move them. Top bead = 5, each bottom bead = 1</p>
+</header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#courses">Courses</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#practice">Practice</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="abacus" id="abacus"></div>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Abacus Kids is a fun-filled platform to help children improve their math and memory skills using the Abacus technique!</p>
-  </section>
+<div class="counter">
+  Total: <span id="totalValue">0</span>
+</div>
 
-  <section id="courses">
-    <h2>Our Courses</h2>
-    <div class="courses">
-      <div class="card">
-        <h3>Beginner</h3>
-        <p>Age: 4-6 yrs</p>
-        <p>Fun & Play-Based Abacus Learning</p>
-      </div>
-      <div class="card">
-        <h3>Intermediate</h3>
-        <p>Age: 7-9 yrs</p>
-        <p>Basic Mental Math and Speed Drills</p>
-      </div>
-      <div class="card">
-        <h3>Advanced</h3>
-        <p>Age: 10-12 yrs</p>
-        <p>Complex Calculations, Memory Training</p>
-      </div>
-    </div>
-  </section>
+<script>
+  const rodLabels = ['Tens', 'Units'];
+  const abacus = document.getElementById('abacus');
 
-  <section id="practice">
-    <h2>Abacus Practice Tool</h2>
-    <p>Drag the beads to count. Practice numbers from 1 to 10!</p>
-    <div class="abacus">
-      <div class="rod">
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-      </div>
-      <div class="rod">
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-        <div class="bead" draggable="true"></div>
-      </div>
-    </div>
-  </section>
+  rodLabels.forEach((label, rodIndex) => {
+    const rodContainer = document.createElement('div');
+    rodContainer.className = 'rod-container';
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: ravibagade512@gmail.com</p>
-    <p>Phone: +91 87925 30743</p>
-  </section>
+    const rod = document.createElement('div');
+    rod.className = 'rod';
+    rod.dataset.place = rodIndex === 0 ? 10 : 1;
 
-  <footer>
-    <p>© 2025 Abacus Kids. All rights reserved.</p>
-  </footer>
+    // Top (heaven) bead — worth 5
+    const topBead = document.createElement('div');
+    topBead.className = 'bead';
+    topBead.dataset.value = '5';
+    topBead.dataset.active = 'false';
+    topBead.addEventListener('click', () => {
+      toggleBead(topBead);
+    });
+    rod.appendChild(topBead);
 
-  <script>
-    const beads = document.querySelectorAll('.bead');
+    // Divider bar
+    const divider = document.createElement('div');
+    divider.className = 'divider';
+    rod.appendChild(divider);
 
-    beads.forEach(bead => {
-      bead.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', null);
+    // Bottom (earth) beads — each worth 1
+    for (let i = 0; i < 4; i++) {
+      const bottomBead = document.createElement('div');
+      bottomBead.className = 'bead';
+      bottomBead.dataset.value = '1';
+      bottomBead.dataset.active = 'false';
+      bottomBead.addEventListener('click', () => {
+        toggleBead(bottomBead);
       });
+      rod.appendChild(bottomBead);
+    }
 
-      bead.addEventListener('drag', (e) => {
-        e.target.style.transform = 'translateY(-10px)';
-      });
+    rodContainer.appendChild(rod);
 
-      bead.addEventListener('dragend', (e) => {
-        e.target.style.transform = 'translateY(0)';
+    const rodLabel = document.createElement('div');
+    rodLabel.className = 'label';
+    rodLabel.textContent = label;
+
+    rodContainer.appendChild(rodLabel);
+    abacus.appendChild(rodContainer);
+  });
+
+  function toggleBead(bead) {
+    const isActive = bead.dataset.active === 'true';
+    bead.dataset.active = !isActive;
+    bead.classList.toggle('active');
+    updateTotal();
+  }
+
+  function updateTotal() {
+    let total = 0;
+    document.querySelectorAll('.rod').forEach(rod => {
+      const place = parseInt(rod.dataset.place);
+      const beads = rod.querySelectorAll('.bead');
+      beads.forEach(bead => {
+        if (bead.dataset.active === 'true') {
+          total += parseInt(bead.dataset.value) * place;
+        }
       });
     });
-  </script>
+    document.getElementById('totalValue').textContent = total;
+  }
+</script>
 
 </body>
 </html>
