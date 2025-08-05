@@ -1,82 +1,77 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Auto-Submit Vehicle Location to Google Form</title>
+  <title>Vehicle Location Tracker</title>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
 </head>
 <body>
-  <h2>Vehicle Location Form</h2>
-  <form id="google-form">
-    <label>Vehicle Number:</label><br>
+  <h2>Submit Vehicle Location</h2>
+
+  <form id="locationForm">
+    <label>Vehicle Number:</label>
     <input type="text" id="vehicleNumber" required><br><br>
 
-    <label>Latitude:</label><br>
+    <label>Latitude:</label>
     <input type="text" id="latitude" readonly><br><br>
 
-    <label>Longitude:</label><br>
+    <label>Longitude:</label>
     <input type="text" id="longitude" readonly><br><br>
 
-    <label>Address / Area:</label><br>
-    <input type="text" id="address" readonly><br><br>
-
-    <button type="submit">Submit</button>
+    <button type="submit">Submit Location</button>
   </form>
 
   <script>
-    // Get geolocation on page load
-    window.onload = function () {
+    // Your Firebase config here
+const firebaseConfig = {
+  apiKey: "AIzaSyD8KbNKg69YNB2MQP63YTPQQghsNO8_RRI",
+  authDomain: "location-tracker-78a61.firebaseapp.com",
+  projectId: "location-tracker-78a61",
+  storageBucket: "location-tracker-78a61.firebasestorage.app",
+  messagingSenderId: "349242032443",
+  appId: "1:349242032443:web:083a3597208aa1e338771e",
+  measurementId: "G-WQY3B3MXH7"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Detect location
+    window.onload = () => {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-
-          document.getElementById("latitude").value = lat;
-          document.getElementById("longitude").value = lon;
-
-          // Reverse geocode using OpenStreetMap
-          fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
-            .then(response => response.json())
-            .then(data => {
-              const address = data.display_name;
-              document.getElementById("address").value = address;
-            })
-            .catch(() => {
-              alert("Unable to fetch address.");
-            });
-
+          document.getElementById("latitude").value = position.coords.latitude;
+          document.getElementById("longitude").value = position.coords.longitude;
         }, function (error) {
           alert("Location access denied or unavailable.");
         });
       } else {
-        alert("Geolocation not supported.");
+        alert("Geolocation not supported by this browser.");
       }
     };
 
-    // Submit form to Google Form
-    document.getElementById("google-form").addEventListener("submit", function (e) {
+    // Submit location to Firebase
+    document.getElementById("locationForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
       const vehicleNumber = document.getElementById("vehicleNumber").value;
       const latitude = document.getElementById("latitude").value;
       const longitude = document.getElementById("longitude").value;
-      const addressField = document.getElementById("address").value;
 
-      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfF_bK2yBZCQXAKIAEUe92Tz1V2PYOVkLWxj4OdQY4jyzBOEg/formResponse";
+      const timestamp = new Date().toISOString();
 
-      const formData = new FormData();
-      formData.append("entry.838992142", vehicleNumber); // Vehicle Number
-      formData.append("entry.90866924", latitude);       // Latitude
-      formData.append("entry.744716896", longitude);     // Longitude
-      formData.append("entry.319122500", addressField);  // Address
-
-      fetch(formUrl, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-      }).then(() => {
-        alert("Submitted successfully!");
-        document.getElementById("google-form").reset();
-      }).catch(() => {
-        alert("Submission failed.");
+      db.ref("vehicles/" + vehicleNumber).set({
+        latitude: latitude,
+        longitude: longitude,
+        timestamp: timestamp
+      })
+      .then(() => {
+        alert("Location submitted successfully!");
+      })
+      .catch((error) => {
+        alert("Failed to submit: " + error.message);
       });
     });
   </script>
