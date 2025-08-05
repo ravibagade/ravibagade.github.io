@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Transport Portal</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; }
+    .header { background: #222; color: #fff; padding: 16px; text-align: center; font-size: 1.5em; }
+    .tabs { display: flex; justify-content: center; background: #fff; border-bottom: 2px solid #ddd; margin-bottom: 16px; }
+    .tab-btn { background: none; border: none; padding: 18px 32px; font-size: 1.1em; cursor: pointer; color: #333; border-bottom: 3px solid transparent; transition: border-bottom 0.2s; }
+    .tab-btn.active, .tab-btn:hover { border-bottom: 3px solid #31a950; color: #31a950; }
+    .container { display: flex; min-height: 90vh; }
+    .map-section { flex: 4; padding: 24px; display: flex; flex-direction: column; align-items: center; }
+    .ads-section { flex: 1; background: #f1f1f1; border-left: 2px solid #ccc; display: flex; align-items: center; justify-content: center; padding: 10px; font-size: 0.9em; text-align: center; }
+    .ads-placeholder { width: 100%; height: 90%; background: #ddd; display: flex; align-items: center; justify-content: center; color: #444; font-weight: bold; border: 2px dashed #aaa; }
+    .main { width: 100%; }
+    .tab-content { display: none; width: 100%; max-width: 500px; margin-top: 24px; }
+    .tab-content.active { display: block; }
+    label, select, input { margin-top: 10px; width: 100%; }
+    form { margin-top: 10px; }
+    button { margin-top: 10px; }
+    .map { width: 100%; height: 350px; border-radius: 12px; border: 2px solid #bbb; margin-top: 24px; }
+    .location-info { margin-top: 8px; color: #2a4045; font-size: 0.95em; }
+  </style>
+</head>
+<body>
+<div class="header">Smart Transport – Role-Based Portal</div>
+<div class="tabs">
+  <button class="tab-btn">Admin</button>
+  <button class="tab-btn">Driver</button>
+  <button class="tab-btn">User/Student</button>
+</div>
+<div class="container">
+  <div class="map-section">
+    <div class="main">
+
+      <!-- Admin -->
+      <div class="tab-content">
+        <h2>Admin Login</h2>
+        <form onsubmit="event.preventDefault(); document.getElementById('admin-stage2').style.display = 'block';">
+          <label>Institution:</label>
+          <select required>
+            <option value="">Select institution</option>
+            <option value="VTU">VTU</option>
+            <option value="IIT">IIT</option>
+            <option value="NIT">NIT</option>
+          </select>
+          <label>Password:</label>
+          <input type="password" required />
+          <button type="submit">Login</button>
+        </form>
+        <div id="admin-stage2" style="display:none;">
+          <p>Select a vehicle:</p>
+          <select id="admin-vehicle-select" onchange="startTracking('admin')">
+            <option value="KA-01-1234">KA-01-1234</option>
+            <option value="KA-02-5678">KA-02-5678</option>
+          </select>
+          <div id="admin-map" class="map"></div>
+        </div>
+      </div>
+
+      <!-- Driver -->
+      <div class="tab-content">
+        <h2>Driver Login</h2>
+        <form onsubmit="event.preventDefault(); document.getElementById('driver-stage2').style.display = 'block';">
+          <label>Institution:</label>
+          <select required>
+            <option value="">Select institution</option>
+            <option value="VTU">VTU</option>
+            <option value="IIT">IIT</option>
+            <option value="NIT">NIT</option>
+          </select>
+          <label>Password:</label>
+          <input type="password" required />
+          <button type="submit">Login</button>
+        </form>
+        <div id="driver-stage2" style="display:none;">
+          <label>Vehicle Number:</label>
+          <select id="driver-vehicle">
+            <option value="KA-01-1234">KA-01-1234</option>
+            <option value="KA-02-5678">KA-02-5678</option>
+          </select>
+          <button onclick="autoUploadDriverLocation()">Update My Location Automatically</button>
+          <button onclick="stopTracking()">Stop Tracking</button>
+          <div id="driver-map" class="map"></div>
+        </div>
+      </div>
+
+      <!-- User -->
+      <div class="tab-content">
+        <h2>User/Student</h2>
+        <form onsubmit="event.preventDefault(); document.getElementById('user-stage2').style.display = 'block'; startTracking('user');">
+          <label>Institution:</label>
+          <select required>
+            <option value="">Select institution</option>
+            <option value="VTU">VTU</option>
+            <option value="IIT">IIT</option>
+            <option value="NIT">NIT</option>
+          </select>
+          <label>Bus or Route No.:</label>
+          <select id="user-vehicle">
+            <option value="KA-01-1234">Bus-01</option>
+            <option value="KA-02-5678">Bus-02</option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+        <div id="user-stage2" style="display:none;">
+          <div id="user-map" class="map"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="ads-section">
+    <div class="ads-placeholder">Advertisement Area (20%)</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const tabs = document.querySelectorAll(".tab-btn");
+  const contents = document.querySelectorAll(".tab-content");
+  tabs.forEach((tab, idx) => {
+    tab.onclick = () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+      tab.classList.add("active");
+      contents[idx].classList.add("active");
+    };
+  });
+  tabs[0].click();
+
+  // 👇 Google Sheet CSV Link
+  const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSxP77KqDB8tCbwLYpaawYcilO-_GBVFrZvrxT7ERrIWAyawkCJ22xC2QRXpItcjGsFTP5vplKXwuCf/pub?output=csv";
+
+  const roleMaps = { admin: null, user: null };
+  const roleMarkers = { admin: null, user: null };
+
+  function startTracking(role) {
+    const vehicleId = document.getElementById(`${role}-vehicle-select`)?.value || document.getElementById(`${role}-vehicle`)?.value;
+    if (!vehicleId) return;
+
+    if (!roleMaps[role]) {
+      roleMaps[role] = L.map(`${role}-map`).setView([12.9716, 77.5946], 14);
+      L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
+        attribution: '© OpenStreetMap'
+      }).addTo(roleMaps[role]);
+    }
+
+    function updateMapFromSheet() {
+      fetch(GOOGLE_SHEET_CSV_URL)
+        .then(res => res.text())
+        .then(text => {
+          const rows = text.trim().split('\n').slice(1);
+          for (let row of rows) {
+            const [vehicle, lat, lon] = row.split(',');
+            if (vehicle.trim() === vehicleId) {
+              const latNum = parseFloat(lat), lonNum = parseFloat(lon);
+              if (!isNaN(latNum) && !isNaN(lonNum)) {
+                if (roleMarkers[role]) {
+                  roleMarkers[role].setLatLng([latNum, lonNum]);
+                } else {
+                  roleMarkers[role] = L.marker([latNum, lonNum]).addTo(roleMaps[role]).bindPopup(vehicleId).openPopup();
+                }
+                roleMaps[role].setView([latNum, lonNum], 15);
+              }
+            }
+          }
+        });
+    }
+
+    updateMapFromSheet();
+    setInterval(updateMapFromSheet, 10000);
+  }
+
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxRsAgW-69wrcDI8Iv7sdR8DoNdrq9cyQHzWDLznjVe-Lqn-OHrSHoTD1KbCbCRPyCIlg/exec";
+
+  // 🚀 Driver live tracking
+  let watchId = null;
+
+  function autoUploadDriverLocation() {
+    const vehicle = document.getElementById("driver-vehicle").value;
+    if (!vehicle) {
+      alert("Please select a vehicle number.");
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    if (watchId !== null) {
+      navigator.geolocation.clearWatch(watchId);
+    }
+
+    watchId = navigator.geolocation.watchPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        fetch(WEB_APP_URL, {
+          method: 'POST',
+          body: JSON.stringify({ vehicle, lat, lon }),
+          headers: { 'Content-Type': 'application/json' }
+        }).catch(err => alert("Error updating location: " + err));
+
+        const mapContainer = document.getElementById("driver-map");
+        mapContainer.innerHTML = "";
+
+        const map = L.map("driver-map").setView([lat, lon], 15);
+        L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
+          attribution: '© OpenStreetMap'
+        }).addTo(map);
+        L.marker([lat, lon]).addTo(map).bindPopup("Your current location").openPopup();
+      },
+      (error) => {
+        alert("Unable to get location: " + error.message);
+      },
+      {
+        enableHighAccuracy: true,
+        maximumAge: 10000,
+        timeout: 10000
+      }
+    );
+  }
+
+  function stopTracking() {
+    if (watchId !== null) {
+      navigator.geolocation.clearWatch(watchId);
+      watchId = null;
+      alert("Tracking stopped.");
+    }
+  }
+</script>
+</body>
+</html>
