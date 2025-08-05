@@ -35,19 +35,19 @@
           document.getElementById("longitude").value = lon;
 
           // Reverse geocoding to get address using OpenStreetMap
-          fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
-            .then(response => response.json())
-            .then(data => {
-              address = data.display_name;
-              document.getElementById("address").value = address;
-            })
-            .catch(() => {
-              alert("Unable to fetch address.");
-            });
+     fetch("https://script.google.com/macros/s/AKfycbx6O6f8dcOwWzEsNX5wYlf3NORQMFRxygvjq2i2BvSfRuolAUnE8KHczIc-g1fSwxog/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+  body: new URLSearchParams({
+    vehicleNumber: vehicleNumber,
+    latitude: latitude,
+    longitude: longitude,
+    address: addressField
+  }),
+});
 
-        }, function (error) {
-          alert("Location access denied or unavailable.");
-        });
       } else {
         alert("Geolocation is not supported by this browser.");
       }
@@ -65,7 +65,7 @@
       // Replace with your actual Google Form POST URL
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfF_bK2yBZCQXAKIAEUe92Tz1V2PYOVkLWxj4OdQY4jyzBOEg/formResponse";
 
-      const formData = new FormData();
+      const formData = new FormData(); 
       formData.append("entry.838992142", vehicleNumber); // Vehicle Number
       formData.append("entry.90866924", latitude);       // Latitude
       formData.append("entry.744716896", longitude);      // Longitude
