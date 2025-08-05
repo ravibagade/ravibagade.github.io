@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Auto-Submit Location to Google Form</title>
+  <title>Auto-Submit Vehicle Location to Google Form</title>
 </head>
 <body>
   <h2>Vehicle Location Form</h2>
@@ -15,16 +15,36 @@
     <label>Longitude:</label><br>
     <input type="text" id="longitude" readonly><br><br>
 
+    <label>Address / Area:</label><br>
+    <input type="text" id="address" readonly><br><br>
+
     <button type="submit">Submit</button>
   </form>
 
   <script>
+    let address = ""; // Default empty
+
     // Auto-detect location
     window.onload = function () {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
-          document.getElementById("latitude").value = position.coords.latitude;
-          document.getElementById("longitude").value = position.coords.longitude;
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+
+          document.getElementById("latitude").value = lat;
+          document.getElementById("longitude").value = lon;
+
+          // Reverse geocoding to get address using OpenStreetMap
+          fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+            .then(response => response.json())
+            .then(data => {
+              address = data.display_name;
+              document.getElementById("address").value = address;
+            })
+            .catch(() => {
+              alert("Unable to fetch address.");
+            });
+
         }, function (error) {
           alert("Location access denied or unavailable.");
         });
@@ -40,13 +60,16 @@
       const vehicleNumber = document.getElementById("vehicleNumber").value;
       const latitude = document.getElementById("latitude").value;
       const longitude = document.getElementById("longitude").value;
+      const addressField = document.getElementById("address").value;
 
+      // Replace with your actual Google Form POST URL
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfF_bK2yBZCQXAKIAEUe92Tz1V2PYOVkLWxj4OdQY4jyzBOEg/formResponse";
 
       const formData = new FormData();
-      formData.append("entry.838992142", vehicleNumber);
-      formData.append("entry.90866924", latitude);
-      formData.append("entry.744716896", longitude);
+      formData.append("entry.838992142", vehicleNumber); // Vehicle Number
+      formData.append("entry.90866924", latitude);       // Latitude
+      formData.append("entry.744716896", longitude);      // Longitude
+      formData.append("entry.319122500", addressField); // Address (REPLACE THIS!)
 
       fetch(formUrl, {
         method: "POST",
@@ -54,6 +77,7 @@
         body: formData
       }).then(() => {
         alert("Submitted successfully!");
+        document.getElementById("google-form").reset();
       }).catch(() => {
         alert("Submission failed.");
       });
