@@ -1,89 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Live Vehicle Tracking Dashboard</title>
+  <title>Live Vehicle Tracker</title>
   <style>
     #map {
       height: 90vh;
       width: 100%;
     }
-    body {
-      font-family: Arial;
-      margin: 0;
-      padding: 0;
-    }
-    h2 {
-      text-align: center;
-      padding: 10px;
-      background: #4285F4;
-      color: white;
-    }
   </style>
-  <!-- Firebase JS SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
 </head>
 <body>
-  <h2>Admin Dashboard – Live Tracking for KA25AB1234 & KA25CD5678</h2>
+  <h2>Live Vehicle Location Tracker</h2>
   <div id="map"></div>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCekwi7q7SnOzNdEVzPJYxY5xn3K1PyaSk&callback=initMap" async defer></script>
+
   <script>
-    // Firebase config
+    // Initialize Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyD8KbNKg69YNB2MQP63YTPQQghsNO8_RRI",
       authDomain: "location-tracker-78a61.firebaseapp.com",
+      databaseURL: "https://location-tracker-78a61-default-rtdb.firebaseio.com",
       projectId: "location-tracker-78a61",
       storageBucket: "location-tracker-78a61.appspot.com",
       messagingSenderId: "349242032443",
       appId: "1:349242032443:web:083a3597208aa1e338771e",
-      databaseURL: "https://location-tracker-78a61-default-rtdb.firebaseio.com"
+      measurementId: "G-WQY3B3MXH7"
     };
-
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
     const db = firebase.database();
 
     let map;
-    let markers = {};
+    const markers = {}; // To store markers by vehicle number
 
     function initMap() {
       map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 15.35, lng: 75.13 },
-        zoom: 13,
+        zoom: 15,
+        center: { lat: 15.3647, lng: 75.1240 }, // Default center (Hubli–Dharwad area)
       });
 
-      const trackVehicles = ["KA25AB1234", "KA25CD5678"]; // only these two
-      const vehiclesRef = db.ref("vehicles");
+      const vehicleRef = db.ref("vehicles");
 
-      vehiclesRef.on("value", (snapshot) => {
+      // Listen to changes in vehicle locations
+      vehicleRef.on("value", (snapshot) => {
         const data = snapshot.val();
+        for (const vehicle in data) {
+          const { latitude, longitude } = data[vehicle];
+          const position = { lat: parseFloat(latitude), lng: parseFloat(longitude) };
 
-        for (let vehicleId of trackVehicles) {
-          const vehicleData = data[vehicleId];
-          if (!vehicleData) continue;
-
-          const { latitude, longitude } = vehicleData;
-          const lat = parseFloat(latitude);
-          const lng = parseFloat(longitude);
-
-          if (!markers[vehicleId]) {
-            markers[vehicleId] = new google.maps.Marker({
-              position: { lat, lng },
-              map: map,
-              title: vehicleId,
-              label: vehicleId,
-            });
+          if (markers[vehicle]) {
+            // Update existing marker
+            markers[vehicle].setPosition(position);
           } else {
-            markers[vehicleId].setPosition({ lat, lng });
+            // Create new marker
+            markers[vehicle] = new google.maps.Marker({
+              position,
+              map,
+              title: vehicle,
+              label: vehicle,
+            });
           }
         }
       });
     }
-  </script>
-
-  <!-- Google Maps JS API -->
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCekwi7q7SnOzNdEVzPJYxY5xn3K1PyaSk&callback=initMap">
   </script>
 </body>
 </html>
