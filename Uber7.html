@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Live Vehicle Tracker (Leaflet)</title>
+  <title>Live Vehicle Tracker</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
   <style>
     #map { height: 90vh; width: 100%; }
   </style>
@@ -16,15 +15,15 @@
   <h2>Vehicle Tracking Dashboard</h2>
   <div id="map"></div>
 
-  <!-- Leaflet JS -->
+  <!-- ✅ Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-  <!-- Firebase -->
+  <!-- ✅ Firebase SDKs (MUST be before using Firebase) -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
 
   <script>
-    // ✅ Your Firebase config
+    // ✅ Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyD8KbNKg69YNB2MQP63YTPQQghsNO8_RRI",
       authDomain: "location-tracker-78a61.firebaseapp.com",
@@ -39,38 +38,32 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
-    // ✅ Initialize map
-    const map = L.map('map').setView([15.3647, 75.1240], 12); // Default center
-
-    // ✅ Load free OpenStreetMap tiles
+    // ✅ Setup Leaflet Map
+    const map = L.map('map').setView([15.3647, 75.1240], 12);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // ✅ Marker storage
+    // ✅ Track Markers by Vehicle Number
     const markers = {};
 
-    // ✅ Listen for vehicle updates
+    // ✅ Realtime Firebase Listener
     db.ref("vehicles").on("value", snapshot => {
       const data = snapshot.val();
       if (!data) return;
 
       for (let vehicle in data) {
         const { latitude, longitude } = data[vehicle];
-
-        // Convert to numbers
         const lat = parseFloat(latitude);
         const lng = parseFloat(longitude);
 
         if (!lat || !lng) continue;
 
         if (markers[vehicle]) {
-          // Move existing marker
           markers[vehicle].setLatLng([lat, lng]);
         } else {
-          // Add new marker
           const marker = L.marker([lat, lng]).addTo(map);
-          marker.bindPopup(`<b>${vehicle}</b>`).openPopup();
+          marker.bindPopup(`<b>${vehicle}</b>`);
           markers[vehicle] = marker;
         }
       }
