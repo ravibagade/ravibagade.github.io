@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Live Vehicle Tracker</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    #map { height: 90vh; width: 100%; }
-  </style>
+  <title>Submit Vehicle Location</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 </head>
 <body>
-  <h2>Vehicle Tracking Dashboard</h2>
-  <div id="map"></div>
+  <h2>Vehicle Location Submission</h2>
+  <form id="locationForm">
+    <label>Vehicle Number:</label>
+    <input type="text" id="vehicleNumber" required><br><br>
+    
+    <label>Latitude:</label>
+    <input type="text" id="latitude" required><br><br>
 
-  <!-- ✅ Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <label>Longitude:</label>
+    <input type="text" id="longitude" required><br><br>
 
-  <!-- ✅ Firebase SDKs (MUST be before using Firebase) -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
+    <button type="submit">Submit Location</button>
+  </form>
 
   <script>
-    // ✅ Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyD8KbNKg69YNB2MQP63YTPQQghsNO8_RRI",
       authDomain: "location-tracker-78a61.firebaseapp.com",
@@ -34,39 +31,27 @@
       appId: "1:349242032443:web:083a3597208aa1e338771e"
     };
 
-    // ✅ Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
-    // ✅ Setup Leaflet Map
-    const map = L.map('map').setView([15.3647, 75.1240], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    document.getElementById("locationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-    // ✅ Track Markers by Vehicle Number
-    const markers = {};
+      const vehicleNumber = document.getElementById("vehicleNumber").value;
+      const latitude = document.getElementById("latitude").value;
+      const longitude = document.getElementById("longitude").value;
 
-    // ✅ Realtime Firebase Listener
-    db.ref("vehicles").on("value", snapshot => {
-      const data = snapshot.val();
-      if (!data) return;
+      const timestamp = new Date().toISOString();
 
-      for (let vehicle in data) {
-        const { latitude, longitude } = data[vehicle];
-        const lat = parseFloat(latitude);
-        const lng = parseFloat(longitude);
-
-        if (!lat || !lng) continue;
-
-        if (markers[vehicle]) {
-          markers[vehicle].setLatLng([lat, lng]);
-        } else {
-          const marker = L.marker([lat, lng]).addTo(map);
-          marker.bindPopup(`<b>${vehicle}</b>`);
-          markers[vehicle] = marker;
-        }
-      }
+      db.ref("vehicles/" + vehicleNumber).set({
+        latitude: latitude,
+        longitude: longitude,
+        timestamp: timestamp
+      }).then(() => {
+        alert("Location submitted successfully!");
+      }).catch((error) => {
+        alert("Error: " + error.message);
+      });
     });
   </script>
 </body>
